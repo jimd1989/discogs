@@ -24,7 +24,7 @@ checkTag α = if isTag α then "" else α
 
 lower ∷ Set [Char]
 lower = fromList ["A", "An", "And", "By", "In", "On", "Of", "At", "With", "The",
-                  "For", "Into", "Unto", "To"]
+                  "For", "From", "Into", "Unto", "To"]
 
 checkCaps ∷ [Char] → [Char]
 checkCaps α = if (member α lower) then (map toLower α) else α

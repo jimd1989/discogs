@@ -1,6 +1,6 @@
 module Parse where
 
-import Control.Monad ((<=<), mapM)
+import Control.Monad ((<=<), liftM2, mapM)
 import Data.Aeson (FromJSON, (.:), (.:?), (.!=), eitherDecode, parseJSON, 
                    withArray, withObject)
 import Data.Aeson.Types (Parser, Value)
@@ -10,17 +10,14 @@ import Data.Vector (toList)
 import GHC.Generics (Generic)
 import FormatTitle (formatArtist, formatTitle)
 
-parseAnArtistName ∷ Value → Parser Text
-parseAnArtistName = withObject "artist" $ \α → do
-    name   ← α .: "name"
-    joiner ← α .: "join"
-    return $ formatArtist name joiner
+parseName ∷ Value → Parser Text
+parseName = withObject "artist" $
+            (liftM2 . liftM2) formatArtist (.: "name") (.: "join")
 
 parseArtist ∷ Value → Parser Text
 parseArtist = concatNames <=< getNames
   where concatNames = pure . foldl1 (<>)
-        getNames    = withArray "[a]" $ mapM parseAnArtistName . toList
-
+        getNames    = withArray "[a]" $ mapM parseName . toList
 
 data Artist = Artist { name ∷ Text,
                       join ∷ Text } deriving (Generic, Show)
