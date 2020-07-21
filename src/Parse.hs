@@ -1,5 +1,6 @@
 module Parse where
 
+import Control.Applicative ((<|>))
 import Control.Monad ((<=<), liftM2, mapM)
 import Data.Aeson (FromJSON, (.:), (.:?), (.!=), eitherDecode, parseJSON, 
                    withArray, withObject)
@@ -9,38 +10,37 @@ import Data.Text (Text)
 import Data.Vector (toList)
 import GHC.Generics (Generic)
 import FormatTitle (formatArtist, formatTitle)
+import Helpers (dyfork)
+
+type Track = (Text, Text, Text)
 
 parseName ∷ Value → Parser Text
-parseName = withObject "artist" $
-            (liftM2 . liftM2) formatArtist (.: "name") (.: "join")
+parseName = withObject "artist" $ dyfork formatArtist (.: "name") (.: "join")
 
 parseArtist ∷ Value → Parser Text
-parseArtist = concatNames <=< getNames
-  where concatNames = pure . foldl1 (<>)
-        getNames    = withArray "[a]" $ mapM parseName . toList
+parseArtist = withArray "[a]" $ fmap (foldl1 (<>)) . mapM parseName . toList
 
-data Artist = Artist { name ∷ Text,
-                      join ∷ Text } deriving (Generic, Show)
+parseTrack ∷ Text → Value → Parser Track
+parseTrack ω = withObject "track" $ \α → do
+  title    ← α .: "title"
+  position ← α .: "position"
+  artist   ← (parseArtist =<< (α .: "artists")) <|> (pure ω)
+  return (artist, position, title)
 
-instance FromJSON Artist
-
-data Track = Track { title ∷ Text,
-                     position ∷ Text,
-                     artists ∷ Maybe [Artist] } deriving (Generic, Show)
-
-instance FromJSON Track
+parseTracks ∷ Text → Value → Parser [Track]
+parseTracks ω = withArray "[a]" $ mapM (parseTrack ω) . toList
 
 data Release = Release { year ∷ Int,
-                         albumArtist ∷ Text,
-                         albumTitle ∷ Text,
+                         artist ∷ Text,
+                         album ∷ Text,
                          tracks ∷ [Track] } deriving (Generic, Show)
 
 instance FromJSON Release where
   parseJSON = withObject "release" $ \α → do
     year        ← α .:? "year" .!= 0
-    albumArtist ← parseArtist =<< (α .:  "artists")
-    albumTitle  ← formatTitle <$> (α .:  "title")
-    tracks      ← α .:  "tracklist"
+    artist ← parseArtist =<< (α .: "artists")
+    album  ← formatTitle <$> (α .: "title")
+    tracks      ← parseTracks artist =<< (α .: "tracklist")
     return Release{..}
 
 getJSON ∷ [Char] → IO BS.ByteString
