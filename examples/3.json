@@ -1,0 +1,2394 @@
+{
+  "id": 534701,
+  "status": "Accepted",
+  "year": 2001,
+  "resource_url": "https://api.discogs.com/releases/534701",
+  "uri": "https://www.discogs.com/Various-Improvised-Music-From-Japan/release/534701",
+  "artists": [
+    {
+      "name": "Various",
+      "anv": "",
+      "join": "",
+      "role": "",
+      "tracks": "",
+      "id": 194,
+      "resource_url": "https://api.discogs.com/artists/194"
+    }
+  ],
+  "artists_sort": "Various",
+  "labels": [
+    {
+      "name": "Improvised Music From Japan",
+      "catno": "IMJ-10CD",
+      "entity_type": "1",
+      "entity_type_name": "Label",
+      "id": 13062,
+      "resource_url": "https://api.discogs.com/labels/13062"
+    }
+  ],
+  "series": [],
+  "companies": [],
+  "formats": [
+    {
+      "name": "CD",
+      "qty": "10"
+    },
+    {
+      "name": "Box Set",
+      "qty": "1",
+      "descriptions": [
+        "Limited Edition",
+        "Numbered"
+      ]
+    }
+  ],
+  "data_quality": "Correct",
+  "community": {
+    "have": 101,
+    "want": 218,
+    "rating": {
+      "count": 14,
+      "average": 4.43
+    },
+    "submitter": {
+      "username": "seven_arts",
+      "resource_url": "https://api.discogs.com/users/seven_arts"
+    },
+    "contributors": [
+      {
+        "username": "seven_arts",
+        "resource_url": "https://api.discogs.com/users/seven_arts"
+      },
+      {
+        "username": "xdefenestratorx",
+        "resource_url": "https://api.discogs.com/users/xdefenestratorx"
+      },
+      {
+        "username": "thesixthofmarch",
+        "resource_url": "https://api.discogs.com/users/thesixthofmarch"
+      },
+      {
+        "username": "thecoloroflight",
+        "resource_url": "https://api.discogs.com/users/thecoloroflight"
+      },
+      {
+        "username": "-yard-",
+        "resource_url": "https://api.discogs.com/users/-yard-"
+      },
+      {
+        "username": "mikrosound",
+        "resource_url": "https://api.discogs.com/users/mikrosound"
+      },
+      {
+        "username": "BOlewnick",
+        "resource_url": "https://api.discogs.com/users/BOlewnick"
+      }
+    ],
+    "data_quality": "Correct",
+    "status": "Accepted"
+  },
+  "format_quantity": 10,
+  "date_added": "2005-10-08T11:42:10-07:00",
+  "date_changed": "2018-07-15T12:04:18-07:00",
+  "num_for_sale": 7,
+  "lowest_price": 250,
+  "title": "Improvised Music From Japan",
+  "country": "Japan",
+  "released": "2001-12-25",
+  "notes": "# Includes 80-page booklet (in English and Japanese) with profiles of and comments by the 31 individual artists and 3 duos featured\r\n# Packaged in 5 cardboard 2-CD jackets\r\n# Natural paulownia wood box\r\n# Each set numbered\r\n# Limited edition - 800 sets produced: 500 sets (numbers 1 to 500) for sale through online mail order and local distribution; the remaining 300 (numbers 501 to 800) to go to participating musicians, etc.\r\n",
+  "released_formatted": "25 Dec 2001",
+  "identifiers": [],
+  "videos": [
+    {
+      "uri": "https://www.youtube.com/watch?v=Iz6b7JzH-3Y",
+      "title": "Yagi Michiyo & Paulownia Crush - Godan Ginuta",
+      "description": "",
+      "duration": 688,
+      "embed": true
+    }
+  ],
+  "genres": [
+    "Electronic",
+    "Jazz",
+    "Rock"
+  ],
+  "styles": [
+    "Free Jazz",
+    "Abstract",
+    "Noise",
+    "Avantgarde",
+    "Experimental"
+  ],
+  "tracklist": [
+    {
+      "position": "1-1",
+      "type_": "track",
+      "artists": [
+        {
+          "name": "Otomo Yoshihide",
+          "anv": "",
+          "join": "",
+          "role": "",
+          "tracks": "",
+          "id": 154862,
+          "resource_url": "https://api.discogs.com/artists/154862"
+        }
+      ],
+      "title": "Cathode #4: Sound Check Version",
+      "extraartists": [
+        {
+          "name": "Kumiko Takara",
+          "anv": "",
+          "join": "",
+          "role": "Drums",
+          "tracks": "",
+          "id": 272333,
+          "resource_url": "https://api.discogs.com/artists/272333"
+        },
+        {
+          "name": "Mari Furuta",
+          "anv": "",
+          "join": "",
+          "role": "Drums",
+          "tracks": "",
+          "id": 372699,
+          "resource_url": "https://api.discogs.com/artists/372699"
+        },
+        {
+          "name": "Sachiko M",
+          "anv": "",
+          "join": "",
+          "role": "Electronics [Sine Waves]",
+          "tracks": "",
+          "id": 2024,
+          "resource_url": "https://api.discogs.com/artists/2024"
+        },
+        {
+          "name": "Yoshiaki Kondo",
+          "anv": "",
+          "join": "",
+          "role": "Engineer",
+          "tracks": "",
+          "id": 272332,
+          "resource_url": "https://api.discogs.com/artists/272332"
+        },
+        {
+          "name": "Taku Sugimoto",
+          "anv": "",
+          "join": "",
+          "role": "Guitar",
+          "tracks": "",
+          "id": 101304,
+          "resource_url": "https://api.discogs.com/artists/101304"
+        },
+        {
+          "name": "Yoko Nishi",
+          "anv": "",
+          "join": "",
+          "role": "Koto",
+          "tracks": "",
+          "id": 372701,
+          "resource_url": "https://api.discogs.com/artists/372701"
+        },
+        {
+          "name": "Itoken",
+          "anv": "",
+          "join": "",
+          "role": "Percussion",
+          "tracks": "",
+          "id": 106043,
+          "resource_url": "https://api.discogs.com/artists/106043"
+        },
+        {
+          "name": "Masahiro Uemura",
+          "anv": "",
+          "join": "",
+          "role": "Percussion",
+          "tracks": "",
+          "id": 196286,
+          "resource_url": "https://api.discogs.com/artists/196286"
+        },
+        {
+          "name": "Yoshimitsu Ichiraku",
+          "anv": "",
+          "join": "",
+          "role": "Percussion",
+          "tracks": "",
+          "id": 372700,
+          "resource_url": "https://api.discogs.com/artists/372700"
+        },
+        {
+          "name": "Yasuhiro Yoshigaki",
+          "anv": "",
+          "join": "",
+          "role": "Performer",
+          "tracks": "",
+          "id": 288956,
+          "resource_url": "https://api.discogs.com/artists/288956"
+        },
+        {
+          "name": "Tetuzi Akiyama",
+          "anv": "",
+          "join": "",
+          "role": "Turntables",
+          "tracks": "",
+          "id": 207923,
+          "resource_url": "https://api.discogs.com/artists/207923"
+        }
+      ],
+      "duration": "5:22"
+    },
+    {
+      "position": "1-2",
+      "type_": "track",
+      "artists": [
+        {
+          "name": "Tetsuro Yasunaga",
+          "anv": "",
+          "join": "",
+          "role": "",
+          "tracks": "",
+          "id": 101305,
+          "resource_url": "https://api.discogs.com/artists/101305"
+        }
+      ],
+      "title": "Two Organs",
+      "duration": "9:59"
+    },
+    {
+      "position": "1-3",
+      "type_": "track",
+      "artists": [
+        {
+          "name": "Tetsuro Yasunaga",
+          "anv": "",
+          "join": "",
+          "role": "",
+          "tracks": "",
+          "id": 101305,
+          "resource_url": "https://api.discogs.com/artists/101305"
+        }
+      ],
+      "title": "Four Organs",
+      "duration": "2:42"
+    },
+    {
+      "position": "1-4",
+      "type_": "track",
+      "artists": [
+        {
+          "name": "Tetsuro Yasunaga",
+          "anv": "",
+          "join": "/",
+          "role": "",
+          "tracks": "",
+          "id": 101305,
+          "resource_url": "https://api.discogs.com/artists/101305"
+        },
+        {
+          "name": "Utah Kawasaki",
+          "anv": "",
+          "join": "",
+          "role": "",
+          "tracks": "",
+          "id": 72919,
+          "resource_url": "https://api.discogs.com/artists/72919"
+        }
+      ],
+      "title": "Disk Review 3",
+      "duration": "3:14"
+    },
+    {
+      "position": "1-5",
+      "type_": "track",
+      "artists": [
+        {
+          "name": "Yasuhiro Yoshigaki",
+          "anv": "",
+          "join": "",
+          "role": "",
+          "tracks": "",
+          "id": 288956,
+          "resource_url": "https://api.discogs.com/artists/288956"
+        }
+      ],
+      "title": "Italians And JC & R",
+      "duration": "8:10"
+    },
+    {
+      "position": "1-6",
+      "type_": "track",
+      "artists": [
+        {
+          "name": "Tetuzi Akiyama",
+          "anv": "",
+          "join": "",
+          "role": "",
+          "tracks": "",
+          "id": 207923,
+          "resource_url": "https://api.discogs.com/artists/207923"
+        }
+      ],
+      "title": "T.T.",
+      "extraartists": [
+        {
+          "name": "Taku Sugimoto",
+          "anv": "",
+          "join": "",
+          "role": "Engineer",
+          "tracks": "",
+          "id": 101304,
+          "resource_url": "https://api.discogs.com/artists/101304"
+        }
+      ],
+      "duration": "25:49"
+    },
+    {
+      "position": "1-7",
+      "type_": "track",
+      "artists": [
+        {
+          "name": "Yasuhiro Ohtani",
+          "anv": "",
+          "join": "",
+          "role": "",
+          "tracks": "",
+          "id": 223952,
+          "resource_url": "https://api.discogs.com/artists/223952"
+        }
+      ],
+      "title": "Music For 50 iMacs",
+      "duration": "16:36"
+    },
+    {
+      "position": "2-1",
+      "type_": "track",
+      "artists": [
+        {
+          "name": "Haco",
+          "anv": "",
+          "join": "",
+          "role": "",
+          "tracks": "",
+          "id": 119285,
+          "resource_url": "https://api.discogs.com/artists/119285"
+        }
+      ],
+      "title": "High / Low",
+      "duration": "3:32"
+    },
+    {
+      "position": "2-2",
+      "type_": "track",
+      "artists": [
+        {
+          "name": "Mescaline Go-Go",
+          "anv": "",
+          "join": "",
+          "role": "",
+          "tracks": "",
+          "id": 374470,
+          "resource_url": "https://api.discogs.com/artists/374470"
+        }
+      ],
+      "title": "12 String Revy",
+      "extraartists": [
+        {
+          "name": "Christopher Stephens",
+          "anv": "",
+          "join": "",
+          "role": "Guitar",
+          "tracks": "",
+          "id": 374466,
+          "resource_url": "https://api.discogs.com/artists/374466"
+        },
+        {
+          "name": "Haco",
+          "anv": "",
+          "join": "",
+          "role": "Guitar",
+          "tracks": "",
+          "id": 119285,
+          "resource_url": "https://api.discogs.com/artists/119285"
+        }
+      ],
+      "duration": "4:10"
+    },
+    {
+      "position": "2-3",
+      "type_": "track",
+      "artists": [
+        {
+          "name": "Hoahio",
+          "anv": "",
+          "join": "",
+          "role": "",
+          "tracks": "",
+          "id": 85850,
+          "resource_url": "https://api.discogs.com/artists/85850"
+        }
+      ],
+      "title": "Marimo II",
+      "extraartists": [
+        {
+          "name": "Michiyo Yagi",
+          "anv": "",
+          "join": "",
+          "role": "Koto",
+          "tracks": "",
+          "id": 374468,
+          "resource_url": "https://api.discogs.com/artists/374468"
+        },
+        {
+          "name": "Haco",
+          "anv": "",
+          "join": "",
+          "role": "Vocals",
+          "tracks": "",
+          "id": 119285,
+          "resource_url": "https://api.discogs.com/artists/119285"
+        }
+      ],
+      "duration": "4:34"
+    },
+    {
+      "position": "2-4",
+      "type_": "track",
+      "artists": [
+        {
+          "name": "View Masters",
+          "anv": "",
+          "join": "",
+          "role": "",
+          "tracks": "",
+          "id": 136993,
+          "resource_url": "https://api.discogs.com/artists/136993"
+        }
+      ],
+      "title": "Fluorescent Lamp On The Fritz",
+      "extraartists": [
+        {
+          "name": "Haco",
+          "anv": "",
+          "join": "",
+          "role": "Engineer",
+          "tracks": "",
+          "id": 119285,
+          "resource_url": "https://api.discogs.com/artists/119285"
+        }
+      ],
+      "duration": "1:59"
+    },
+    {
+      "position": "2-5",
+      "type_": "track",
+      "artists": [
+        {
+          "name": "Happiness Proof",
+          "anv": "",
+          "join": "",
+          "role": "",
+          "tracks": "",
+          "id": 374486,
+          "resource_url": "https://api.discogs.com/artists/374486"
+        }
+      ],
+      "title": "Isolated Mix",
+      "extraartists": [
+        {
+          "name": "Atsushi Tsuyama",
+          "anv": "",
+          "join": "",
+          "role": "Bass",
+          "tracks": "",
+          "id": 313547,
+          "resource_url": "https://api.discogs.com/artists/313547"
+        },
+        {
+          "name": "Bill (2)",
+          "anv": "",
+          "join": "",
+          "role": "Drums",
+          "tracks": "",
+          "id": 223537,
+          "resource_url": "https://api.discogs.com/artists/223537"
+        },
+        {
+          "name": "Atsushi Tsuyama",
+          "anv": "",
+          "join": "",
+          "role": "Guitar",
+          "tracks": "",
+          "id": 313547,
+          "resource_url": "https://api.discogs.com/artists/313547"
+        },
+        {
+          "name": "Christopher Stephens",
+          "anv": "",
+          "join": "",
+          "role": "Guitar",
+          "tracks": "",
+          "id": 374466,
+          "resource_url": "https://api.discogs.com/artists/374466"
+        },
+        {
+          "name": "Haco",
+          "anv": "",
+          "join": "",
+          "role": "Guitar",
+          "tracks": "",
+          "id": 119285,
+          "resource_url": "https://api.discogs.com/artists/119285"
+        },
+        {
+          "name": "Haco",
+          "anv": "",
+          "join": "",
+          "role": "Synthesizer",
+          "tracks": "",
+          "id": 119285,
+          "resource_url": "https://api.discogs.com/artists/119285"
+        },
+        {
+          "name": "Haco",
+          "anv": "",
+          "join": "",
+          "role": "Vocals",
+          "tracks": "",
+          "id": 119285,
+          "resource_url": "https://api.discogs.com/artists/119285"
+        }
+      ],
+      "duration": "3:45"
+    },
+    {
+      "position": "2-6",
+      "type_": "track",
+      "artists": [
+        {
+          "name": "Skist",
+          "anv": "",
+          "join": "",
+          "role": "",
+          "tracks": "",
+          "id": 3824,
+          "resource_url": "https://api.discogs.com/artists/3824"
+        }
+      ],
+      "title": "Pondlife 4",
+      "extraartists": [
+        {
+          "name": "Haruna Ito",
+          "anv": "",
+          "join": "",
+          "role": "Performer",
+          "tracks": "",
+          "id": 374472,
+          "resource_url": "https://api.discogs.com/artists/374472"
+        },
+        {
+          "name": "Samm Bennett",
+          "anv": "",
+          "join": "",
+          "role": "Performer",
+          "tracks": "",
+          "id": 94860,
+          "resource_url": "https://api.discogs.com/artists/94860"
+        }
+      ],
+      "duration": "2:48"
+    },
+    {
+      "position": "2-7",
+      "type_": "track",
+      "artists": [
+        {
+          "name": "Skist",
+          "anv": "",
+          "join": "",
+          "role": "",
+          "tracks": "",
+          "id": 3824,
+          "resource_url": "https://api.discogs.com/artists/3824"
+        }
+      ],
+      "title": "Pondlife 3",
+      "extraartists": [
+        {
+          "name": "Haruna Ito",
+          "anv": "",
+          "join": "",
+          "role": "Performer",
+          "tracks": "",
+          "id": 374472,
+          "resource_url": "https://api.discogs.com/artists/374472"
+        },
+        {
+          "name": "Samm Bennett",
+          "anv": "",
+          "join": "",
+          "role": "Performer",
+          "tracks": "",
+          "id": 94860,
+          "resource_url": "https://api.discogs.com/artists/94860"
+        }
+      ],
+      "duration": "2:06"
+    },
+    {
+      "position": "2-8",
+      "type_": "track",
+      "artists": [
+        {
+          "name": "Skist",
+          "anv": "",
+          "join": "",
+          "role": "",
+          "tracks": "",
+          "id": 3824,
+          "resource_url": "https://api.discogs.com/artists/3824"
+        }
+      ],
+      "title": "Pondlife 1",
+      "extraartists": [
+        {
+          "name": "Haruna Ito",
+          "anv": "",
+          "join": "",
+          "role": "Performer",
+          "tracks": "",
+          "id": 374472,
+          "resource_url": "https://api.discogs.com/artists/374472"
+        },
+        {
+          "name": "Samm Bennett",
+          "anv": "",
+          "join": "",
+          "role": "Performer",
+          "tracks": "",
+          "id": 94860,
+          "resource_url": "https://api.discogs.com/artists/94860"
+        }
+      ],
+      "duration": "2:45"
+    },
+    {
+      "position": "2-9",
+      "type_": "track",
+      "artists": [
+        {
+          "name": "Big Picture",
+          "anv": "",
+          "join": "",
+          "role": "",
+          "tracks": "",
+          "id": 374458,
+          "resource_url": "https://api.discogs.com/artists/374458"
+        }
+      ],
+      "title": "BP010806.bgp",
+      "extraartists": [
+        {
+          "name": "Hiroyuki Nagashima",
+          "anv": "",
+          "join": "",
+          "role": "Engineer",
+          "tracks": "",
+          "id": 268070,
+          "resource_url": "https://api.discogs.com/artists/268070"
+        },
+        {
+          "name": "Masateru Terai",
+          "anv": "",
+          "join": "",
+          "role": "Synthesizer",
+          "tracks": "",
+          "id": 374459,
+          "resource_url": "https://api.discogs.com/artists/374459"
+        },
+        {
+          "name": "Phew",
+          "anv": "",
+          "join": "",
+          "role": "Vocals",
+          "tracks": "",
+          "id": 63400,
+          "resource_url": "https://api.discogs.com/artists/63400"
+        }
+      ],
+      "duration": "4:34"
+    },
+    {
+      "position": "2-10",
+      "type_": "track",
+      "artists": [
+        {
+          "name": "Mitsuru Nasuno",
+          "anv": "",
+          "join": "",
+          "role": "",
+          "tracks": "",
+          "id": 330214,
+          "resource_url": "https://api.discogs.com/artists/330214"
+        }
+      ],
+      "title": "Motai",
+      "extraartists": [
+        {
+          "name": "Samm Bennett",
+          "anv": "",
+          "join": "",
+          "role": "Electronic Drums",
+          "tracks": "",
+          "id": 94860,
+          "resource_url": "https://api.discogs.com/artists/94860"
+        },
+        {
+          "name": "Naoaki Kose",
+          "anv": "",
+          "join": "",
+          "role": "Engineer",
+          "tracks": "",
+          "id": 374469,
+          "resource_url": "https://api.discogs.com/artists/374469"
+        }
+      ],
+      "duration": "7:30"
+    },
+    {
+      "position": "2-11",
+      "type_": "track",
+      "artists": [
+        {
+          "name": "Mitsuru Nasuno",
+          "anv": "",
+          "join": "",
+          "role": "",
+          "tracks": "",
+          "id": 330214,
+          "resource_url": "https://api.discogs.com/artists/330214"
+        }
+      ],
+      "title": "Karamel",
+      "extraartists": [
+        {
+          "name": "Tatsuki Masuko",
+          "anv": "",
+          "join": "",
+          "role": "Engineer",
+          "tracks": "",
+          "id": 204875,
+          "resource_url": "https://api.discogs.com/artists/204875"
+        },
+        {
+          "name": "Osamu Isoda",
+          "anv": "",
+          "join": "",
+          "role": "Guitar",
+          "tracks": "",
+          "id": 374492,
+          "resource_url": "https://api.discogs.com/artists/374492"
+        },
+        {
+          "name": "Yasuhiro Yoshigaki",
+          "anv": "",
+          "join": "",
+          "role": "Percussion",
+          "tracks": "",
+          "id": 288956,
+          "resource_url": "https://api.discogs.com/artists/288956"
+        },
+        {
+          "name": "Osamu Isoda",
+          "anv": "",
+          "join": "",
+          "role": "Vocals",
+          "tracks": "",
+          "id": 374492,
+          "resource_url": "https://api.discogs.com/artists/374492"
+        }
+      ],
+      "duration": "4:13"
+    },
+    {
+      "position": "2-12",
+      "type_": "track",
+      "artists": [
+        {
+          "name": "Ground Zero (3)",
+          "anv": "",
+          "join": "",
+          "role": "",
+          "tracks": "",
+          "id": 136992,
+          "resource_url": "https://api.discogs.com/artists/136992"
+        }
+      ],
+      "title": "Feb. 1992",
+      "extraartists": [
+        {
+          "name": "Yoshiaki Kondo",
+          "anv": "",
+          "join": "",
+          "role": "Engineer",
+          "tracks": "",
+          "id": 272332,
+          "resource_url": "https://api.discogs.com/artists/272332"
+        },
+        {
+          "name": "Yamatsuka Eye",
+          "anv": "",
+          "join": "",
+          "role": "Vocals",
+          "tracks": "",
+          "id": 170037,
+          "resource_url": "https://api.discogs.com/artists/170037"
+        }
+      ],
+      "duration": "3:17"
+    },
+    {
+      "position": "2-13",
+      "type_": "track",
+      "artists": [
+        {
+          "name": "Astro Twin",
+          "anv": "",
+          "join": "",
+          "role": "",
+          "tracks": "",
+          "id": 311632,
+          "resource_url": "https://api.discogs.com/artists/311632"
+        }
+      ],
+      "title": "Rehearsal At Uplink Factory",
+      "duration": "4:42"
+    },
+    {
+      "position": "2-14",
+      "type_": "track",
+      "artists": [
+        {
+          "name": "Ami Yoshida",
+          "anv": "",
+          "join": "/",
+          "role": "",
+          "tracks": "",
+          "id": 72921,
+          "resource_url": "https://api.discogs.com/artists/72921"
+        },
+        {
+          "name": "Masahiko Okura",
+          "anv": "",
+          "join": "",
+          "role": "",
+          "tracks": "",
+          "id": 168883,
+          "resource_url": "https://api.discogs.com/artists/168883"
+        }
+      ],
+      "title": "Improvisation At Artland",
+      "extraartists": [
+        {
+          "name": "Taku Sugimoto",
+          "anv": "",
+          "join": "",
+          "role": "Engineer",
+          "tracks": "",
+          "id": 101304,
+          "resource_url": "https://api.discogs.com/artists/101304"
+        }
+      ],
+      "duration": "11:31"
+    },
+    {
+      "position": "2-15",
+      "type_": "track",
+      "artists": [
+        {
+          "name": "Ami Yoshida",
+          "anv": "",
+          "join": "",
+          "role": "",
+          "tracks": "",
+          "id": 72921,
+          "resource_url": "https://api.discogs.com/artists/72921"
+        }
+      ],
+      "title": "Hooooooooon",
+      "duration": "8:26"
+    },
+    {
+      "position": "3-1",
+      "type_": "track",
+      "artists": [
+        {
+          "name": "Toshimaru Nakamura",
+          "anv": "",
+          "join": "",
+          "role": "",
+          "tracks": "",
+          "id": 53826,
+          "resource_url": "https://api.discogs.com/artists/53826"
+        }
+      ],
+      "title": "Oosslloo",
+      "extraartists": [
+        {
+          "name": "Tonny Kluften",
+          "anv": "",
+          "join": "",
+          "role": "Bass",
+          "tracks": "",
+          "id": 374478,
+          "resource_url": "https://api.discogs.com/artists/374478"
+        },
+        {
+          "name": "Sergio Frazao",
+          "anv": "",
+          "join": "",
+          "role": "Percussion",
+          "tracks": "",
+          "id": 374485,
+          "resource_url": "https://api.discogs.com/artists/374485"
+        },
+        {
+          "name": "Håkon Kornstad",
+          "anv": "Hakon Kornstad",
+          "join": "",
+          "role": "Saxophone",
+          "tracks": "",
+          "id": 207623,
+          "resource_url": "https://api.discogs.com/artists/207623"
+        },
+        {
+          "name": "Alexander Rishaug",
+          "anv": "",
+          "join": "",
+          "role": "Synthesizer",
+          "tracks": "",
+          "id": 44776,
+          "resource_url": "https://api.discogs.com/artists/44776"
+        },
+        {
+          "name": "Are Mokkelbost",
+          "anv": "",
+          "join": "",
+          "role": "Synthesizer",
+          "tracks": "",
+          "id": 374476,
+          "resource_url": "https://api.discogs.com/artists/374476"
+        },
+        {
+          "name": "Arne Borgan",
+          "anv": "",
+          "join": "",
+          "role": "Synthesizer",
+          "tracks": "",
+          "id": 374460,
+          "resource_url": "https://api.discogs.com/artists/374460"
+        },
+        {
+          "name": "Kai Mikalsen",
+          "anv": "",
+          "join": "",
+          "role": "Synthesizer",
+          "tracks": "",
+          "id": 330735,
+          "resource_url": "https://api.discogs.com/artists/330735"
+        },
+        {
+          "name": "Mathias Oygard",
+          "anv": "",
+          "join": "",
+          "role": "Synthesizer",
+          "tracks": "",
+          "id": 238209,
+          "resource_url": "https://api.discogs.com/artists/238209"
+        },
+        {
+          "name": "Unn Fahlstrom",
+          "anv": "",
+          "join": "",
+          "role": "Synthesizer",
+          "tracks": "",
+          "id": 374479,
+          "resource_url": "https://api.discogs.com/artists/374479"
+        }
+      ],
+      "duration": "17:52"
+    },
+    {
+      "position": "3-2",
+      "type_": "track",
+      "artists": [
+        {
+          "name": "Tamaru",
+          "anv": "",
+          "join": "",
+          "role": "",
+          "tracks": "",
+          "id": 169300,
+          "resource_url": "https://api.discogs.com/artists/169300"
+        }
+      ],
+      "title": "Bifu Sekai (Zephyr World)",
+      "duration": "19:21"
+    },
+    {
+      "position": "3-3",
+      "type_": "track",
+      "artists": [
+        {
+          "name": "Yoshimitsu Ichiraku",
+          "anv": "",
+          "join": "",
+          "role": "",
+          "tracks": "",
+          "id": 372700,
+          "resource_url": "https://api.discogs.com/artists/372700"
+        }
+      ],
+      "title": "Method For The Fourth Note, Which Is Not Actually Played",
+      "duration": "20:29"
+    },
+    {
+      "position": "3-4",
+      "type_": "track",
+      "artists": [
+        {
+          "name": "Taku Sugimoto",
+          "anv": "",
+          "join": "/",
+          "role": "",
+          "tracks": "",
+          "id": 101304,
+          "resource_url": "https://api.discogs.com/artists/101304"
+        },
+        {
+          "name": "Martin Siewert",
+          "anv": "",
+          "join": "/",
+          "role": "",
+          "tracks": "",
+          "id": 121023,
+          "resource_url": "https://api.discogs.com/artists/121023"
+        },
+        {
+          "name": "Burkhard Stangl",
+          "anv": "",
+          "join": "",
+          "role": "",
+          "tracks": "",
+          "id": 146257,
+          "resource_url": "https://api.discogs.com/artists/146257"
+        }
+      ],
+      "title": "SSS",
+      "duration": "13:15"
+    },
+    {
+      "position": "4-1",
+      "type_": "track",
+      "artists": [
+        {
+          "name": "Sachiko M",
+          "anv": "",
+          "join": "",
+          "role": "",
+          "tracks": "",
+          "id": 2024,
+          "resource_url": "https://api.discogs.com/artists/2024"
+        }
+      ],
+      "title": "13072001",
+      "duration": "7:16"
+    },
+    {
+      "position": "4-2",
+      "type_": "track",
+      "artists": [
+        {
+          "name": "Toshimaru Nakamura",
+          "anv": "",
+          "join": "",
+          "role": "",
+          "tracks": "",
+          "id": 53826,
+          "resource_url": "https://api.discogs.com/artists/53826"
+        }
+      ],
+      "title": "Nimb #19-1",
+      "duration": "8:44"
+    },
+    {
+      "position": "4-3",
+      "type_": "track",
+      "artists": [
+        {
+          "name": "Toshimaru Nakamura",
+          "anv": "",
+          "join": "",
+          "role": "",
+          "tracks": "",
+          "id": 53826,
+          "resource_url": "https://api.discogs.com/artists/53826"
+        }
+      ],
+      "title": "Nimb #9.1",
+      "extraartists": [
+        {
+          "name": "Sylvia Faessler",
+          "anv": "",
+          "join": "",
+          "role": "Engineer",
+          "tracks": "",
+          "id": 374496,
+          "resource_url": "https://api.discogs.com/artists/374496"
+        }
+      ],
+      "duration": "8:21"
+    },
+    {
+      "position": "4-4",
+      "type_": "track",
+      "artists": [
+        {
+          "name": "Taku Sugimoto",
+          "anv": "",
+          "join": "/",
+          "role": "",
+          "tracks": "",
+          "id": 101304,
+          "resource_url": "https://api.discogs.com/artists/101304"
+        },
+        {
+          "name": "Annette Krebs",
+          "anv": "",
+          "join": "",
+          "role": "",
+          "tracks": "",
+          "id": 187882,
+          "resource_url": "https://api.discogs.com/artists/187882"
+        }
+      ],
+      "title": "24 / 01 / 01",
+      "duration": "14:41"
+    },
+    {
+      "position": "4-5",
+      "type_": "track",
+      "artists": [
+        {
+          "name": "Atsuhiro Ito",
+          "anv": "",
+          "join": "",
+          "role": "",
+          "tracks": "",
+          "id": 374495,
+          "resource_url": "https://api.discogs.com/artists/374495"
+        }
+      ],
+      "title": "Acousmatic 9",
+      "duration": "3:25"
+    },
+    {
+      "position": "4-6",
+      "type_": "track",
+      "artists": [
+        {
+          "name": "Atsuhiro Ito",
+          "anv": "",
+          "join": "",
+          "role": "",
+          "tracks": "",
+          "id": 374495,
+          "resource_url": "https://api.discogs.com/artists/374495"
+        }
+      ],
+      "title": "Radio O.P.T.",
+      "duration": "10:51"
+    },
+    {
+      "position": "4-7",
+      "type_": "track",
+      "artists": [
+        {
+          "name": "Otomo Yoshihide",
+          "anv": "",
+          "join": "",
+          "role": "",
+          "tracks": "",
+          "id": 154862,
+          "resource_url": "https://api.discogs.com/artists/154862"
+        }
+      ],
+      "title": "The Blue Kite",
+      "duration": "18:35"
+    },
+    {
+      "position": "5-1",
+      "type_": "track",
+      "artists": [
+        {
+          "name": "Uchihashi Kazuhisa",
+          "anv": "",
+          "join": "",
+          "role": "",
+          "tracks": "",
+          "id": 177208,
+          "resource_url": "https://api.discogs.com/artists/177208"
+        }
+      ],
+      "title": "Invisible Guitar",
+      "extraartists": [
+        {
+          "name": "Gene Coleman",
+          "anv": "",
+          "join": "",
+          "role": "Clarinet",
+          "tracks": "",
+          "id": 183323,
+          "resource_url": "https://api.discogs.com/artists/183323"
+        }
+      ],
+      "duration": "21:45"
+    },
+    {
+      "position": "5-2",
+      "type_": "track",
+      "artists": [
+        {
+          "name": "Utah Kawasaki",
+          "anv": "",
+          "join": "",
+          "role": "",
+          "tracks": "",
+          "id": 72919,
+          "resource_url": "https://api.discogs.com/artists/72919"
+        }
+      ],
+      "title": "Object Tracking",
+      "duration": "9:49"
+    },
+    {
+      "position": "5-3",
+      "type_": "track",
+      "artists": [
+        {
+          "name": "Utah Kawasaki",
+          "anv": "",
+          "join": "",
+          "role": "",
+          "tracks": "",
+          "id": 72919,
+          "resource_url": "https://api.discogs.com/artists/72919"
+        }
+      ],
+      "title": "Socket",
+      "duration": "9:35"
+    },
+    {
+      "position": "5-4",
+      "type_": "track",
+      "artists": [
+        {
+          "name": "Tsuguto Tsunoda",
+          "anv": "",
+          "join": "",
+          "role": "",
+          "tracks": "",
+          "id": 307478,
+          "resource_url": "https://api.discogs.com/artists/307478"
+        }
+      ],
+      "title": "October 26, 2000",
+      "duration": "18:26"
+    },
+    {
+      "position": "5-5",
+      "type_": "track",
+      "artists": [
+        {
+          "name": "Seiichi Yamamoto",
+          "anv": "",
+          "join": "",
+          "role": "",
+          "tracks": "",
+          "id": 285764,
+          "resource_url": "https://api.discogs.com/artists/285764"
+        }
+      ],
+      "title": "Approach 1",
+      "duration": "4:49"
+    },
+    {
+      "position": "5-6",
+      "type_": "track",
+      "artists": [
+        {
+          "name": "Seiichi Yamamoto",
+          "anv": "",
+          "join": "",
+          "role": "",
+          "tracks": "",
+          "id": 285764,
+          "resource_url": "https://api.discogs.com/artists/285764"
+        }
+      ],
+      "title": "Approach 2",
+      "duration": "2:28"
+    },
+    {
+      "position": "5-7",
+      "type_": "track",
+      "artists": [
+        {
+          "name": "Seiichi Yamamoto",
+          "anv": "",
+          "join": "",
+          "role": "",
+          "tracks": "",
+          "id": 285764,
+          "resource_url": "https://api.discogs.com/artists/285764"
+        }
+      ],
+      "title": "Approach 3",
+      "duration": "5:15"
+    },
+    {
+      "position": "6-1",
+      "type_": "track",
+      "artists": [
+        {
+          "name": "Aki Onda",
+          "anv": "",
+          "join": "",
+          "role": "",
+          "tracks": "",
+          "id": 136990,
+          "resource_url": "https://api.discogs.com/artists/136990"
+        }
+      ],
+      "title": "Two Women",
+      "duration": "10:30"
+    },
+    {
+      "position": "6-2",
+      "type_": "track",
+      "artists": [
+        {
+          "name": "Aki Onda",
+          "anv": "",
+          "join": "",
+          "role": "",
+          "tracks": "",
+          "id": 136990,
+          "resource_url": "https://api.discogs.com/artists/136990"
+        }
+      ],
+      "title": "Take Me To The Water",
+      "extraartists": [
+        {
+          "name": "Kenta Negai",
+          "anv": "",
+          "join": "",
+          "role": "Performer",
+          "tracks": "",
+          "id": 374463,
+          "resource_url": "https://api.discogs.com/artists/374463"
+        }
+      ],
+      "duration": "8:54"
+    },
+    {
+      "position": "6-3",
+      "type_": "track",
+      "artists": [
+        {
+          "name": "Aki Onda",
+          "anv": "",
+          "join": "",
+          "role": "",
+          "tracks": "",
+          "id": 136990,
+          "resource_url": "https://api.discogs.com/artists/136990"
+        }
+      ],
+      "title": "The Last Day Of Summer",
+      "duration": "2:20"
+    },
+    {
+      "position": "6-4",
+      "type_": "track",
+      "artists": [
+        {
+          "name": "Kazuo Imai",
+          "anv": "",
+          "join": "",
+          "role": "",
+          "tracks": "",
+          "id": 372526,
+          "resource_url": "https://api.discogs.com/artists/372526"
+        }
+      ],
+      "title": "Ephemera 24-2",
+      "duration": "12:37"
+    },
+    {
+      "position": "6-5",
+      "type_": "track",
+      "artists": [
+        {
+          "name": "Kazuo Imai",
+          "anv": "",
+          "join": "",
+          "role": "",
+          "tracks": "",
+          "id": 372526,
+          "resource_url": "https://api.discogs.com/artists/372526"
+        }
+      ],
+      "title": "Ephemera 22-3",
+      "duration": "8:52"
+    },
+    {
+      "position": "6-6",
+      "type_": "track",
+      "artists": [
+        {
+          "name": "Hado-ho",
+          "anv": "",
+          "join": "",
+          "role": "",
+          "tracks": "",
+          "id": 332053,
+          "resource_url": "https://api.discogs.com/artists/332053"
+        }
+      ],
+      "title": "Stereo Action Suite 2001",
+      "extraartists": [
+        {
+          "name": "Takehito Nakazato",
+          "anv": "",
+          "join": "",
+          "role": "Performer",
+          "tracks": "",
+          "id": 166012,
+          "resource_url": "https://api.discogs.com/artists/166012"
+        }
+      ],
+      "duration": "8:31"
+    },
+    {
+      "position": "6-7",
+      "type_": "track",
+      "artists": [
+        {
+          "name": "Incapacitants",
+          "anv": "",
+          "join": "",
+          "role": "",
+          "tracks": "",
+          "id": 78488,
+          "resource_url": "https://api.discogs.com/artists/78488"
+        }
+      ],
+      "title": "Forest In Noise 20010721",
+      "extraartists": [
+        {
+          "name": "Fumio Kosakai",
+          "anv": "",
+          "join": "",
+          "role": "Vocals",
+          "tracks": "",
+          "id": 301968,
+          "resource_url": "https://api.discogs.com/artists/301968"
+        },
+        {
+          "name": "Toshiji Mikawa",
+          "anv": "",
+          "join": "",
+          "role": "Vocals",
+          "tracks": "",
+          "id": 374462,
+          "resource_url": "https://api.discogs.com/artists/374462"
+        }
+      ],
+      "duration": "20:19"
+    },
+    {
+      "position": "7-1",
+      "type_": "track",
+      "artists": [
+        {
+          "name": "Brett Larner",
+          "anv": "",
+          "join": "",
+          "role": "",
+          "tracks": "",
+          "id": 101301,
+          "resource_url": "https://api.discogs.com/artists/101301"
+        }
+      ],
+      "title": "Improvisation 1",
+      "extraartists": [
+        {
+          "name": "Wataru Matsumoto",
+          "anv": "",
+          "join": "",
+          "role": "Engineer",
+          "tracks": "",
+          "id": 374467,
+          "resource_url": "https://api.discogs.com/artists/374467"
+        }
+      ],
+      "duration": "6:50"
+    },
+    {
+      "position": "7-2",
+      "type_": "track",
+      "artists": [
+        {
+          "name": "Brett Larner",
+          "anv": "",
+          "join": "",
+          "role": "",
+          "tracks": "",
+          "id": 101301,
+          "resource_url": "https://api.discogs.com/artists/101301"
+        }
+      ],
+      "title": "Improvisation 2",
+      "extraartists": [
+        {
+          "name": "Wataru Matsumoto",
+          "anv": "",
+          "join": "",
+          "role": "Engineer",
+          "tracks": "",
+          "id": 374467,
+          "resource_url": "https://api.discogs.com/artists/374467"
+        }
+      ],
+      "duration": "8:21"
+    },
+    {
+      "position": "7-3",
+      "type_": "track",
+      "artists": [
+        {
+          "name": "Brett Larner",
+          "anv": "",
+          "join": "",
+          "role": "",
+          "tracks": "",
+          "id": 101301,
+          "resource_url": "https://api.discogs.com/artists/101301"
+        }
+      ],
+      "title": "Improvisation 3",
+      "extraartists": [
+        {
+          "name": "Wataru Matsumoto",
+          "anv": "",
+          "join": "",
+          "role": "Engineer",
+          "tracks": "",
+          "id": 374467,
+          "resource_url": "https://api.discogs.com/artists/374467"
+        }
+      ],
+      "duration": "6:08"
+    },
+    {
+      "position": "7-4",
+      "type_": "track",
+      "artists": [
+        {
+          "name": "Yumiko Tanaka",
+          "anv": "",
+          "join": "",
+          "role": "",
+          "tracks": "",
+          "id": 372514,
+          "resource_url": "https://api.discogs.com/artists/372514"
+        }
+      ],
+      "title": "Music For A Four And A Half Tatami Mat Room, Fragment 1",
+      "duration": "4:42"
+    },
+    {
+      "position": "7-5",
+      "type_": "track",
+      "artists": [
+        {
+          "name": "Yumiko Tanaka",
+          "anv": "",
+          "join": "",
+          "role": "",
+          "tracks": "",
+          "id": 372514,
+          "resource_url": "https://api.discogs.com/artists/372514"
+        }
+      ],
+      "title": "Music For A Four And A Half Tatami Mat Room, Fragment 2",
+      "duration": "1:57"
+    },
+    {
+      "position": "7-6",
+      "type_": "track",
+      "artists": [
+        {
+          "name": "Yumiko Tanaka",
+          "anv": "",
+          "join": "",
+          "role": "",
+          "tracks": "",
+          "id": 372514,
+          "resource_url": "https://api.discogs.com/artists/372514"
+        }
+      ],
+      "title": "Music For A Four And A Half Tatami Mat Room, Fragment 3",
+      "duration": "4:23"
+    },
+    {
+      "position": "7-7",
+      "type_": "track",
+      "artists": [
+        {
+          "name": "Yumiko Tanaka",
+          "anv": "",
+          "join": "",
+          "role": "",
+          "tracks": "",
+          "id": 372514,
+          "resource_url": "https://api.discogs.com/artists/372514"
+        }
+      ],
+      "title": "Music For A Four And A Half Tatami Mat Room, Fragment 4",
+      "duration": "6:21"
+    },
+    {
+      "position": "7-8",
+      "type_": "track",
+      "artists": [
+        {
+          "name": "Yumiko Tanaka",
+          "anv": "",
+          "join": "",
+          "role": "",
+          "tracks": "",
+          "id": 372514,
+          "resource_url": "https://api.discogs.com/artists/372514"
+        }
+      ],
+      "title": "Music For A Four And A Half Tatami Mat Room, Fragment 5",
+      "duration": "8:53"
+    },
+    {
+      "position": "8-1",
+      "type_": "track",
+      "artists": [
+        {
+          "name": "Michiyo Yagi",
+          "anv": "",
+          "join": "&",
+          "role": "",
+          "tracks": "",
+          "id": 374468,
+          "resource_url": "https://api.discogs.com/artists/374468"
+        },
+        {
+          "name": "Paulownia Crush",
+          "anv": "",
+          "join": "",
+          "role": "",
+          "tracks": "",
+          "id": 374488,
+          "resource_url": "https://api.discogs.com/artists/374488"
+        }
+      ],
+      "title": "Godan Ginuta",
+      "extraartists": [
+        {
+          "name": "Hiroko Takahashi",
+          "anv": "",
+          "join": "",
+          "role": "Koto",
+          "tracks": "",
+          "id": 374461,
+          "resource_url": "https://api.discogs.com/artists/374461"
+        },
+        {
+          "name": "Madoka Nakano",
+          "anv": "",
+          "join": "",
+          "role": "Koto",
+          "tracks": "",
+          "id": 374493,
+          "resource_url": "https://api.discogs.com/artists/374493"
+        },
+        {
+          "name": "Yasuyo Takeuchi",
+          "anv": "",
+          "join": "",
+          "role": "Koto",
+          "tracks": "",
+          "id": 374482,
+          "resource_url": "https://api.discogs.com/artists/374482"
+        }
+      ],
+      "duration": "11:23"
+    },
+    {
+      "position": "8-2",
+      "type_": "track",
+      "artists": [
+        {
+          "name": "Michihiro Satoh",
+          "anv": "",
+          "join": "",
+          "role": "",
+          "tracks": "",
+          "id": 445645,
+          "resource_url": "https://api.discogs.com/artists/445645"
+        }
+      ],
+      "title": "Improvisation",
+      "duration": "26:39"
+    },
+    {
+      "position": "8-3",
+      "type_": "track",
+      "artists": [
+        {
+          "name": "Michihiro Satoh",
+          "anv": "",
+          "join": "",
+          "role": "",
+          "tracks": "",
+          "id": 445645,
+          "resource_url": "https://api.discogs.com/artists/445645"
+        }
+      ],
+      "title": "Nikata Bushi",
+      "duration": "5:24"
+    },
+    {
+      "position": "9-1",
+      "type_": "track",
+      "artists": [
+        {
+          "name": "Ryoji Hojito",
+          "anv": "",
+          "join": "",
+          "role": "",
+          "tracks": "",
+          "id": 374465,
+          "resource_url": "https://api.discogs.com/artists/374465"
+        }
+      ],
+      "title": "Kaiyu",
+      "duration": "7:49"
+    },
+    {
+      "position": "9-2",
+      "type_": "track",
+      "artists": [
+        {
+          "name": "Junji Hirose",
+          "anv": "",
+          "join": "",
+          "role": "",
+          "tracks": "",
+          "id": 334169,
+          "resource_url": "https://api.discogs.com/artists/334169"
+        }
+      ],
+      "title": "Duo 1",
+      "extraartists": [
+        {
+          "name": "Yoshiaki Kondo",
+          "anv": "",
+          "join": "",
+          "role": "Engineer",
+          "tracks": "",
+          "id": 272332,
+          "resource_url": "https://api.discogs.com/artists/272332"
+        },
+        {
+          "name": "Shuichi Chino",
+          "anv": "",
+          "join": "",
+          "role": "Piano",
+          "tracks": "",
+          "id": 372520,
+          "resource_url": "https://api.discogs.com/artists/372520"
+        }
+      ],
+      "duration": "8:13"
+    },
+    {
+      "position": "9-3",
+      "type_": "track",
+      "artists": [
+        {
+          "name": "Junji Hirose",
+          "anv": "",
+          "join": "",
+          "role": "",
+          "tracks": "",
+          "id": 334169,
+          "resource_url": "https://api.discogs.com/artists/334169"
+        }
+      ],
+      "title": "Duo 2",
+      "extraartists": [
+        {
+          "name": "Yoshiaki Kondo",
+          "anv": "",
+          "join": "",
+          "role": "Engineer",
+          "tracks": "",
+          "id": 272332,
+          "resource_url": "https://api.discogs.com/artists/272332"
+        },
+        {
+          "name": "Shuichi Chino",
+          "anv": "",
+          "join": "",
+          "role": "Piano",
+          "tracks": "",
+          "id": 372520,
+          "resource_url": "https://api.discogs.com/artists/372520"
+        }
+      ],
+      "duration": "3:30"
+    },
+    {
+      "position": "9-4",
+      "type_": "track",
+      "artists": [
+        {
+          "name": "Gnu (2)",
+          "anv": "",
+          "join": "",
+          "role": "",
+          "tracks": "",
+          "id": 374481,
+          "resource_url": "https://api.discogs.com/artists/374481"
+        }
+      ],
+      "title": "Meteora",
+      "extraartists": [
+        {
+          "name": "Yukiya Taneishi",
+          "anv": "",
+          "join": "",
+          "role": "Bass",
+          "tracks": "",
+          "id": 374484,
+          "resource_url": "https://api.discogs.com/artists/374484"
+        },
+        {
+          "name": "Itoken",
+          "anv": "",
+          "join": "",
+          "role": "Drums",
+          "tracks": "",
+          "id": 106043,
+          "resource_url": "https://api.discogs.com/artists/106043"
+        },
+        {
+          "name": "Tetuzi Akiyama",
+          "anv": "",
+          "join": "",
+          "role": "Engineer",
+          "tracks": "",
+          "id": 207923,
+          "resource_url": "https://api.discogs.com/artists/207923"
+        },
+        {
+          "name": "Shinichi Tsukamoto",
+          "anv": "",
+          "join": "",
+          "role": "Organ",
+          "tracks": "",
+          "id": 374457,
+          "resource_url": "https://api.discogs.com/artists/374457"
+        },
+        {
+          "name": "Masahiko Okura",
+          "anv": "",
+          "join": "",
+          "role": "Saxophone",
+          "tracks": "",
+          "id": 168883,
+          "resource_url": "https://api.discogs.com/artists/168883"
+        }
+      ],
+      "duration": "8:05"
+    },
+    {
+      "position": "9-5",
+      "type_": "track",
+      "artists": [
+        {
+          "name": "Masahiko Okura",
+          "anv": "",
+          "join": "",
+          "role": "",
+          "tracks": "",
+          "id": 168883,
+          "resource_url": "https://api.discogs.com/artists/168883"
+        }
+      ],
+      "title": "Ittcc",
+      "duration": "3:01"
+    },
+    {
+      "position": "9-6",
+      "type_": "track",
+      "artists": [
+        {
+          "name": "Masahiko Okura",
+          "anv": "",
+          "join": "",
+          "role": "",
+          "tracks": "",
+          "id": 168883,
+          "resource_url": "https://api.discogs.com/artists/168883"
+        }
+      ],
+      "title": "Dvvv",
+      "duration": "1:43"
+    },
+    {
+      "position": "9-7",
+      "type_": "track",
+      "artists": [
+        {
+          "name": "Masahiko Okura",
+          "anv": "",
+          "join": "",
+          "role": "",
+          "tracks": "",
+          "id": 168883,
+          "resource_url": "https://api.discogs.com/artists/168883"
+        }
+      ],
+      "title": "Magnet Sour",
+      "duration": "4:31"
+    },
+    {
+      "position": "9-8",
+      "type_": "track",
+      "artists": [
+        {
+          "name": "Masahiko Okura",
+          "anv": "",
+          "join": "",
+          "role": "",
+          "tracks": "",
+          "id": 168883,
+          "resource_url": "https://api.discogs.com/artists/168883"
+        }
+      ],
+      "title": "Fiasco (For Fuutaro Yamada)",
+      "duration": "0:49"
+    },
+    {
+      "position": "9-9",
+      "type_": "track",
+      "artists": [
+        {
+          "name": "Shoji Hano",
+          "anv": "",
+          "join": "/",
+          "role": "",
+          "tracks": "",
+          "id": 374475,
+          "resource_url": "https://api.discogs.com/artists/374475"
+        },
+        {
+          "name": "Werner Lüdi",
+          "anv": "",
+          "join": "/",
+          "role": "",
+          "tracks": "",
+          "id": 374464,
+          "resource_url": "https://api.discogs.com/artists/374464"
+        },
+        {
+          "name": "Peter Brötzmann",
+          "anv": "",
+          "join": "",
+          "role": "",
+          "tracks": "",
+          "id": 120328,
+          "resource_url": "https://api.discogs.com/artists/120328"
+        }
+      ],
+      "title": "Dedicated To",
+      "duration": "14:26"
+    },
+    {
+      "position": "9-10",
+      "type_": "track",
+      "artists": [
+        {
+          "name": "Shoji Hano",
+          "anv": "",
+          "join": "/",
+          "role": "",
+          "tracks": "",
+          "id": 374475,
+          "resource_url": "https://api.discogs.com/artists/374475"
+        },
+        {
+          "name": "Werner Lüdi",
+          "anv": "",
+          "join": "/",
+          "role": "",
+          "tracks": "",
+          "id": 374464,
+          "resource_url": "https://api.discogs.com/artists/374464"
+        },
+        {
+          "name": "Peter Brötzmann",
+          "anv": "",
+          "join": "",
+          "role": "",
+          "tracks": "",
+          "id": 120328,
+          "resource_url": "https://api.discogs.com/artists/120328"
+        }
+      ],
+      "title": "Werner",
+      "duration": "8:18"
+    },
+    {
+      "position": "9-11",
+      "type_": "track",
+      "artists": [
+        {
+          "name": "Shoji Hano",
+          "anv": "",
+          "join": "/",
+          "role": "",
+          "tracks": "",
+          "id": 374475,
+          "resource_url": "https://api.discogs.com/artists/374475"
+        },
+        {
+          "name": "Werner Lüdi",
+          "anv": "",
+          "join": "/",
+          "role": "",
+          "tracks": "",
+          "id": 374464,
+          "resource_url": "https://api.discogs.com/artists/374464"
+        },
+        {
+          "name": "Peter Brötzmann",
+          "anv": "",
+          "join": "",
+          "role": "",
+          "tracks": "",
+          "id": 120328,
+          "resource_url": "https://api.discogs.com/artists/120328"
+        }
+      ],
+      "title": "Lüdi",
+      "duration": "7:51"
+    },
+    {
+      "position": "10-1",
+      "type_": "track",
+      "artists": [
+        {
+          "name": "Kyoko Kuroda",
+          "anv": "",
+          "join": "/",
+          "role": "",
+          "tracks": "",
+          "id": 374480,
+          "resource_url": "https://api.discogs.com/artists/374480"
+        },
+        {
+          "name": "Uchihashi Kazuhisa",
+          "anv": "",
+          "join": "",
+          "role": "",
+          "tracks": "",
+          "id": 177208,
+          "resource_url": "https://api.discogs.com/artists/177208"
+        }
+      ],
+      "title": "A Reflection On The Beimlein",
+      "extraartists": [
+        {
+          "name": "Koichi Kishida",
+          "anv": "",
+          "join": "",
+          "role": "Engineer",
+          "tracks": "",
+          "id": 374477,
+          "resource_url": "https://api.discogs.com/artists/374477"
+        }
+      ],
+      "duration": "9:55"
+    },
+    {
+      "position": "10-2",
+      "type_": "track",
+      "artists": [
+        {
+          "name": "Kyoko Kuroda",
+          "anv": "",
+          "join": "/",
+          "role": "",
+          "tracks": "",
+          "id": 374480,
+          "resource_url": "https://api.discogs.com/artists/374480"
+        },
+        {
+          "name": "Uchihashi Kazuhisa",
+          "anv": "",
+          "join": "",
+          "role": "",
+          "tracks": "",
+          "id": 177208,
+          "resource_url": "https://api.discogs.com/artists/177208"
+        }
+      ],
+      "title": "Song And Improvisation",
+      "extraartists": [
+        {
+          "name": "Koichi Kishida",
+          "anv": "",
+          "join": "",
+          "role": "Engineer",
+          "tracks": "",
+          "id": 374477,
+          "resource_url": "https://api.discogs.com/artists/374477"
+        }
+      ],
+      "duration": "8:44"
+    },
+    {
+      "position": "10-3",
+      "type_": "track",
+      "artists": [
+        {
+          "name": "Marginal Consort",
+          "anv": "",
+          "join": "",
+          "role": "",
+          "tracks": "",
+          "id": 374487,
+          "resource_url": "https://api.discogs.com/artists/374487"
+        }
+      ],
+      "title": "1998",
+      "extraartists": [
+        {
+          "name": "Kazuo Imai",
+          "anv": "",
+          "join": "",
+          "role": "Performer",
+          "tracks": "",
+          "id": 372526,
+          "resource_url": "https://api.discogs.com/artists/372526"
+        },
+        {
+          "name": "Kei Shii",
+          "anv": "",
+          "join": "",
+          "role": "Performer",
+          "tracks": "",
+          "id": 374474,
+          "resource_url": "https://api.discogs.com/artists/374474"
+        },
+        {
+          "name": "Masami Tada",
+          "anv": "",
+          "join": "",
+          "role": "Performer",
+          "tracks": "",
+          "id": 374494,
+          "resource_url": "https://api.discogs.com/artists/374494"
+        },
+        {
+          "name": "Tomonao Koshikawa",
+          "anv": "",
+          "join": "",
+          "role": "Performer",
+          "tracks": "",
+          "id": 374491,
+          "resource_url": "https://api.discogs.com/artists/374491"
+        },
+        {
+          "name": "Yasushi Ozawa",
+          "anv": "",
+          "join": "",
+          "role": "Performer",
+          "tracks": "",
+          "id": 374489,
+          "resource_url": "https://api.discogs.com/artists/374489"
+        }
+      ],
+      "duration": "19:12"
+    },
+    {
+      "position": "10-4",
+      "type_": "track",
+      "artists": [
+        {
+          "name": "Tetsu Saitoh",
+          "anv": "",
+          "join": "/",
+          "role": "",
+          "tracks": "",
+          "id": 372527,
+          "resource_url": "https://api.discogs.com/artists/372527"
+        },
+        {
+          "name": "Michel Doneda",
+          "anv": "",
+          "join": "",
+          "role": "",
+          "tracks": "",
+          "id": 372525,
+          "resource_url": "https://api.discogs.com/artists/372525"
+        }
+      ],
+      "title": "Cle De Voute",
+      "extraartists": [
+        {
+          "name": "Pierre-Olivier Boulant",
+          "anv": "",
+          "join": "",
+          "role": "Engineer",
+          "tracks": "",
+          "id": 374473,
+          "resource_url": "https://api.discogs.com/artists/374473"
+        }
+      ],
+      "duration": "25:12"
+    }
+  ],
+  "extraartists": [
+    {
+      "name": "Toshimaru Nakamura",
+      "anv": "",
+      "join": "",
+      "role": "Mastered By",
+      "tracks": "",
+      "id": 53826,
+      "resource_url": "https://api.discogs.com/artists/53826"
+    },
+    {
+      "name": "Yoshiyuki Suzuki",
+      "anv": "",
+      "join": "",
+      "role": "Producer",
+      "tracks": "",
+      "id": 372709,
+      "resource_url": "https://api.discogs.com/artists/372709"
+    }
+  ],
+  "images": [
+    {
+      "type": "primary",
+      "uri": "",
+      "resource_url": "",
+      "uri150": "",
+      "width": 227,
+      "height": 227
+    },
+    {
+      "type": "secondary",
+      "uri": "",
+      "resource_url": "",
+      "uri150": "",
+      "width": 300,
+      "height": 300
+    },
+    {
+      "type": "secondary",
+      "uri": "",
+      "resource_url": "",
+      "uri150": "",
+      "width": 300,
+      "height": 300
+    },
+    {
+      "type": "secondary",
+      "uri": "",
+      "resource_url": "",
+      "uri150": "",
+      "width": 300,
+      "height": 300
+    },
+    {
+      "type": "secondary",
+      "uri": "",
+      "resource_url": "",
+      "uri150": "",
+      "width": 300,
+      "height": 300
+    },
+    {
+      "type": "secondary",
+      "uri": "",
+      "resource_url": "",
+      "uri150": "",
+      "width": 300,
+      "height": 300
+    },
+    {
+      "type": "secondary",
+      "uri": "",
+      "resource_url": "",
+      "uri150": "",
+      "width": 300,
+      "height": 300
+    },
+    {
+      "type": "secondary",
+      "uri": "",
+      "resource_url": "",
+      "uri150": "",
+      "width": 300,
+      "height": 300
+    },
+    {
+      "type": "secondary",
+      "uri": "",
+      "resource_url": "",
+      "uri150": "",
+      "width": 300,
+      "height": 300
+    },
+    {
+      "type": "secondary",
+      "uri": "",
+      "resource_url": "",
+      "uri150": "",
+      "width": 300,
+      "height": 300
+    },
+    {
+      "type": "secondary",
+      "uri": "",
+      "resource_url": "",
+      "uri150": "",
+      "width": 300,
+      "height": 300
+    }
+  ],
+  "thumb": "",
+  "estimated_weight": 850
+}

@@ -1,0 +1,449 @@
+{
+  "id": 1319375,
+  "status": "Accepted",
+  "year": 2008,
+  "resource_url": "https://api.discogs.com/releases/1319375",
+  "uri": "https://www.discogs.com/Boris-3-With-Merzbow-Rock-Dream/release/1319375",
+  "artists": [
+    {
+      "name": "Boris (3)",
+      "anv": "",
+      "join": "With",
+      "role": "",
+      "tracks": "",
+      "id": 267726,
+      "resource_url": "https://api.discogs.com/artists/267726"
+    },
+    {
+      "name": "Merzbow",
+      "anv": "",
+      "join": "",
+      "role": "",
+      "tracks": "",
+      "id": 12551,
+      "resource_url": "https://api.discogs.com/artists/12551"
+    }
+  ],
+  "artists_sort": "Boris (3) With Merzbow",
+  "labels": [
+    {
+      "name": "Southern Lord",
+      "catno": "SUNN88",
+      "entity_type": "1",
+      "entity_type_name": "Label",
+      "id": 30436,
+      "resource_url": "https://api.discogs.com/labels/30436"
+    }
+  ],
+  "series": [],
+  "companies": [
+    {
+      "name": "EARTHDOM",
+      "catno": "",
+      "entity_type": "23",
+      "entity_type_name": "Recorded At",
+      "id": 266127,
+      "resource_url": "https://api.discogs.com/labels/266127"
+    },
+    {
+      "name": "Peace Music",
+      "catno": "",
+      "entity_type": "27",
+      "entity_type_name": "Mixed At",
+      "id": 266141,
+      "resource_url": "https://api.discogs.com/labels/266141"
+    },
+    {
+      "name": "Peace Music",
+      "catno": "",
+      "entity_type": "29",
+      "entity_type_name": "Mastered At",
+      "id": 266141,
+      "resource_url": "https://api.discogs.com/labels/266141"
+    }
+  ],
+  "formats": [
+    {
+      "name": "Vinyl",
+      "qty": "3",
+      "descriptions": [
+        "LP",
+        "Album",
+        "Limited Edition"
+      ]
+    }
+  ],
+  "data_quality": "Correct",
+  "community": {
+    "have": 343,
+    "want": 209,
+    "rating": {
+      "count": 40,
+      "average": 4.35
+    },
+    "submitter": {
+      "username": "crooked.wood",
+      "resource_url": "https://api.discogs.com/users/crooked.wood"
+    },
+    "contributors": [
+      {
+        "username": "crooked.wood",
+        "resource_url": "https://api.discogs.com/users/crooked.wood"
+      },
+      {
+        "username": "acidAlex",
+        "resource_url": "https://api.discogs.com/users/acidAlex"
+      },
+      {
+        "username": "WaxFinderGeneral",
+        "resource_url": "https://api.discogs.com/users/WaxFinderGeneral"
+      },
+      {
+        "username": "rhythmic_disturbance",
+        "resource_url": "https://api.discogs.com/users/rhythmic_disturbance"
+      },
+      {
+        "username": "drij",
+        "resource_url": "https://api.discogs.com/users/drij"
+      },
+      {
+        "username": "AbsoluteBodyControl",
+        "resource_url": "https://api.discogs.com/users/AbsoluteBodyControl"
+      },
+      {
+        "username": "jodytamar",
+        "resource_url": "https://api.discogs.com/users/jodytamar"
+      },
+      {
+        "username": "MCM",
+        "resource_url": "https://api.discogs.com/users/MCM"
+      },
+      {
+        "username": "punxtr",
+        "resource_url": "https://api.discogs.com/users/punxtr"
+      },
+      {
+        "username": "consort",
+        "resource_url": "https://api.discogs.com/users/consort"
+      },
+      {
+        "username": "eri9",
+        "resource_url": "https://api.discogs.com/users/eri9"
+      },
+      {
+        "username": "Darthemed",
+        "resource_url": "https://api.discogs.com/users/Darthemed"
+      },
+      {
+        "username": "maldoror",
+        "resource_url": "https://api.discogs.com/users/maldoror"
+      },
+      {
+        "username": "degm",
+        "resource_url": "https://api.discogs.com/users/degm"
+      },
+      {
+        "username": "bluemoosen",
+        "resource_url": "https://api.discogs.com/users/bluemoosen"
+      }
+    ],
+    "data_quality": "Correct",
+    "status": "Accepted"
+  },
+  "format_quantity": 3,
+  "date_added": "2008-04-27T10:58:11-07:00",
+  "date_changed": "2018-05-24T14:38:13-07:00",
+  "num_for_sale": 12,
+  "lowest_price": 20,
+  "master_id": 7358,
+  "master_url": "https://api.discogs.com/masters/7358",
+  "title": "Rock Dream",
+  "country": "US",
+  "released": "2008-04-11",
+  "notes": "Recorded live at EARTHDOM, Tokyo on November 18, 2006. Numbered edition of 1000 copies on black vinyl. Packaged in a die-cut gatefold. Bonus track not included on the [url=http://www.discogs.com/release/1144759]CD version[/url].\r\n",
+  "released_formatted": "11 Apr 2008",
+  "identifiers": [],
+  "videos": [
+    {
+      "uri": "https://www.youtube.com/watch?v=r-Gi_XGfdmY",
+      "title": "Boris with Merzbow - Rock Dream",
+      "description": "1. Feedbacker - 0:00\n2. Black Out - 35:05\n3. Evil Stack - 40:25\n4. Rainbow - 45:30\n\nDISC 2\n1. Pink - 50:00\n2. Woman on the Screen - 54:14\n3. Nothing Special - 56:51\n4. Ibitsu - 59:06\n5. A bao a qu - 1:02:41\n6. The Evilone Which Sobs - 1:07:16\n7. Flower Su",
+      "duration": 6637,
+      "embed": true
+    }
+  ],
+  "genres": [
+    "Electronic",
+    "Rock"
+  ],
+  "styles": [
+    "Punk",
+    "Noise",
+    "Doom Metal",
+    "Psychedelic Rock"
+  ],
+  "tracklist": [
+    {
+      "position": "A",
+      "type_": "track",
+      "title": "Feedbacker [Part 1]",
+      "duration": ""
+    },
+    {
+      "position": "B1",
+      "type_": "track",
+      "title": "Feedbacker [Part 2]",
+      "duration": ""
+    },
+    {
+      "position": "B2",
+      "type_": "track",
+      "title": "Black Out",
+      "duration": ""
+    },
+    {
+      "position": "C1",
+      "type_": "track",
+      "title": "Evil Stack",
+      "duration": ""
+    },
+    {
+      "position": "C2",
+      "type_": "track",
+      "title": "Rainbow",
+      "duration": ""
+    },
+    {
+      "position": "C3",
+      "type_": "track",
+      "title": "Pink",
+      "duration": ""
+    },
+    {
+      "position": "C4",
+      "type_": "track",
+      "title": "Woman On The Screen",
+      "duration": ""
+    },
+    {
+      "position": "C5",
+      "type_": "track",
+      "title": "Nothing Special",
+      "duration": ""
+    },
+    {
+      "position": "C6",
+      "type_": "track",
+      "title": "Ibitsu",
+      "duration": ""
+    },
+    {
+      "position": "D1",
+      "type_": "track",
+      "title": "A Bao A Qu",
+      "duration": ""
+    },
+    {
+      "position": "D2",
+      "type_": "track",
+      "title": "The Evilone Which Sobs",
+      "duration": ""
+    },
+    {
+      "position": "E1",
+      "type_": "track",
+      "title": "Flower Sun Rain",
+      "duration": ""
+    },
+    {
+      "position": "E2",
+      "type_": "track",
+      "title": "Just Abandoned My-Self",
+      "duration": ""
+    },
+    {
+      "position": "F1",
+      "type_": "track",
+      "title": "Farewell",
+      "duration": ""
+    },
+    {
+      "position": "",
+      "type_": "heading",
+      "title": "Bonus Track",
+      "duration": ""
+    },
+    {
+      "position": "F2",
+      "type_": "track",
+      "title": "Dyna-saur",
+      "duration": ""
+    }
+  ],
+  "extraartists": [
+    {
+      "name": "Thomas Hooper (2)",
+      "anv": "",
+      "join": "",
+      "role": "Artwork [Drawing]",
+      "tracks": "",
+      "id": 2235024,
+      "resource_url": "https://api.discogs.com/artists/2235024"
+    },
+    {
+      "name": "Stephen O'Malley",
+      "anv": "SOMA",
+      "join": "",
+      "role": "Design",
+      "tracks": "",
+      "id": 214033,
+      "resource_url": "https://api.discogs.com/artists/214033"
+    },
+    {
+      "name": "Yasuaki Satake",
+      "anv": "",
+      "join": "",
+      "role": "Engineer [P.A.]",
+      "tracks": "",
+      "id": 961186,
+      "resource_url": "https://api.discogs.com/artists/961186"
+    },
+    {
+      "name": "Souichirou Nakamura",
+      "anv": "Souichiro Nakamura",
+      "join": "",
+      "role": "Mixed By, Mastered By",
+      "tracks": "",
+      "id": 284937,
+      "resource_url": "https://api.discogs.com/artists/284937"
+    },
+    {
+      "name": "Miki Matsushima",
+      "anv": "",
+      "join": "",
+      "role": "Photography By",
+      "tracks": "",
+      "id": 2235004,
+      "resource_url": "https://api.discogs.com/artists/2235004"
+    },
+    {
+      "name": "Boris (3)",
+      "anv": "",
+      "join": "",
+      "role": "Producer",
+      "tracks": "",
+      "id": 267726,
+      "resource_url": "https://api.discogs.com/artists/267726"
+    },
+    {
+      "name": "Merzbow",
+      "anv": "",
+      "join": "",
+      "role": "Producer",
+      "tracks": "",
+      "id": 12551,
+      "resource_url": "https://api.discogs.com/artists/12551"
+    },
+    {
+      "name": "Kazu (2)",
+      "anv": "",
+      "join": "",
+      "role": "Recorded By",
+      "tracks": "",
+      "id": 959555,
+      "resource_url": "https://api.discogs.com/artists/959555"
+    }
+  ],
+  "images": [
+    {
+      "type": "primary",
+      "uri": "",
+      "resource_url": "",
+      "uri150": "",
+      "width": 600,
+      "height": 568
+    },
+    {
+      "type": "secondary",
+      "uri": "",
+      "resource_url": "",
+      "uri150": "",
+      "width": 280,
+      "height": 280
+    },
+    {
+      "type": "secondary",
+      "uri": "",
+      "resource_url": "",
+      "uri150": "",
+      "width": 600,
+      "height": 600
+    },
+    {
+      "type": "secondary",
+      "uri": "",
+      "resource_url": "",
+      "uri150": "",
+      "width": 600,
+      "height": 600
+    },
+    {
+      "type": "secondary",
+      "uri": "",
+      "resource_url": "",
+      "uri150": "",
+      "width": 600,
+      "height": 600
+    },
+    {
+      "type": "secondary",
+      "uri": "",
+      "resource_url": "",
+      "uri150": "",
+      "width": 600,
+      "height": 600
+    },
+    {
+      "type": "secondary",
+      "uri": "",
+      "resource_url": "",
+      "uri150": "",
+      "width": 600,
+      "height": 600
+    },
+    {
+      "type": "secondary",
+      "uri": "",
+      "resource_url": "",
+      "uri150": "",
+      "width": 600,
+      "height": 600
+    },
+    {
+      "type": "secondary",
+      "uri": "",
+      "resource_url": "",
+      "uri150": "",
+      "width": 600,
+      "height": 600
+    },
+    {
+      "type": "secondary",
+      "uri": "",
+      "resource_url": "",
+      "uri150": "",
+      "width": 600,
+      "height": 600
+    },
+    {
+      "type": "secondary",
+      "uri": "",
+      "resource_url": "",
+      "uri150": "",
+      "width": 600,
+      "height": 600
+    }
+  ],
+  "thumb": "",
+  "estimated_weight": 690
+}
