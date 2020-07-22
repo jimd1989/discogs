@@ -9,11 +9,11 @@ import qualified Data.ByteString.Lazy as BS
 import qualified Data.HashMap.Strict as HM
 import Data.Maybe (isJust)
 import Data.Text (Text)
+import Data.Tuple (uncurry)
 import Data.Vector (toList)
-import GHC.Generics (Generic)
 import FormatTitle (formatArtist, formatTitle)
 import FormatTrack (Position, position)
-import Helpers (dyfork, maybeIf)
+import Helpers (dyfork, enumerate, maybeIf)
 
 type Track = (Text, Position, Text)
 
@@ -27,20 +27,21 @@ isTrack ∷ Value → Bool
 isTrack (Object α) = isJust $ HM.lookup "type_" α >>= maybeIf (== "track")
 isTrack  _         = False
 
-parseTrack ∷ Text → Value → Parser Track
-parseTrack ω = withObject "track" $ \α → do
+parseTrack ∷ Text → Int → Value → Parser Track
+parseTrack ω n = withObject "track" $ \α → do
   title    ← α .: "title"
-  position ← (position 1) <$> (α .: "position")
+  position ← (position n) <$> (α .: "position")
   artist   ← (parseArtist =<< (α .: "artists")) <|> (pure ω)
   return (artist, position, title)
 
 parseTracks ∷ Text → Value → Parser [Track]
-parseTracks ω = withArray "[a]" $ mapM (parseTrack ω) . filter isTrack . toList
+parseTracks ω = withArray "[a]" $ mapM (uncurry (parseTrack ω)) . tracks
+  where tracks = enumerate . filter isTrack . toList
 
 data Release = Release { year ∷ Int,
                          artist ∷ Text,
                          album ∷ Text,
-                         tracks ∷ [Track] } deriving (Generic, Show)
+                         tracks ∷ [Track] } deriving (Show)
 
 instance FromJSON Release where
   parseJSON = withObject "release" $ \α → do
