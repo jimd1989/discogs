@@ -12,6 +12,7 @@ import Data.Text (Text)
 import Data.Vector (toList)
 import GHC.Generics (Generic)
 import FormatTitle (formatArtist, formatTitle)
+import FormatTrack (Position, position)
 import Helpers (dyfork, maybeIf)
 
 type Track = (Text, Text, Text)
