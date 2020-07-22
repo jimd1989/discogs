@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 74d56d0d589d6e2c034ee838489ca00a5c484e6a6996fb9a9222fb42c155e0bb
+-- hash: a0ae23ff7e4f1bed4b195ee1c8c5d958bc5d0261e3143bee8cd538ea16b51f48
 
 name:           discogs
 version:        0.1.0.0
@@ -31,7 +31,8 @@ library
       FormatTrack
       Helpers
       Lib
-      Parse
+      Parsing
+      Processing
   other-modules:
       Paths_discogs
   hs-source-dirs:

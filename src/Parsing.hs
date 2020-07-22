@@ -1,4 +1,4 @@
-module Parse where
+module Parsing where
 
 import Control.Applicative ((<|>))
 import Control.Monad (liftM2, mapM)
@@ -38,20 +38,18 @@ parseTracks ∷ Text → Value → Parser [Track]
 parseTracks ω = withArray "[a]" $ mapM (uncurry (parseTrack ω)) . tracks
   where tracks = enumerate . filter isTrack . toList
 
-data Release = Release { year ∷ Int,
-                         artist ∷ Text,
-                         album ∷ Text,
-                         tracks ∷ [Track] } deriving (Show)
+data Album = Album {year ∷ Int, artist ∷ Text, album ∷ Text, tracks ∷ [Track]}
+  deriving (Show)
 
-instance FromJSON Release where
+instance FromJSON Album where
   parseJSON = withObject "release" $ \α → do
     year   ← α .:? "year" .!= 0
     artist ← parseArtist =<< (α .: "artists")
     album  ← formatTitle <$> (α .: "title")
     tracks ← parseTracks artist =<< (α .: "tracklist")
-    return Release{..}
+    return Album{..}
 
 getJSON ∷ [Char] → IO BS.ByteString
 getJSON = BS.readFile
 
--- (eitherDecode <$> getJSON "file") :: IO (Either String Release)
+-- (eitherDecode <$> getJSON "file") :: IO (Either String Album)
