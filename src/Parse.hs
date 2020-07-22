@@ -1,13 +1,13 @@
 module Parse where
 
 import Control.Applicative ((<|>))
-import Control.Monad (guard, liftM2, mapM)
+import Control.Monad (liftM2, mapM)
 import Data.Aeson (FromJSON, (.:), (.:?), (.!=), eitherDecode, parseJSON, 
                    withArray, withObject)
-import Data.Aeson.Types (Parser, Value)
+import Data.Aeson.Types (Parser, Value(..))
 import qualified Data.ByteString.Lazy as BS
-import Data.Functor (($>))
-import Data.Maybe (Maybe(..), catMaybes)
+import qualified Data.HashMap.Strict as HM
+import Data.Maybe (isJust)
 import Data.Text (Text)
 import Data.Vector (toList)
 import GHC.Generics (Generic)
@@ -15,7 +15,7 @@ import FormatTitle (formatArtist, formatTitle)
 import FormatTrack (Position, position)
 import Helpers (dyfork, maybeIf)
 
-type Track = (Text, Text, Text)
+type Track = (Text, Position, Text)
 
 parseName ∷ Value → Parser Text
 parseName = withObject "artist" $ dyfork formatArtist (.: "name") (.: "join")
@@ -23,16 +23,19 @@ parseName = withObject "artist" $ dyfork formatArtist (.: "name") (.: "join")
 parseArtist ∷ Value → Parser Text
 parseArtist = withArray "[a]" $ fmap (foldl1 (<>)) . mapM parseName . toList
 
-parseTrack ∷ Text → Value → Parser (Maybe Track)
+isTrack ∷ Value → Bool
+isTrack (Object α) = isJust $ HM.lookup "type_" α >>= maybeIf (== "track")
+isTrack  _         = False
+
+parseTrack ∷ Text → Value → Parser Track
 parseTrack ω = withObject "track" $ \α → do
-  type_    ← maybeIf (== ("track" ∷ Text)) <$> (α .: "type_")
   title    ← α .: "title"
-  position ← α .: "position"
+  position ← (position 1) <$> (α .: "position")
   artist   ← (parseArtist =<< (α .: "artists")) <|> (pure ω)
-  return (type_ $> (artist, position, title))
+  return (artist, position, title)
 
 parseTracks ∷ Text → Value → Parser [Track]
-parseTracks ω = withArray "[a]" $ fmap catMaybes . mapM (parseTrack ω) . toList
+parseTracks ω = withArray "[a]" $ mapM (parseTrack ω) . filter isTrack . toList
 
 data Release = Release { year ∷ Int,
                          artist ∷ Text,

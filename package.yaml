@@ -27,6 +27,7 @@ dependencies:
 - containers
 - split
 - text
+- unordered-containers
 - vector
 
 library:
