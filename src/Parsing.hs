@@ -6,6 +6,8 @@ import Data.Aeson (FromJSON, (.:), (.:?), (.!=), eitherDecode, parseJSON,
                    withArray, withObject)
 import Data.Aeson.Types (Parser, Value(..))
 import qualified Data.ByteString.Lazy as BS
+import qualified Data.ByteString.UTF8 as U
+import Data.Either (Either)
 import qualified Data.HashMap.Strict as HM
 import Data.Maybe (isJust)
 import Data.Text (Text)
@@ -38,16 +40,19 @@ parseTracks ∷ Text → Value → Parser [Track]
 parseTracks ω = withArray "[a]" $ mapM (uncurry (parseTrack ω)) . tracks
   where tracks = enumerate . filter isTrack . toList
 
-data Album = Album {year ∷ Int, artist ∷ Text, album ∷ Text, tracks ∷ [Track]}
+data Album = Album {year ∷ Int, artist ∷ Text, album ∷ Text, tracks ∷[Track]}
   deriving (Show)
 
 instance FromJSON Album where
-  parseJSON = withObject "release" $ \α → do
+  parseJSON = withObject "album" $ \α → do
     year   ← α .:? "year" .!= 0
     artist ← parseArtist =<< (α .: "artists")
     album  ← formatTitle <$> (α .: "title")
     tracks ← parseTracks artist =<< (α .: "tracklist")
     return Album{..}
+
+decode ∷ [Char] → Either String Album
+decode = eitherDecode . BS.fromStrict . U.fromString
 
 getJSON ∷ [Char] → IO BS.ByteString
 getJSON = BS.readFile

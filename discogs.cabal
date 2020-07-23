@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: a0ae23ff7e4f1bed4b195ee1c8c5d958bc5d0261e3143bee8cd538ea16b51f48
+-- hash: ede19a12f127efa9052271fffbb4da8915b9dd1453948ffdbe005bc44bef3e22
 
 name:           discogs
 version:        0.1.0.0
@@ -27,6 +27,7 @@ source-repository head
 
 library
   exposed-modules:
+      Fetching
       FormatTitle
       FormatTrack
       Helpers
@@ -37,16 +38,17 @@ library
       Paths_discogs
   hs-source-dirs:
       src
-  default-extensions: DeriveGeneric OverloadedStrings RecordWildCards UnicodeSyntax
+  default-extensions: DeriveGeneric NamedFieldPuns OverloadedStrings RecordWildCards UnicodeSyntax
   build-depends:
-      HTTP
-    , aeson
+      aeson
     , base >=4.7 && <5
     , bytestring
     , containers
+    , process
     , split
     , text
     , unordered-containers
+    , utf8-string
     , vector
   default-language: Haskell2010
 
@@ -56,18 +58,19 @@ executable discogs-exe
       Paths_discogs
   hs-source-dirs:
       app
-  default-extensions: DeriveGeneric OverloadedStrings RecordWildCards UnicodeSyntax
+  default-extensions: DeriveGeneric NamedFieldPuns OverloadedStrings RecordWildCards UnicodeSyntax
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      HTTP
-    , aeson
+      aeson
     , base >=4.7 && <5
     , bytestring
     , containers
     , discogs
+    , process
     , split
     , text
     , unordered-containers
+    , utf8-string
     , vector
   default-language: Haskell2010
 
@@ -78,17 +81,18 @@ test-suite discogs-test
       Paths_discogs
   hs-source-dirs:
       test
-  default-extensions: DeriveGeneric OverloadedStrings RecordWildCards UnicodeSyntax
+  default-extensions: DeriveGeneric NamedFieldPuns OverloadedStrings RecordWildCards UnicodeSyntax
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      HTTP
-    , aeson
+      aeson
     , base >=4.7 && <5
     , bytestring
     , containers
     , discogs
+    , process
     , split
     , text
     , unordered-containers
+    , utf8-string
     , vector
   default-language: Haskell2010

@@ -1,0 +1,579 @@
+{
+  "id": 1852193,
+  "status": "Accepted",
+  "year": 1981,
+  "resource_url": "https://api.discogs.com/releases/1852193",
+  "uri": "https://www.discogs.com/%E7%9F%A2%E9%87%8E%E9%A1%95%E5%AD%90-%E3%81%9F%E3%81%A0%E3%81%84%E3%81%BE/release/1852193",
+  "artists": [
+    {
+      "name": "Akiko Yano",
+      "anv": "矢野顕子",
+      "join": "",
+      "role": "",
+      "tracks": "",
+      "id": 143916,
+      "resource_url": "https://api.discogs.com/artists/143916"
+    }
+  ],
+  "artists_sort": "Akiko Yano",
+  "labels": [
+    {
+      "name": "Japan Record",
+      "catno": "JAL-7",
+      "entity_type": "1",
+      "entity_type_name": "Label",
+      "id": 44927,
+      "resource_url": "https://api.discogs.com/labels/44927"
+    }
+  ],
+  "series": [],
+  "companies": [
+    {
+      "name": "Japan Record Inc.",
+      "catno": "",
+      "entity_type": "10",
+      "entity_type_name": "Manufactured By",
+      "id": 439963,
+      "resource_url": "https://api.discogs.com/labels/439963"
+    }
+  ],
+  "formats": [
+    {
+      "name": "Vinyl",
+      "qty": "1",
+      "descriptions": [
+        "LP",
+        "Album"
+      ]
+    }
+  ],
+  "data_quality": "Needs Vote",
+  "community": {
+    "have": 362,
+    "want": 757,
+    "rating": {
+      "count": 50,
+      "average": 4.38
+    },
+    "submitter": {
+      "username": "philbeard",
+      "resource_url": "https://api.discogs.com/users/philbeard"
+    },
+    "contributors": [
+      {
+        "username": "philbeard",
+        "resource_url": "https://api.discogs.com/users/philbeard"
+      },
+      {
+        "username": "astro_cat2010",
+        "resource_url": "https://api.discogs.com/users/astro_cat2010"
+      },
+      {
+        "username": "ZilogJones",
+        "resource_url": "https://api.discogs.com/users/ZilogJones"
+      },
+      {
+        "username": "bruk67",
+        "resource_url": "https://api.discogs.com/users/bruk67"
+      },
+      {
+        "username": "willisread",
+        "resource_url": "https://api.discogs.com/users/willisread"
+      },
+      {
+        "username": "gapongapongapon",
+        "resource_url": "https://api.discogs.com/users/gapongapongapon"
+      },
+      {
+        "username": "DownByLaw2012",
+        "resource_url": "https://api.discogs.com/users/DownByLaw2012"
+      },
+      {
+        "username": "puffketeer",
+        "resource_url": "https://api.discogs.com/users/puffketeer"
+      },
+      {
+        "username": "orange_juno",
+        "resource_url": "https://api.discogs.com/users/orange_juno"
+      },
+      {
+        "username": "elacumulador",
+        "resource_url": "https://api.discogs.com/users/elacumulador"
+      }
+    ],
+    "data_quality": "Needs Vote",
+    "status": "Accepted"
+  },
+  "format_quantity": 1,
+  "date_added": "2009-07-17T11:11:12-07:00",
+  "date_changed": "2020-04-30T08:46:55-07:00",
+  "num_for_sale": 18,
+  "lowest_price": 19.03,
+  "master_id": 254796,
+  "master_url": "https://api.discogs.com/masters/254796",
+  "title": "ただいま。",
+  "country": "Japan",
+  "released": "1981-05-01",
+  "notes": "Romaji titles:\nTadaima.\n\nA1: Tadaima.\nA2: Itsuka Ouji-sama ga\nA5: Iranaimon\nB1: Taiyou no Onara\nB2: Otou-san\nB3: Otou-san\nB4: Boku ga Otona ni Nattara\nB5: Sensei\nB6: Okaa-san no Ohige\nB7: Moshi Ichi-oku-en Attara\nB8: Inu\nB9: Boku wa Nakimiso\nB11: Harusaki Kobeni",
+  "released_formatted": "01 May 1981",
+  "identifiers": [
+    {
+      "type": "Rights Society",
+      "value": "JASRAC"
+    }
+  ],
+  "videos": [
+    {
+      "uri": "https://www.youtube.com/watch?v=k6aYndLoZGs",
+      "title": "矢野顕子 [Akiko Yano] - ただいま。 (Tadaima.) [FULL ALBUM]",
+      "description": "1981",
+      "duration": 2311,
+      "embed": true
+    },
+    {
+      "uri": "https://www.youtube.com/watch?v=vgtkC4wNlBE",
+      "title": "矢野顕子 [Akiko Yano] - ただいま。 (Tadaima) - 01. ただいま。",
+      "description": "",
+      "duration": 243,
+      "embed": true
+    },
+    {
+      "uri": "https://www.youtube.com/watch?v=gL6Tm_aa_K8",
+      "title": "矢野顕子 [Akiko Yano] - ただいま。 (Tadaima) - 02. いつか王子様が",
+      "description": "",
+      "duration": 305,
+      "embed": true
+    },
+    {
+      "uri": "https://www.youtube.com/watch?v=y-4oix_c5Lk",
+      "title": "矢野顕子 [Akiko Yano] - ただいま。 (Tadaima) - 03. Vet",
+      "description": "",
+      "duration": 145,
+      "embed": true
+    },
+    {
+      "uri": "https://www.youtube.com/watch?v=q5W8bYWVc-Q",
+      "title": "矢野顕子 [Akiko Yano] - ただいま。 (Tadaima) - 04. Ashkenazy Who",
+      "description": "",
+      "duration": 205,
+      "embed": true
+    },
+    {
+      "uri": "https://www.youtube.com/watch?v=rDQ-AUBz7UQ",
+      "title": "矢野顕子 [Akiko Yano] - ただいま。 (Tadaima) - 05. いらないもん",
+      "description": "",
+      "duration": 166,
+      "embed": true
+    },
+    {
+      "uri": "https://www.youtube.com/watch?v=euKuqbNjeuU",
+      "title": "矢野顕子 [Akiko Yano] - ただいま。 (Tadaima) - 06.",
+      "description": "06. たいようのおなら - おとうさん - おとうさん - ぼくがおとなになったら - せんせい - おかあさんのおひげ - もし一億円あったら - いぬ - ぼくはなきみそ",
+      "duration": 573,
+      "embed": true
+    },
+    {
+      "uri": "https://www.youtube.com/watch?v=rLAW7qD1q8A",
+      "title": "矢野顕子 [Akiko Yano] - ただいま。 (Tadaima) - 07. I Sing",
+      "description": "",
+      "duration": 243,
+      "embed": true
+    },
+    {
+      "uri": "https://www.youtube.com/watch?v=IIgDTHjGi4E",
+      "title": "矢野顕子 [Akiko Yano] - ただいま。 (Tadaima) - 08. 春咲小紅",
+      "description": "",
+      "duration": 216,
+      "embed": true
+    },
+    {
+      "uri": "https://www.youtube.com/watch?v=Ys3GSK6XO6o",
+      "title": "矢野顕子 [Akiko Yano] - ただいま。 (Tadaima) - 09. Rose Garden",
+      "description": "",
+      "duration": 211,
+      "embed": true
+    }
+  ],
+  "genres": [
+    "Electronic"
+  ],
+  "styles": [
+    "Synth-pop"
+  ],
+  "tracklist": [
+    {
+      "position": "A1",
+      "type_": "track",
+      "title": "ただいま。",
+      "duration": "4:02"
+    },
+    {
+      "position": "A2",
+      "type_": "track",
+      "title": "いつか王子様が",
+      "duration": "5:05"
+    },
+    {
+      "position": "A3",
+      "type_": "track",
+      "title": "Vet",
+      "duration": "2:33"
+    },
+    {
+      "position": "A4",
+      "type_": "track",
+      "title": "Ashkenazy Who?",
+      "duration": "3:26"
+    },
+    {
+      "position": "A5",
+      "type_": "track",
+      "title": "いらないもん",
+      "duration": "2:43"
+    },
+    {
+      "position": "",
+      "type_": "index",
+      "title": "Medley",
+      "duration": "9:33",
+      "sub_tracks": [
+        {
+          "position": "B1",
+          "type_": "track",
+          "title": "たいようのおなら",
+          "extraartists": [
+            {
+              "name": "にしづかえみこ",
+              "anv": "",
+              "join": "",
+              "role": "Lyrics By",
+              "tracks": "",
+              "id": 5465492,
+              "resource_url": "https://api.discogs.com/artists/5465492"
+            }
+          ],
+          "duration": ""
+        },
+        {
+          "position": "B2",
+          "type_": "track",
+          "title": "おとうさん",
+          "extraartists": [
+            {
+              "name": "おおたにまさひろ",
+              "anv": "",
+              "join": "",
+              "role": "Lyrics By",
+              "tracks": "",
+              "id": 5465488,
+              "resource_url": "https://api.discogs.com/artists/5465488"
+            }
+          ],
+          "duration": ""
+        },
+        {
+          "position": "B3",
+          "type_": "track",
+          "title": "おとうさん",
+          "extraartists": [
+            {
+              "name": "やなぎますみ",
+              "anv": "",
+              "join": "",
+              "role": "Lyrics By",
+              "tracks": "",
+              "id": 5465491,
+              "resource_url": "https://api.discogs.com/artists/5465491"
+            }
+          ],
+          "duration": ""
+        },
+        {
+          "position": "B4",
+          "type_": "track",
+          "title": "ぼくがおとなになったら",
+          "extraartists": [
+            {
+              "name": "やまかわてつや",
+              "anv": "",
+              "join": "",
+              "role": "Lyrics By",
+              "tracks": "",
+              "id": 5465487,
+              "resource_url": "https://api.discogs.com/artists/5465487"
+            }
+          ],
+          "duration": ""
+        },
+        {
+          "position": "B5",
+          "type_": "track",
+          "title": "せんせい",
+          "extraartists": [
+            {
+              "name": "いいおつた",
+              "anv": "",
+              "join": "",
+              "role": "Lyrics By",
+              "tracks": "",
+              "id": 5465485,
+              "resource_url": "https://api.discogs.com/artists/5465485"
+            }
+          ],
+          "duration": ""
+        },
+        {
+          "position": "B6",
+          "type_": "track",
+          "title": "おかあさんのおひげ",
+          "extraartists": [
+            {
+              "name": "かしまりこ",
+              "anv": "",
+              "join": "",
+              "role": "Lyrics By",
+              "tracks": "",
+              "id": 5465489,
+              "resource_url": "https://api.discogs.com/artists/5465489"
+            }
+          ],
+          "duration": ""
+        },
+        {
+          "position": "B7",
+          "type_": "track",
+          "title": "もし一億円あったら",
+          "extraartists": [
+            {
+              "name": "かねだけんいち",
+              "anv": "",
+              "join": "",
+              "role": "Lyrics By",
+              "tracks": "",
+              "id": 5465493,
+              "resource_url": "https://api.discogs.com/artists/5465493"
+            }
+          ],
+          "duration": ""
+        },
+        {
+          "position": "B8",
+          "type_": "track",
+          "title": "いぬ",
+          "extraartists": [
+            {
+              "name": "つかだけんじ",
+              "anv": "",
+              "join": "",
+              "role": "Lyrics By",
+              "tracks": "",
+              "id": 5465490,
+              "resource_url": "https://api.discogs.com/artists/5465490"
+            }
+          ],
+          "duration": ""
+        },
+        {
+          "position": "B9",
+          "type_": "track",
+          "title": "ぼくはなきみそ",
+          "extraartists": [
+            {
+              "name": "かっさいしんや",
+              "anv": "",
+              "join": "",
+              "role": "Lyrics By",
+              "tracks": "",
+              "id": 5465486,
+              "resource_url": "https://api.discogs.com/artists/5465486"
+            }
+          ],
+          "duration": ""
+        }
+      ]
+    },
+    {
+      "position": "",
+      "type_": "heading",
+      "title": "-",
+      "duration": ""
+    },
+    {
+      "position": "B10",
+      "type_": "track",
+      "title": "I Sing",
+      "duration": "4:05"
+    },
+    {
+      "position": "B11",
+      "type_": "track",
+      "title": "春咲小紅",
+      "duration": "3:33"
+    },
+    {
+      "position": "B12",
+      "type_": "track",
+      "title": "Rose Garden",
+      "duration": "3:31"
+    }
+  ],
+  "extraartists": [
+    {
+      "name": "Flamina Terreno Gonzo",
+      "anv": "",
+      "join": "",
+      "role": "Artwork [Cover]",
+      "tracks": "",
+      "id": 4644637,
+      "resource_url": "https://api.discogs.com/artists/4644637"
+    },
+    {
+      "name": "Akiko Yano",
+      "anv": "",
+      "join": "",
+      "role": "Lyrics By",
+      "tracks": "A2-A5, B10, B12",
+      "id": 143916,
+      "resource_url": "https://api.discogs.com/artists/143916"
+    },
+    {
+      "name": "Peter Barakan",
+      "anv": "",
+      "join": "",
+      "role": "Lyrics By",
+      "tracks": "A3, A5",
+      "id": 143917,
+      "resource_url": "https://api.discogs.com/artists/143917"
+    },
+    {
+      "name": "Shigesato Itoi",
+      "anv": "",
+      "join": "",
+      "role": "Lyrics By",
+      "tracks": "A1, B11",
+      "id": 779259,
+      "resource_url": "https://api.discogs.com/artists/779259"
+    },
+    {
+      "name": "Akiko Yano",
+      "anv": "",
+      "join": "",
+      "role": "Music By",
+      "tracks": "A1-A4, B1-B9, B11, B12",
+      "id": 143916,
+      "resource_url": "https://api.discogs.com/artists/143916"
+    },
+    {
+      "name": "Ryuichi Sakamoto",
+      "anv": "",
+      "join": "",
+      "role": "Music By",
+      "tracks": "B10",
+      "id": 5087,
+      "resource_url": "https://api.discogs.com/artists/5087"
+    },
+    {
+      "name": "Taeko Ohnuki",
+      "anv": "",
+      "join": "",
+      "role": "Music By",
+      "tracks": "A5",
+      "id": 556509,
+      "resource_url": "https://api.discogs.com/artists/556509"
+    },
+    {
+      "name": "Akiko Yano",
+      "anv": "",
+      "join": "",
+      "role": "Producer",
+      "tracks": "",
+      "id": 143916,
+      "resource_url": "https://api.discogs.com/artists/143916"
+    },
+    {
+      "name": "Ryuichi Sakamoto",
+      "anv": "",
+      "join": "",
+      "role": "Producer",
+      "tracks": "",
+      "id": 5087,
+      "resource_url": "https://api.discogs.com/artists/5087"
+    }
+  ],
+  "images": [
+    {
+      "type": "primary",
+      "uri": "",
+      "resource_url": "",
+      "uri150": "",
+      "width": 600,
+      "height": 600
+    },
+    {
+      "type": "secondary",
+      "uri": "",
+      "resource_url": "",
+      "uri150": "",
+      "width": 600,
+      "height": 600
+    },
+    {
+      "type": "secondary",
+      "uri": "",
+      "resource_url": "",
+      "uri150": "",
+      "width": 600,
+      "height": 600
+    },
+    {
+      "type": "secondary",
+      "uri": "",
+      "resource_url": "",
+      "uri150": "",
+      "width": 600,
+      "height": 600
+    },
+    {
+      "type": "secondary",
+      "uri": "",
+      "resource_url": "",
+      "uri150": "",
+      "width": 600,
+      "height": 600
+    },
+    {
+      "type": "secondary",
+      "uri": "",
+      "resource_url": "",
+      "uri150": "",
+      "width": 600,
+      "height": 600
+    },
+    {
+      "type": "secondary",
+      "uri": "",
+      "resource_url": "",
+      "uri150": "",
+      "width": 600,
+      "height": 600
+    },
+    {
+      "type": "secondary",
+      "uri": "",
+      "resource_url": "",
+      "uri150": "",
+      "width": 600,
+      "height": 600
+    },
+    {
+      "type": "secondary",
+      "uri": "",
+      "resource_url": "",
+      "uri150": "",
+      "width": 600,
+      "height": 600
+    }
+  ],
+  "thumb": "",
+  "estimated_weight": 230
+}
