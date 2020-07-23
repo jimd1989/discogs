@@ -25,7 +25,8 @@ parseArtist ∷ Value → Parser Text
 parseArtist = withArray "[a]" $ fmap (foldl1 (<>)) . mapM parseName . toList
 
 isTrack ∷ Value → Bool
-isTrack (Object α) = isJust $ HM.lookup "type_" α >>= maybeIf (== "track")
+isTrack (Object α) = isJust $ HM.lookup "type_" α >>= maybeIf acceptable
+                       where acceptable α = (α == "track") || (α == "index")
 isTrack  _         = False
 
 parseTrack ∷ Text → Int → Value → Parser Track
@@ -39,7 +40,7 @@ parseTracks ∷ Text → Value → Parser [Track]
 parseTracks ω = withArray "[a]" $ mapM (uncurry (parseTrack ω)) . tracks
   where tracks = enumerate . filter isTrack . toList
 
-data Album = Album {year ∷ Int, artist ∷ Text, album ∷ Text, tracks ∷[Track]}
+data Album = Album {year ∷ Int, artist ∷ Text, album ∷ Text, tracks ∷ [Track]}
   deriving (Show)
 
 instance FromJSON Album where

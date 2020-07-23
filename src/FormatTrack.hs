@@ -37,7 +37,7 @@ isMultiDisc ∷ [Char] → Bool
 isMultiDisc = isJust . find (== '-')
 
 isSingleDisc ∷ [Char] → Bool
-isSingleDisc = and . map isNumber
+isSingleDisc = liftM2 (&&) (not . (== 0) . length) (and . map isNumber)
 
 singleDisc ∷ [Char] → Position
 singleDisc α = (1, read α)
