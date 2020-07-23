@@ -2,14 +2,13 @@ module Parsing where
 
 import Control.Applicative ((<|>))
 import Control.Monad (liftM2, mapM)
-import Data.Aeson (FromJSON, (.:), (.:?), (.!=), eitherDecode, parseJSON, 
+import Data.Aeson (FromJSON, (.:), (.:?), (.!=), decode, parseJSON, 
                    withArray, withObject)
 import Data.Aeson.Types (Parser, Value(..))
 import qualified Data.ByteString.Lazy as BS
 import qualified Data.ByteString.UTF8 as U
-import Data.Either (Either)
 import qualified Data.HashMap.Strict as HM
-import Data.Maybe (isJust)
+import Data.Maybe (Maybe, isJust)
 import Data.Text (Text)
 import Data.Tuple (uncurry)
 import Data.Vector (toList)
@@ -51,10 +50,5 @@ instance FromJSON Album where
     tracks ← parseTracks artist =<< (α .: "tracklist")
     return Album{..}
 
-decode ∷ [Char] → Either String Album
-decode = eitherDecode . BS.fromStrict . U.fromString
-
-getJSON ∷ [Char] → IO BS.ByteString
-getJSON = BS.readFile
-
--- (eitherDecode <$> getJSON "file") :: IO (Either String Album)
+decode' ∷ [Char] → Maybe Album
+decode' = decode . BS.fromStrict . U.fromString
