@@ -1,20 +1,20 @@
 module Parsing where
 
 import Control.Applicative ((<|>))
-import Control.Monad (liftM2, mapM)
-import Data.Aeson (FromJSON, (.:), (.:?), (.!=), decode, parseJSON, 
-                   withArray, withObject)
-import Data.Aeson.Types (Parser, Value(..))
+import Control.Monad (mapM)
+import Data.Aeson ((.:), (.:?), (.!=), json, withArray, withObject)
+import Data.Aeson.Parser (decodeWith)
+import Data.Aeson.Types (Parser, Value(..), parse)
 import qualified Data.ByteString.Lazy as BS
 import qualified Data.ByteString.UTF8 as U
 import qualified Data.HashMap.Strict as HM
-import Data.Maybe (Maybe, isJust)
+import Data.Maybe (Maybe, fromMaybe)
 import Data.Text (Text)
 import Data.Tuple (uncurry)
 import Data.Vector (toList)
 import FormatTitle (formatArtist, formatTitle)
 import FormatTrack (Position, position)
-import Helpers (dyfork, enumerate, maybeIf)
+import Helpers (dyfork, enumerate)
 
 type Track = (Text, Position, Text)
 
@@ -24,10 +24,18 @@ parseName = withObject "artist" $ dyfork formatArtist (.: "name") (.: "join")
 parseArtist ∷ Value → Parser Text
 parseArtist = withArray "[a]" $ fmap (foldl1 (<>)) . mapM parseName . toList
 
-isTrack ∷ Value → Bool
-isTrack (Object α) = isJust $ HM.lookup "type_" α >>= maybeIf acceptable
-                       where acceptable α = (α == "track") || (α == "index")
-isTrack  _         = False
+filterTracks ∷ Bool → [Value] → [Value]
+filterTracks _ []             = []
+filterTracks expand ((Object α):ω) = 
+  let ls                   = fromMaybe [Null] . ls' . HM.lookup "sub_tracks"
+      ls' (Just (Array α)) = Just $ toList α
+      ls' _                = Nothing
+  in case (expand, HM.lookup "type_" α) of
+    (_,     Just "track") → (Object α) : (filterTracks expand ω)
+    (True,  Just "index") → (ls α)    <> (filterTracks expand ω)
+    (False, Just "index") → (Object α) : (filterTracks expand ω)
+    (_,     _)            →               filterTracks expand ω
+filterTracks expand (α:ω)          = α : (filterTracks expand ω)
 
 parseTrack ∷ Text → Int → Value → Parser Track
 parseTrack ω n = withObject "track" $ \α → do
@@ -36,20 +44,18 @@ parseTrack ω n = withObject "track" $ \α → do
   artist   ← (parseArtist =<< (α .: "artists")) <|> (pure ω)
   return (artist, position, title)
 
-parseTracks ∷ Text → Value → Parser [Track]
-parseTracks ω = withArray "[a]" $ mapM (uncurry (parseTrack ω)) . tracks
-  where tracks = enumerate . filter isTrack . toList
+parseTracks ∷ Bool → Text → Value → Parser [Track]
+parseTracks expand ω = withArray "[a]" $ mapM (uncurry (parseTrack ω)) . tracks
+  where tracks = enumerate . filterTracks expand . toList
 
 data Album = Album {year ∷ Int, artist ∷ Text, album ∷ Text, tracks ∷ [Track]}
   deriving (Show)
 
-instance FromJSON Album where
-  parseJSON = withObject "album" $ \α → do
-    year   ← α .:? "year" .!= 0
-    artist ← parseArtist =<< (α .: "artists")
-    album  ← formatTitle <$> (α .: "title")
-    tracks ← parseTracks artist =<< (α .: "tracklist")
-    return Album{..}
-
-decode' ∷ [Char] → Maybe Album
-decode' = decode . BS.fromStrict . U.fromString
+decode' ∷ Bool → [Char] → Maybe Album
+decode' expand = decodeWith json (parse parser) . BS.fromStrict . U.fromString
+  where parser = withObject "album" $ \α → do
+           year   ← α .:? "year" .!= 0
+           artist ← parseArtist =<< (α .: "artists")
+           album  ← formatTitle <$> (α .: "title")
+           tracks ← parseTracks expand artist =<< (α .: "tracklist")
+           return Album{..}
