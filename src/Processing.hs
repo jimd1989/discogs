@@ -2,6 +2,8 @@ module Processing where
 
 import Data.List (intercalate, transpose)
 import Data.Text (unpack)
+import FormatTrack (Position)
+import Helpers (fst', snd', thd', wrap)
 import Parsing (Album(..), Track)
 
 normalize ∷ Int → Int → [Int] → [Int]
@@ -13,35 +15,27 @@ normalize m l (α:ω) | α > m     = α : normalize α α ω
                     | l < m     = m : (normalize m l ω)
                     | otherwise = α : (normalize m l ω)
 
+absolute ∷ Bool → [Position] → [Position] 
+absolute False α = α
+absolute True  α = zip (replicate ω 1) [1 .. ω]
+  where ω = length α
+
 various ∷ [Char] → [Char]
 various α = if (α == "Various") then "Various Artists" else α
 
-wrap ∷ [Char] → [Char]
-wrap α = "\"" <> α <> "\""
-
-fst' ∷ (a, b, c) → a
-fst' (α, _, _) = α
-
-snd' ∷ (a, b, c) → b
-snd' (_, α, _) = α
-
-thd' ∷ (a, b, c) → c
-thd' (_, _, α) = α
-
-commands ∷ [Char] → Album → [[Char]]
-commands α (Album {year, artist, album, tracks}) = cmds
+commands ∷ [Char] → Bool → Album → [[Char]]
+commands α ω (Album {year, artist, album, tracks}) = cmds
   where
     space = intercalate " "
     year' = "-Y " <> (show year)
-    albumArtist' = "-b " <> (wrap $ various $ unpack artist)
+    albumArtist = "-b " <> (wrap $ various $ unpack artist)
     album' = "-A " <> (wrap $ unpack album)
-    genre' = "-G " <> (wrap α)
-    constants = space ["eyeD3", year', albumArtist', album', genre']
-    disc' = mappend "-d " . show
-    discs' = map disc' $ normalize 0 0 $ map (fst . snd') tracks
-    track' = mappend "-n " . show
-    tracks' = map (track' . snd . snd') tracks
-    artists' = map (mappend "-a " . wrap . unpack . fst') tracks
-    titles' = map (mappend "-t " . wrap . unpack . thd') tracks
-    headings = replicate (length tracks) constants
-    cmds = map space $ transpose [headings, discs', tracks', artists', titles']
+    genre = "-G " <> (wrap α)
+    constants = space ["eyeD3", year', albumArtist, album', genre]
+    positions = absolute ω $ map snd' tracks
+    discs = map (("-d " <>) . show) $ normalize 0 0 $ map fst positions
+    nums = map (("-n " <>) . show . snd) positions
+    artists = map (("-a " <>) . wrap . unpack . fst') tracks
+    titles = map (("-t " <>) . wrap . unpack . thd') tracks
+    constants' = replicate (length tracks) constants
+    cmds = map space $ transpose [constants', discs, nums, artists, titles]

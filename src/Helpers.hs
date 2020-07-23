@@ -15,3 +15,15 @@ maybeIf f α | f α       = Just α
 
 enumerate ∷ [a] → [(Int, a)]
 enumerate = flip zip <*> (curry range 1 . length)
+
+wrap ∷ [Char] → [Char]
+wrap α = "\"" <> α <> "\""
+
+fst' ∷ (a, b, c) → a
+fst' (α, _, _) = α
+
+snd' ∷ (a, b, c) → b
+snd' (_, α, _) = α
+
+thd' ∷ (a, b, c) → c
+thd' (_, _, α) = α

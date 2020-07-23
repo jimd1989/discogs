@@ -23,7 +23,7 @@ main = do
   url      ← pure $ rest !! 1
   files    ← pure $ tail $ tail rest
   album    ← decode' <$> fetch url
-  cmds     ← pure $ (commands genre) <$> album
+  cmds     ← pure $ (commands genre absolute) <$> album
   _        ← case cmds of
     Nothing → pure ()
     Just α  → mapM_ putStrLn α
