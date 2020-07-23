@@ -7,6 +7,7 @@ import Data.Tuple (uncurry)
 import System.Environment (getArgs)
 import System.Process (system)
 import Fetching (fetch)
+import Helpers (wrap)
 import Parsing (decode')
 import Processing (commands)
 
@@ -21,10 +22,10 @@ main = do
   rest     ← pure $ filter (/= "-a") args
   genre    ← pure $ rest !! 0
   url      ← pure $ rest !! 1
-  files    ← pure $ tail $ tail rest
+  files    ← pure $ map wrap $ tail $ tail rest
   album    ← decode' <$> fetch url
   cmds     ← pure $ (commands genre absolute) <$> album
   _        ← case cmds of
     Nothing → pure ()
-    Just α  → mapM_ putStrLn α
+    Just α  → runCmds α files
   return ()
