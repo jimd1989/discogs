@@ -54,19 +54,3 @@ main = do
   case exec of
     Right α → α
     Left  ω → putStrLn ω
-
---main :: IO ()
---main = do
---  args     ← getArgs
---  absolute ← pure $ isJust $ find (== "-a") args
---  expand   ← pure $ isJust $ find (== "-e") args
---  rest     ← pure $ filter (not . flip elem ["-a", "-e"]) args
---  genre    ← pure $ rest !! 0
---  url      ← pure $ rest !! 1
---  files    ← pure $ map wrap $ tail $ tail rest
---  album    ← (decode' expand) <$> fetch url
---  cmds     ← pure $ (commands genre absolute) <$> album
---  _        ← case cmds of
---    Nothing → pure ()
---    Just α  → runCmds α files
---  return ()
