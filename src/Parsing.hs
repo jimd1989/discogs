@@ -53,7 +53,7 @@ parseTracks expand ω = withArray "[a]" $ mapM (uncurry (parseTrack ω)) . track
 data Album = Album {year ∷ Int, artist ∷ Text, album ∷ Text, tracks ∷ [Track]}
   deriving (Show)
 
-decode' ∷ Bool → [Char] → Either String Album
+decode' ∷ Bool → String → Either String Album
 decode' expand = note "error decoding JSON" . decoder
   where decoder = decodeWith json (parse parser) . BS.fromStrict . U.fromString
         parser  = withObject "album" $ \α → do

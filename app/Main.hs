@@ -1,6 +1,6 @@
 module Main where
 
-import Control.Arrow ((|||), left)
+import Control.Arrow (left)
 import Control.Exception (displayException, try)
 import Control.Error.Util (note)
 import Control.Monad ((<=<), join, liftM2)

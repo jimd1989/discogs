@@ -11,7 +11,7 @@ dyfork = liftM2 . liftM2
 enumerate ∷ [a] → [(Int, a)]
 enumerate = flip zip <*> (curry range 1 . length)
 
-wrap ∷ [Char] → [Char]
+wrap ∷ String → String
 wrap α = "\"" <> α <> "\""
 
 fst' ∷ (a, b, c) → a

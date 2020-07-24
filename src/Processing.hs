@@ -20,10 +20,10 @@ absolute False α = α
 absolute True  α = zip (replicate ω 1) [1 .. ω]
   where ω = length α
 
-various ∷ [Char] → [Char]
+various ∷ String → String
 various α = if (α == "Various") then "Various Artists" else α
 
-commands ∷ [Char] → Bool → Album → [[Char]]
+commands ∷ String → Bool → Album → [String]
 commands α ω (Album {year, artist, album, tracks}) = cmds
   where
     space = intercalate " "

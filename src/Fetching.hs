@@ -4,11 +4,11 @@ import Data.List (last)
 import Data.List.Split (splitOn)
 import System.Process (readProcess)
 
-releaseCode ∷ [Char] → [Char]
+releaseCode ∷ String → String
 releaseCode = last . splitOn "/"
 
-url ∷ [Char] → [Char]
+url ∷ String → String
 url = mappend "https://api.discogs.com/releases/" . releaseCode
 
-fetch ∷ [Char] → IO [Char]
+fetch ∷ String → IO String
 fetch α = readProcess "curl" [url α, "--user-agent", "haskell-discogs"] ""

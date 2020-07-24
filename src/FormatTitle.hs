@@ -10,33 +10,33 @@ import Data.Text (Text, pack, unpack)
 tag ∷ Set Char
 tag = fromList "(0123456789)"
 
-allTag ∷ [Char] → Bool
+allTag ∷ String → Bool
 allTag = and . map (flip member tag)
 
-brackets ∷ [Char] → Bool
+brackets ∷ String → Bool
 brackets = liftM2 (&&) ((== '(') . head) ((== ')') . last)
 
-isTag ∷ [Char] → Bool
+isTag ∷ String → Bool
 isTag = liftM2 (&&) brackets allTag
 
-checkTag ∷ [Char] → [Char]
+checkTag ∷ String → String
 checkTag α = if isTag α then "" else α
 
-lower ∷ Set [Char]
+lower ∷ Set String
 lower = fromList ["A", "An", "And", "By", "In", "On", "Of", "At", "With", "The",
                   "For", "From", "Into", "Unto", "To"]
 
-checkCaps ∷ [Char] → [Char]
+checkCaps ∷ String → String
 checkCaps α = if (member α lower) then (map toLower α) else α
 
-checkJoin ∷ [Char] → [Char]
+checkJoin ∷ String → String
 checkJoin "" = ""
 checkJoin α  = " " <> α <> " "
 
-onWords ∷ ([[Char]] → [[Char]]) → [Char] → [Char]
+onWords ∷ ([String] → [String]) → String → String
 onWords f = intercalate " " . filter (/= "") . f . splitOn " "
 
-onRest ∷ ([[Char]] → [[Char]]) → [[Char]] → [[Char]]
+onRest ∷ ([String] → [String]) → [String] → [String]
 onRest f = liftM2 (:) head (f . tail)
 
 formatArtist ∷ Text → Text → Text
