@@ -24,7 +24,9 @@ dependencies:
 - aeson
 - bytestring
 - containers
+- errors
 - process
+- safe
 - split
 - text
 - unordered-containers

@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: d62c504dce59558d878419fcdb4f6960f68175328807fdf4f2de41862edcacef
+-- hash: 2a32dafef8501914513affd429204eaf1b8f544ef185ac387dd227ea045654e6
 
 name:           discogs
 version:        0.1.0.0
@@ -43,7 +43,9 @@ library
     , base >=4.7 && <5
     , bytestring
     , containers
+    , errors
     , process
+    , safe
     , split
     , text
     , unordered-containers
@@ -65,7 +67,9 @@ executable discogs-exe
     , bytestring
     , containers
     , discogs
+    , errors
     , process
+    , safe
     , split
     , text
     , unordered-containers
@@ -88,7 +92,9 @@ test-suite discogs-test
     , bytestring
     , containers
     , discogs
+    , errors
     , process
+    , safe
     , split
     , text
     , unordered-containers

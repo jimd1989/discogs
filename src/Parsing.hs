@@ -1,14 +1,16 @@
 module Parsing where
 
 import Control.Applicative ((<|>))
+import Control.Error.Util (note)
 import Control.Monad (mapM)
 import Data.Aeson ((.:), (.:?), (.!=), json, withArray, withObject)
 import Data.Aeson.Parser (decodeWith)
 import Data.Aeson.Types (Parser, Value(..), parse)
 import qualified Data.ByteString.Lazy as BS
 import qualified Data.ByteString.UTF8 as U
+import Data.Either (Either)
 import qualified Data.HashMap.Strict as HM
-import Data.Maybe (Maybe, fromMaybe)
+import Data.Maybe (fromMaybe)
 import Data.Text (Text)
 import Data.Tuple (uncurry)
 import Data.Vector (toList)
@@ -51,9 +53,10 @@ parseTracks expand ω = withArray "[a]" $ mapM (uncurry (parseTrack ω)) . track
 data Album = Album {year ∷ Int, artist ∷ Text, album ∷ Text, tracks ∷ [Track]}
   deriving (Show)
 
-decode' ∷ Bool → [Char] → Maybe Album
-decode' expand = decodeWith json (parse parser) . BS.fromStrict . U.fromString
-  where parser = withObject "album" $ \α → do
+decode' ∷ Bool → [Char] → Either String Album
+decode' expand = note "error decoding JSON" . decoder
+  where decoder = decodeWith json (parse parser) . BS.fromStrict . U.fromString
+        parser  = withObject "album" $ \α → do
            year   ← α .:? "year" .!= 0
            artist ← parseArtist =<< (α .: "artists")
            album  ← formatTitle <$> (α .: "title")
