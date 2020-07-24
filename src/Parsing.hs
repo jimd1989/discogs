@@ -41,7 +41,7 @@ filterTracks expand (α:ω)          = α : (filterTracks expand ω)
 
 parseTrack ∷ Text → Int → Value → Parser Track
 parseTrack ω n = withObject "track" $ \α → do
-  title    ← α .: "title"
+  title    ← formatTitle <$> (α .: "title")
   position ← (position n) <$> (α .: "position")
   artist   ← (parseArtist =<< (α .: "artists")) <|> (pure ω)
   return (artist, position, title)
