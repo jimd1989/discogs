@@ -8,8 +8,11 @@ import Data.Tuple (curry)
 dyfork ∷ (Monad m, Monad n) ⇒ (a → b → c) → m (n a) → m (n b) → m (n c)
 dyfork = liftM2 . liftM2
 
+run ∷ [a] → [Int]
+run = curry range 1 . length
+
 enumerate ∷ [a] → [(Int, a)]
-enumerate = flip zip <*> (curry range 1 . length)
+enumerate = flip zip <*> run
 
 wrap ∷ String → String
 wrap α = "\"" <> α <> "\""

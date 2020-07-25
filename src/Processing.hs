@@ -1,9 +1,11 @@
 module Processing where
 
+import Control.Monad (join, liftM2)
 import Data.List (intercalate, transpose)
+import Data.Map (elems, keys, fromListWith)
 import Data.Text (unpack)
 import FormatTrack (Position)
-import Helpers (fst', snd', thd', wrap)
+import Helpers (fst', run, snd', thd', wrap)
 import Parsing (Album(..), Track)
 
 normalize ∷ Int → Int → [Int] → [Int]
@@ -15,10 +17,14 @@ normalize m l (α:ω) | α > m     = α : normalize α α ω
                     | l < m     = m : (normalize m l ω)
                     | otherwise = α : (normalize m l ω)
 
-absolute ∷ Bool → [Position] → [Position] 
-absolute False α = α
-absolute True  α = zip (replicate ω 1) [1 .. ω]
-  where ω = length α
+absolute ∷ [Position] → [Position]
+absolute = liftM2 zip (flip replicate 1 . length) run
+
+fixTracks ∷ [Position] → [Position]
+fixTracks = join . fixRest . group . fixDiscs
+  where fixDiscs = liftM2 zip (normalize 0 0 . map fst) (map (pure . snd))
+        group    = fromListWith (++)
+        fixRest  = liftM2 (zipWith (\α ω → map (α,) ω)) keys (map run . elems)
 
 various ∷ String → String
 various α = if (α == "Various") then "Various Artists" else α
@@ -32,8 +38,9 @@ commands α ω (Album {year, artist, album, tracks}) = cmds
     album' = "-A " <> (wrap $ unpack album)
     genre = "-G " <> (wrap α)
     constants = space ["eyeD3", year', albumArtist, album', genre]
-    positions = absolute ω $ map snd' tracks
-    discs = map (("-d " <>) . show) $ normalize 0 0 $ map fst positions
+    tracks' = map snd' tracks
+    positions = if ω then absolute tracks' else fixTracks tracks'
+    discs = map (("-d " <>) . show . fst) positions
     nums = map (("-n " <>) . show . snd) positions
     artists = map (("-a " <>) . wrap . unpack . fst') tracks
     titles = map (("-t " <>) . wrap . unpack . thd') tracks

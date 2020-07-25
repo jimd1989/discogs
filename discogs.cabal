@@ -1,10 +1,10 @@
 cabal-version: 1.12
 
--- This file has been generated from package.yaml by hpack version 0.31.2.
+-- This file has been generated from package.yaml by hpack version 0.33.0.
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 2a32dafef8501914513affd429204eaf1b8f544ef185ac387dd227ea045654e6
+-- hash: c2e104aa8587d2f76f61007e5a6af743acf97abcfad8ece9579344c2650c5d1e
 
 name:           discogs
 version:        0.1.0.0
@@ -37,7 +37,7 @@ library
       Paths_discogs
   hs-source-dirs:
       src
-  default-extensions: DeriveGeneric NamedFieldPuns OverloadedStrings RecordWildCards UnicodeSyntax
+  default-extensions: DeriveGeneric NamedFieldPuns OverloadedStrings RecordWildCards TupleSections UnicodeSyntax
   build-depends:
       aeson
     , base >=4.7 && <5
@@ -59,7 +59,7 @@ executable discogs-exe
       Paths_discogs
   hs-source-dirs:
       app
-  default-extensions: DeriveGeneric NamedFieldPuns OverloadedStrings RecordWildCards UnicodeSyntax
+  default-extensions: DeriveGeneric NamedFieldPuns OverloadedStrings RecordWildCards TupleSections UnicodeSyntax
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       aeson
@@ -84,7 +84,7 @@ test-suite discogs-test
       Paths_discogs
   hs-source-dirs:
       test
-  default-extensions: DeriveGeneric NamedFieldPuns OverloadedStrings RecordWildCards UnicodeSyntax
+  default-extensions: DeriveGeneric NamedFieldPuns OverloadedStrings RecordWildCards TupleSections UnicodeSyntax
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       aeson
