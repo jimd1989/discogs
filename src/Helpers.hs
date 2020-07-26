@@ -14,8 +14,13 @@ run = curry range 1 . length
 enumerate ∷ [a] → [(Int, a)]
 enumerate = flip zip <*> run
 
+quote ∷ String → String
+quote []       = []
+quote ('\"':ω) = '\\' : '\"' : (quote ω)
+quote (α:ω)    = α : (quote ω)
+
 wrap ∷ String → String
-wrap α = "\"" <> α <> "\""
+wrap α = "\"" <> (quote α) <> "\""
 
 fst' ∷ (a, b, c) → a
 fst' (α, _, _) = α
