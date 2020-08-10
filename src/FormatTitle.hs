@@ -30,8 +30,9 @@ checkCaps ∷ String → String
 checkCaps α = if (member α lower) then (map toLower α) else α
 
 checkJoin ∷ String → String
-checkJoin "" = ""
-checkJoin α  = " " <> α <> " "
+checkJoin ""  = ""
+checkJoin "," = ", "
+checkJoin α   = " " <> α <> " "
 
 onWords ∷ ([String] → [String]) → String → String
 onWords f = intercalate " " . filter (/= "") . f . splitOn " "
