@@ -1,5 +1,6 @@
 module Main where
 
+import Control.Applicative (liftA3)
 import Control.Arrow (left)
 import Control.Exception (displayException, try)
 import Control.Error.Util (note)
@@ -11,34 +12,37 @@ import Data.List (find)
 import Data.Maybe (isJust)
 import Data.Tuple (uncurry)
 import GHC.IO.Exception (IOException)
-import Safe (atMay, tailMay)
+import Safe (atMay, atNote, tailMay)
 import System.Environment (getArgs)
 import System.Process (system)
 import Fetching (fetch)
-import Helpers (safeIx, safeTail, wrap)
+import Helpers ((◁), safeIx, safeDrop, wrap)
 import Parsing (Album, decode')
 import Processing (commands)
 
 type Args = [[Char]]
 
 try' ∷ String → IO a → IO (Either String a)
-try' α = fmap (left (const α ∷ IOException → String)) . try
+try' α = left (const α ∷ IOException → String) ◁ try
 
 flag ∷ [Char] → Args → Bool
 flag α = isJust . find (== α)
 
 -- Move to Fetching?
 getInfo ∷ Args → IO (Either String ByteString)
-getInfo = fmap join . sequence . fmap (try' msg . fetch) . url
-  where url = note "valid URL not provided" . safeIx 1
+getInfo = join ◁ sequence . (try' msg . fetch) ◁ url
+  where url = safeIx "URL not provided" 1
         msg = "error fetching from Discogs"
 
+-- Need data structure for all args
 getCmds ∷ Args → Bool → Either String Album → Either String [String]
-getCmds α absolute ω = commands <$> genre <*> (pure absolute) <*> ω
-  where genre = note "valid genre not provided" $ atMay α 0
+getCmds α absolute ω = liftA3 commands genre (pure absolute) ω
+  where genre = safeIx "genre not provided" 0 α
 
 getFiles ∷ Args → Either String [String]
-getFiles = fmap (map wrap) . note "error getting files" . (safeTail <=< safeTail)
+getFiles = wrapInQuotes ◁ getFileArgs
+  where getFileArgs  = safeDrop "files not provided" 2
+        wrapInQuotes = map wrap
 
 runCmds ∷ [String] → [String] → IO ()
 runCmds α ω = mapM_ (uncurry run) (zip α ω)

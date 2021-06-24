@@ -1,11 +1,13 @@
 module Helpers where
 
-import Control.Monad (liftM2)
+import Control.Error.Util (note)
+import Control.Monad ((<=<), liftM2)
 import Data.Function (flip)
 import Data.Ix (range)
 import Data.Maybe (Maybe)
+import Data.List (tails)
 import Data.Tuple (curry)
-import Safe (atMay, tailMay)
+import Safe (atMay, atNote, tailMay)
 
 dyfork ∷ (Monad m, Monad n) ⇒ (a → b → c) → m (n a) → m (n b) → m (n c)
 dyfork = liftM2 . liftM2
@@ -33,8 +35,16 @@ snd' (_, α, _) = α
 thd' ∷ (a, b, c) → c
 thd' (_, _, α) = α
 
-safeIx ∷ Int → [a] → Maybe a
-safeIx = flip atMay
 
-safeTail ∷ [a] → Maybe [a]
-safeTail = tailMay
+safeIx ∷ String → Int → [a] → Either String a
+safeIx α ω = note α . flip atMay ω
+
+safeDrop ∷ String → Int → [a] → Either String [a]
+safeDrop α ω = safeIx α ω . tails
+
+f ◁ g = fmap f . g
+infixr 9 ◁
+
+f ◀ g = f <=< g
+infixr 1 ◀
+
