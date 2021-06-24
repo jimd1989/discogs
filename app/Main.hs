@@ -4,6 +4,7 @@ import Control.Arrow (left)
 import Control.Exception (displayException, try)
 import Control.Error.Util (note)
 import Control.Monad ((<=<), join, liftM2)
+import Data.ByteString.Lazy (ByteString)
 import Data.Function (const)
 import Data.Functor (($>))
 import Data.List (find)
@@ -14,7 +15,7 @@ import Safe (atMay, tailMay)
 import System.Environment (getArgs)
 import System.Process (system)
 import Fetching (fetch)
-import Helpers (wrap)
+import Helpers (safeIx, safeTail, wrap)
 import Parsing (Album, decode')
 import Processing (commands)
 
@@ -26,9 +27,10 @@ try' α = fmap (left (const α ∷ IOException → String)) . try
 flag ∷ [Char] → Args → Bool
 flag α = isJust . find (== α)
 
-getInfo ∷ Args → IO (Either String String)
+-- Move to Fetching?
+getInfo ∷ Args → IO (Either String ByteString)
 getInfo = fmap join . sequence . fmap (try' msg . fetch) . url
-  where url = note "valid URL not provided" . flip atMay 1
+  where url = note "valid URL not provided" . safeIx 1
         msg = "error fetching from Discogs"
 
 getCmds ∷ Args → Bool → Either String Album → Either String [String]
@@ -36,12 +38,13 @@ getCmds α absolute ω = commands <$> genre <*> (pure absolute) <*> ω
   where genre = note "valid genre not provided" $ atMay α 0
 
 getFiles ∷ Args → Either String [String]
-getFiles = fmap (map wrap) . note "error getting files" . (tailMay <=< tailMay)
+getFiles = fmap (map wrap) . note "error getting files" . (safeTail <=< safeTail)
 
 runCmds ∷ [String] → [String] → IO ()
 runCmds α ω = mapM_ (uncurry run) (zip α ω)
   where run α ω = system (α <> " " <> ω) $> ()
 
+-- Awful! Rewrite
 main ∷ IO ()
 main = do
   args  ← getArgs

@@ -3,7 +3,9 @@ module Helpers where
 import Control.Monad (liftM2)
 import Data.Function (flip)
 import Data.Ix (range)
+import Data.Maybe (Maybe)
 import Data.Tuple (curry)
+import Safe (atMay, tailMay)
 
 dyfork ∷ (Monad m, Monad n) ⇒ (a → b → c) → m (n a) → m (n b) → m (n c)
 dyfork = liftM2 . liftM2
@@ -30,3 +32,9 @@ snd' (_, α, _) = α
 
 thd' ∷ (a, b, c) → c
 thd' (_, _, α) = α
+
+safeIx ∷ Int → [a] → Maybe a
+safeIx = flip atMay
+
+safeTail ∷ [a] → Maybe [a]
+safeTail = tailMay
