@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 5a3b47064168ea056a01a82cdc7a1dc8f36176889e7e7115d5d4bd3bfdbf393c
+-- hash: a03d6b3fc741c725c043df6d999e1efbb7b015caab75ec6f951bb55d5ed1eb5a
 
 name:           discogs
 version:        0.1.0.0
@@ -27,6 +27,7 @@ source-repository head
 
 library
   exposed-modules:
+      Arguments
       Fetching
       FormatTitle
       FormatTrack
