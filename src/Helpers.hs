@@ -5,7 +5,7 @@ import Control.Error.Util (note)
 import Control.Monad ((<=<))
 import Data.Function (flip)
 import Data.Ix (range)
-import Data.List (tails)
+import Data.List (intercalate, tails)
 import Data.Tuple (curry)
 import Safe (atMay)
 
@@ -30,6 +30,10 @@ quote (α:ω)    = α : (quote ω)
 wrap ∷ String → String
 wrap α = "\"" <> (quote α) <> "\""
 
+spaceOut ∷ [String] → String
+spaceOut = intercalate " "
+
+-- Can this tuples be avoided?
 fst' ∷ (a, b, c) → a
 fst' (α, _, _) = α
 

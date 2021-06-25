@@ -5,6 +5,7 @@ import Data.List (elem)
 import System.Environment (getArgs)
 import Helpers ((◁), (⊙), fork, safeIx, safeDrop, wrap)
 
+-- make bool flags isX ?
 data Flags = Flags { absolute ∷ Bool, expand ∷ Bool }
 
 data Args = Args {

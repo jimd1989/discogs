@@ -8,6 +8,7 @@ import Data.Maybe (isJust)
 import Data.Text (Text, unpack)
 import Helpers (fork)
 
+-- Turn this into proper Data?
 type Position = (Int, Int)
 
 letterDisc ∷ Char → Int
