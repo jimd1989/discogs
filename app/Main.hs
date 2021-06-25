@@ -13,6 +13,7 @@ import Parsing (decode')
 import Processing (commands)
 
 -- ID3 tagging takes place with external call to `eyeD3` for now
+-- Deal with exceptions as Either here?
 runCmds ∷ [String] → [String] → IO ()
 runCmds cmds files = traverse_ (uncurry runCmd) (zip cmds files)
   where runCmd cmd file = system (cmd ◇ " " ◇ file) $> ()

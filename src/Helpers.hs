@@ -16,11 +16,11 @@ dyfork ∷ (Applicative m, Applicative n) ⇒
          (a → b → c) → m (n a) → m (n b) → m (n c)
 dyfork = fork . fork
 
-run ∷ [a] → [Int]
-run = curry range 1 . length
+indices ∷ [a] → [Int]
+indices = curry range 1 . length
 
 enumerate ∷ [a] → [(Int, a)]
-enumerate = flip zip ● run
+enumerate = flip zip ● indices
 
 quote ∷ String → String
 quote []       = []
@@ -68,3 +68,7 @@ infixl 4 ●
 -- Digraph Dw
 α ◇ ω = α <> ω
 infixr 5 ◇
+
+-- Digraph !=
+α ≠ ω = α /= ω
+infix 4 ≠

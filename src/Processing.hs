@@ -6,10 +6,11 @@ import Data.List (transpose)
 import Data.Map (elems, keys, fromListWith)
 import Data.Text (unpack)
 import FormatTrack (Position)
-import Helpers ((◇), fork, fst', run, snd', spaceOut, thd', wrap)
+import Helpers ((◇), fork, fst', indices, snd', spaceOut, thd', wrap)
 import Parsing (Album(..), Track)
 
 -- Ugly, rewrite with better names
+-- Normalize resets the disc numbers
 normalize ∷ Int → Int → [Int] → [Int]
 normalize _ _ []    = []
 normalize m l (α:ω) | α > m     = α : normalize α α ω
@@ -21,14 +22,14 @@ normalize m l (α:ω) | α > m     = α : normalize α α ω
 
 -- At least rename `run`. Rename function too.
 absolute ∷ [Position] → [Position]
-absolute = fork zip (flip replicate 1 . length) run
+absolute = fork zip (flip replicate 1 . length) indices
 
 -- Ugly, rewrite
 fixTracks ∷ [Position] → [Position]
 fixTracks = join . fixRest . group . fixDiscs
   where fixDiscs = fork zip (normalize 0 0 . map fst) (map (pure . snd))
         group    = fromListWith (++)
-        fixRest  = fork (zipWith (\α ω → map (α,) ω)) keys (map run . elems)
+        fixRest  = fork (zipWith (\α ω → map (α,) ω)) keys (map indices . elems)
 
 vaCheck ∷ String → String
 vaCheck "Various" = "Various Artists"
