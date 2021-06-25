@@ -15,6 +15,7 @@ import GHC.IO.Exception (IOException)
 import Safe (atMay, atNote, tailMay)
 import System.Environment (getArgs)
 import System.Process (system)
+import Arguments (parseArgs, url)
 import Fetching (fetch)
 import Helpers ((◁), safeIx, safeDrop, wrap)
 import Parsing (Album, decode')
@@ -51,6 +52,7 @@ runCmds α ω = mapM_ (uncurry run) (zip α ω)
 -- Awful! Rewrite
 main ∷ IO ()
 main = do
+  aaa   ← parseArgs
   args  ← getArgs
   rest  ← pure $ filter (not . flip elem ["-a", "-e"]) args
   info  ← getInfo rest

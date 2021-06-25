@@ -1,11 +1,15 @@
 module Fetching where
 
+import Control.Arrow (left)
+import Control.Exception (Exception, try)
 import Data.ByteString.Lazy (ByteString)
 import Data.List (last)
 import Data.List.Split (splitOn)
+import GHC.IO.Exception (IOException)
 import Network.HTTP.Conduit (Request, httpLbs, newManager, parseRequest, 
                              requestHeaders, responseBody, tlsManagerSettings)
 import System.Process (readProcess)
+import Helpers ((◁))
 
 -- Overloaded strings, no types declared
 url = "https://api.discogs.com/releases/"
@@ -25,3 +29,9 @@ fetch α = do
   manager  ← newManager tlsManagerSettings
   response ← httpLbs request manager
   pure $ responseBody response
+
+-- This will eventually be the external function of this module 
+fetch' ∷ String → IO (Either String ByteString)
+fetch' = annotateErr ◁ try . fetch
+  where annotateErr = left (const errMsg ∷ IOException → String)
+        errMsg      = "error fetching from Discogs"
