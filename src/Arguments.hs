@@ -1,12 +1,11 @@
 module Arguments where
 
-import Control.Monad (liftM4, liftM2)
+import Control.Monad (liftM4)
 import Data.List (elem)
-import Data.List.Split (splitOn)
 import System.Environment (getArgs)
-import Helpers ((◁), (⊙), fork, safeIx, safeDrop)
+import Helpers ((◁), (⊙), fork, safeIx, safeDrop, wrap)
 
-data Flags = Flags { absolute ∷ Bool, split ∷ Bool }
+data Flags = Flags { absolute ∷ Bool, expand ∷ Bool }
 
 data Args = Args {
   flags ∷ Flags,
@@ -25,9 +24,9 @@ makeArgs ∷ [String] → Either String Args
 makeArgs α = liftM4 Args (pure flags) url genre files
   where flags       = makeFlags α
         allButFlags = filter (not . flip elem validFlags) α
-        url         = safeIx "url not provided" 1 allButFlags
-        genre       = safeIx "genre not provided" 2 allButFlags
-        files       = safeDrop "files not provided" 2 allButFlags
+        url         = safeIx "url not provided" 0 allButFlags
+        genre       = safeIx "genre not provided" 1 allButFlags
+        files       = map wrap ⊙ safeDrop "files not provided" 2 allButFlags
 
 parseArgs ∷ IO (Either String Args)
 parseArgs = makeArgs ⊙ getArgs

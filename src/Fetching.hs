@@ -23,15 +23,14 @@ makeRequest ∷ String → IO Request
 makeRequest = fmap addHeaders . parseRequest . makeUrl
   where addHeaders α = α { requestHeaders = headers}
 
-fetch ∷ String → IO ByteString
-fetch α = do
+fetchFromDiscogs ∷ String → IO ByteString
+fetchFromDiscogs α = do
   request  ← makeRequest α
   manager  ← newManager tlsManagerSettings
   response ← httpLbs request manager
   pure $ responseBody response
 
--- This will eventually be the external function of this module 
-fetch' ∷ String → IO (Either String ByteString)
-fetch' = annotateErr ◁ try . fetch
+fetch ∷ String → IO (Either String ByteString)
+fetch = annotateErr ◁ try . fetchFromDiscogs
   where annotateErr = left (const errMsg ∷ IOException → String)
         errMsg      = "error fetching from Discogs"

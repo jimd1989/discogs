@@ -5,10 +5,9 @@ import Control.Error.Util (note)
 import Control.Monad ((<=<))
 import Data.Function (flip)
 import Data.Ix (range)
-import Data.Maybe (Maybe)
 import Data.List (tails)
 import Data.Tuple (curry)
-import Safe (atMay, atNote, tailMay)
+import Safe (atMay)
 
 fork :: Applicative f ⇒ (a → b → c) → f a → f b → f c
 fork = liftA2
@@ -21,7 +20,7 @@ run ∷ [a] → [Int]
 run = curry range 1 . length
 
 enumerate ∷ [a] → [(Int, a)]
-enumerate = flip zip <*> run
+enumerate = flip zip ● run
 
 quote ∷ String → String
 quote []       = []
@@ -57,3 +56,11 @@ infixr 1 ◀
 -- Digraph 0.
 f ⊙ g = f <$> g
 infixl 4 ⊙
+
+-- Digraph 0M
+f ● g = f <*> g
+infixl 4 ●
+
+-- Digraph Dw
+α ◇ ω = α <> ω
+infixr 5 ◇

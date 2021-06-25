@@ -1,12 +1,12 @@
 module FormatTrack where
 
 import Control.Arrow ((&&&), (***))
-import Control.Monad (liftM2)
 import Data.Char (isLetter, isNumber, toUpper)
 import Data.List (find, head, tail)
 import Data.List.Split (splitOn)
 import Data.Maybe (isJust)
 import Data.Text (Text, unpack)
+import Helpers (fork)
 
 type Position = (Int, Int)
 
@@ -31,13 +31,13 @@ isVinyl ∷ String → Bool
 isVinyl = or . map isLetter
 
 multiDisc ∷ String → Position
-multiDisc = liftM2 (,) head (!! 1) . map read . splitOn "-" . filter (/= ' ')
+multiDisc = fork (,) head (!! 1) . map read . splitOn "-" . filter (/= ' ')
 
 isMultiDisc ∷ String → Bool
 isMultiDisc = isJust . find (== '-')
 
 isSingleDisc ∷ String → Bool
-isSingleDisc = liftM2 (&&) (not . (== 0) . length) (and . map isNumber)
+isSingleDisc = fork (&&) (not . (== 0) . length) (and . map isNumber)
 
 singleDisc ∷ String → Position
 singleDisc α = (1, read α)
