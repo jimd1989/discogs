@@ -47,3 +47,8 @@ formatArtist α ω = (artist α) ◇ (joiner ω)
 
 formatTitle ∷ Text → Text
 formatTitle = pack . onWords (onRest $ map checkCaps) . unpack
+
+-- new
+formatTitle' ∷ Text → String
+formatTitle' = onWords (onRest $ map checkCaps) . unpack
+
