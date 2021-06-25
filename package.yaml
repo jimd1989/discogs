@@ -25,6 +25,8 @@ dependencies:
 - bytestring
 - containers
 - errors
+- http-conduit
+- mtl
 - process
 - safe
 - split

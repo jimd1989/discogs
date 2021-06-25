@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: c2e104aa8587d2f76f61007e5a6af743acf97abcfad8ece9579344c2650c5d1e
+-- hash: 1dbbb9d41f2082af76bea323d2bcdfe9dd4b717e7545bf0d95578c08e3e80304
 
 name:           discogs
 version:        0.1.0.0
@@ -27,6 +27,7 @@ source-repository head
 
 library
   exposed-modules:
+      Arguments
       Fetching
       FormatTitle
       FormatTrack
@@ -44,6 +45,8 @@ library
     , bytestring
     , containers
     , errors
+    , http-conduit
+    , mtl
     , process
     , safe
     , split
@@ -68,6 +71,8 @@ executable discogs-exe
     , containers
     , discogs
     , errors
+    , http-conduit
+    , mtl
     , process
     , safe
     , split
@@ -93,6 +98,8 @@ test-suite discogs-test
     , containers
     , discogs
     , errors
+    , http-conduit
+    , mtl
     , process
     , safe
     , split

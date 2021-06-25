@@ -1,6 +1,6 @@
 # discogs
 
-A glorified shell script that tags an album's files using the Discogs API. Requires `curl` and `eyeD3`. I found native Haskell libraries for this task to be insufficient, and I'm not wasting any more of my life implementing them.
+A glorified shell script that tags an album's files using the Discogs API. Requires `eyeD3` in order to do the actual tagging. Please install it through your package manager. Maybe one day I will implement ID3 manipulation natively.
 
 ## Building
 

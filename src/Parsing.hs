@@ -6,8 +6,7 @@ import Control.Monad (mapM)
 import Data.Aeson ((.:), (.:?), (.!=), json, withArray, withObject)
 import Data.Aeson.Parser (decodeWith)
 import Data.Aeson.Types (Parser, Value(..), parse)
-import qualified Data.ByteString.Lazy as BS
-import qualified Data.ByteString.UTF8 as U
+import Data.ByteString.Lazy (ByteString)
 import Data.Either (Either)
 import qualified Data.HashMap.Strict as HM
 import Data.Maybe (fromMaybe)
@@ -53,9 +52,10 @@ parseTracks expand ω = withArray "[a]" $ mapM (uncurry (parseTrack ω)) . track
 data Album = Album {year ∷ Int, artist ∷ Text, album ∷ Text, tracks ∷ [Track]}
   deriving (Show)
 
-decode' ∷ Bool → String → Either String Album
+-- Confirm UTF-8
+decode' ∷ Bool → ByteString → Either String Album
 decode' expand = note "error decoding JSON" . decoder
-  where decoder = decodeWith json (parse parser) . BS.fromStrict . U.fromString
+  where decoder = decodeWith json (parse parser)
         parser  = withObject "album" $ \α → do
            year   ← α .:? "year" .!= 0
            artist ← parseArtist =<< (α .: "artists")
