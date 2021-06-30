@@ -37,11 +37,13 @@ library
       Datasource.Models.AlbumResponse
       Datasource.Models.ArtistResponse
       Datasource.Models.TrackResponse
+      Output.Models.EyeD3Parameter
   other-modules:
       Paths_discogs
   hs-source-dirs:
       src
       src/datasource/models
+      src/output/models
   default-extensions: DeriveAnyClass DeriveGeneric NamedFieldPuns OverloadedStrings RecordWildCards TupleSections UnicodeSyntax
   build-depends:
       aeson

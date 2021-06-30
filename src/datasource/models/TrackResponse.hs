@@ -1,13 +1,12 @@
 module Datasource.Models.TrackResponse where
 
 import Data.Aeson (FromJSON)
-import Data.Text (Text)
 import GHC.Generics (Generic)
 import Datasource.Models.ArtistResponse (ArtistResponse)
 
 data TrackResponse = TrackResponse {
   artists ∷ Maybe [ArtistResponse],
-  position ∷ Text,
+  position ∷ String,
   sub_tracks ∷ Maybe [TrackResponse],
-  title ∷ Text
+  title ∷ String
 } deriving (Generic, FromJSON, Show)

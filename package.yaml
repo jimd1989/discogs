@@ -39,6 +39,7 @@ library:
   source-dirs:
     - src
     - src/datasource/models
+    - src/output/models
 
 default-extensions:
 - DeriveAnyClass
