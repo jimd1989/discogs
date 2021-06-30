@@ -22,7 +22,7 @@ isMultiDisc = isJust . find (== '-')
 
 discNum ∷ String → Either String String
 discNum α | isVinyl α     = pure $ filter isLetter α
-          | isMultiDisc α = safeIx "split error" 1 $ splitOn "-" α
+          | isMultiDisc α = safeIx "split error" 0 $ splitOn "-" α
 discNum α                 = pure "1"
 
 singleTrack ∷ TrackResponse → Either String [String]
@@ -43,5 +43,5 @@ transformPositions ∷ Bool → AlbumResponse → Either String [[EyeD3Parameter
 transformPositions expand = fork transpose discs tracks ◁ splitByDiscs expand
   where discs          = DiscNumParameter ◁ uncurry repeatDisc ◀ enumerate
         repeatDisc α ω = replicate (length ω) α
-        tracks         = TrackNumParameter ◁ (indices =<<)
+        tracks         = (TrackNumParameter . succ) ◁ (indices =<<)
         transpose      = zipWith (\α ω → [α, ω])

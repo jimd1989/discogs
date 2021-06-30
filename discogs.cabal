@@ -38,8 +38,12 @@ library
       Datasource.Models.ArtistResponse
       Datasource.Models.TrackResponse
       Output.Models.EyeD3Parameter
-      Output.Transformers.TrackResponseTransformer
+      Output.Transformers.AlbumTitleTransformer
+      Output.Transformers.ArtistResponseTransformer
       Output.Transformers.PositionsTransformer
+      Output.Transformers.TextTransformer
+      Output.Transformers.TrackTitleTransformer
+      Output.Transformers.TrackResponseTransformer
   other-modules:
       Paths_discogs
   hs-source-dirs:
