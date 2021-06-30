@@ -1,4 +1,6 @@
 -- FormatPosition instead ?
+-- This should be understood as a track position decoder instead!
+-- Make the file tree reflect this
 module FormatTrack where
 
 import Control.Applicative (liftA2)

@@ -36,9 +36,12 @@ dependencies:
 - vector
 
 library:
-  source-dirs: src
+  source-dirs:
+    - src
+    - src/datasource/models
 
 default-extensions:
+- DeriveAnyClass
 - DeriveGeneric
 - NamedFieldPuns
 - OverloadedStrings

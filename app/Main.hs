@@ -9,7 +9,7 @@ import System.Process (system)
 import Arguments (absolute, expand, files, flags, genre, parseArgs, url)
 import Fetching (fetch)
 import Helpers ((◁), (◇))
-import Parsing (decode')
+import Parsing (decode', decode'')
 import Processing (commands)
 
 -- ID3 tagging takes place with external call to `eyeD3` for now
@@ -22,9 +22,12 @@ runProgram ∷ IO (Either String ())
 runProgram = runExceptT $ do
   args     ← ExceptT parseArgs
   response ← ExceptT $ fetch $ url args
-  album    ← liftEither $ decode' (expand $ flags args) response
-  cmds     ← pure $ commands (genre args) (absolute $ flags args) album
-  lift     $ runCmds cmds (files args)
+  newAlbum ← liftEither $ decode'' response
+  _        ← pure $ putStrLn $ show newAlbum
+  lift $ putStrLn "done"
+--  album    ← liftEither $ decode' (expand $ flags args) response
+--  cmds     ← pure $ commands (genre args) (absolute $ flags args) album
+--  lift     $ runCmds cmds (files args)
 
 main ∷ IO ()
 main = runProgram >>= putStrLn ||| pure

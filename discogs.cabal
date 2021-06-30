@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 1dbbb9d41f2082af76bea323d2bcdfe9dd4b717e7545bf0d95578c08e3e80304
+-- hash: 676f6c17565866dcaa8c943911fb0f2575a3668b13184dbb345ce50bbe5a02a0
 
 name:           discogs
 version:        0.1.0.0
@@ -34,11 +34,15 @@ library
       Helpers
       Parsing
       Processing
+      Datasource.Models.AlbumResponse
+      Datasource.Models.ArtistResponse
+      Datasource.Models.TrackResponse
   other-modules:
       Paths_discogs
   hs-source-dirs:
       src
-  default-extensions: DeriveGeneric NamedFieldPuns OverloadedStrings RecordWildCards TupleSections UnicodeSyntax
+      src/datasource/models
+  default-extensions: DeriveAnyClass DeriveGeneric NamedFieldPuns OverloadedStrings RecordWildCards TupleSections UnicodeSyntax
   build-depends:
       aeson
     , base >=4.7 && <5
@@ -62,7 +66,7 @@ executable discogs-exe
       Paths_discogs
   hs-source-dirs:
       app
-  default-extensions: DeriveGeneric NamedFieldPuns OverloadedStrings RecordWildCards TupleSections UnicodeSyntax
+  default-extensions: DeriveAnyClass DeriveGeneric NamedFieldPuns OverloadedStrings RecordWildCards TupleSections UnicodeSyntax
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       aeson
@@ -89,7 +93,7 @@ test-suite discogs-test
       Paths_discogs
   hs-source-dirs:
       test
-  default-extensions: DeriveGeneric NamedFieldPuns OverloadedStrings RecordWildCards TupleSections UnicodeSyntax
+  default-extensions: DeriveAnyClass DeriveGeneric NamedFieldPuns OverloadedStrings RecordWildCards TupleSections UnicodeSyntax
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       aeson
