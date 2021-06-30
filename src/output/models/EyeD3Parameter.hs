@@ -2,31 +2,21 @@ module Output.Models.EyeD3Parameter where
 
 import Helpers ((◇), wrap)
 
-data Flag = ArtistFlag
-          | AlbumArtistFlag 
-          | AlbumTitleFlag
-          | DiscNumFlag
-          | GenreFlag 
-          | TrackNumFlag
-          | TrackTitleFlag
-          | YearFlag 
-
-instance Show Flag where
-  show ArtistFlag      = "-a "
-  show AlbumArtistFlag = "-A "
-  show DiscNumFlag     = "-d "
-  show GenreFlag       = "-G "
-  show TrackNumFlag    = "-n "
-  show TrackTitleFlag  = "-t "
-  show YearFlag        = "-Y "
-
-data EyeD3Parameter = EyeD3Parameter {
-  flag ∷ Flag,
-  value ∷ String
-}
+-- Should all be strings?
+data EyeD3Parameter = ArtistParameter       String
+                    | AlbumArtistParameter  String
+                    | AlbumTitleParameter   String
+                    | DiscNumParameter      Int
+                    | GenreParameter        String
+                    | TrackNumParameter     Int
+                    | TrackTitleParameter   String
+                    | YearParameter         Int
 
 instance Show EyeD3Parameter where
-  show EyeD3Parameter{ flag = DiscNumFlag, value } = (show DiscNumFlag) ◇ value
-  show EyeD3Parameter{ flag = TrackNumFlag, value} = (show TrackNumFlag) ◇ value
-  show EyeD3Parameter{ flag = YearFlag, value }    = (show YearFlag) ◇ value
-  show EyeD3Parameter{ flag, value }               = (show flag) ◇ (wrap value)
+  show (ArtistParameter      α) = "-a " ◇ (wrap α)
+  show (AlbumArtistParameter α) = "-A " ◇ (wrap α)
+  show (DiscNumParameter     α) = "-d " ◇ (show α)
+  show (GenreParameter       α) = "-G " ◇ (wrap α)
+  show (TrackNumParameter    α) = "-n " ◇ (show α)
+  show (TrackTitleParameter  α) = "-t " ◇ (wrap α)
+  show (YearParameter        α) = "-Y " ◇ (show α)

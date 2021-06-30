@@ -26,6 +26,7 @@ dependencies:
 - containers
 - errors
 - http-conduit
+- lens
 - mtl
 - process
 - safe
@@ -40,6 +41,7 @@ library:
     - src
     - src/datasource/models
     - src/output/models
+    - src/output/transformers
 
 default-extensions:
 - DeriveAnyClass
