@@ -6,6 +6,9 @@ import Control.Monad ((<=<))
 import Data.Function (flip)
 import Data.Ix (range)
 import Data.List (intercalate, tails)
+import Data.List.Split (splitOn)
+import qualified Data.List.NonEmpty as NE
+import Data.Maybe (fromMaybe)
 import Data.Tuple (curry)
 import Safe (atMay)
 
@@ -19,8 +22,11 @@ dyfork = fork . fork
 indices ∷ [a] → [Int]
 indices = curry range 1 . length
 
-enumerate ∷ [a] → [(Int, a)]
-enumerate = flip zip ● indices
+enumerate' ∷ [a] → [(Int, a)]
+enumerate' = flip zip ● indices
+
+enumerate ∷ [a] → [(a, Int)]
+enumerate = zip ● indices
 
 quote ∷ String → String
 quote []       = []
@@ -48,6 +54,18 @@ safeIx α ω = note α . flip atMay ω
 
 safeDrop ∷ String → Int → [a] → Either String [a]
 safeDrop α ω = safeIx α ω . tails
+
+safeSplit ∷ Eq a ⇒ [a] → [a] → NE.NonEmpty [a]
+safeSplit α ω = fromMaybe (NE.fromList [ω]) (NE.nonEmpty $ splitOn α ω)
+
+safeHead ∷ NE.NonEmpty a → a
+safeHead = NE.head
+
+safeLast ∷ NE.NonEmpty a → a
+safeLast = NE.last
+
+safeHead' ∷ [a] → Either String a
+safeHead' = safeIx "head expected: empty list encountered" 0
 
 -- Digraph Tl
 f ◁ g = fmap f . g

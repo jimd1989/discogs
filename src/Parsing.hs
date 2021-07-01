@@ -16,7 +16,7 @@ import Data.Vector (toList)
 import Datasource.Models.AlbumResponse (AlbumResponse)
 import FormatTitle (formatArtist, formatTitle)
 import FormatTrack (Position, Position', makePosition, position)
-import Helpers ((⊙), (◁), (◇), dyfork, enumerate)
+import Helpers ((⊙), (◁), (◇), dyfork, enumerate')
 
 -- Hopefully lenses will simplify things here
 
@@ -50,7 +50,7 @@ parseTrack aArtist fallbackNum = withObject "track" $ \α → do
 
 parseTracks ∷ Bool → Text → Value → Parser [Track]
 parseTracks expand ω = withArray "[a]" $ mapM (uncurry (parseTrack ω)) . tracks
-  where tracks = enumerate . filterTracks expand . toList
+  where tracks = enumerate' . filterTracks expand . toList
 
 data Album = Album {year ∷ Int, artist ∷ Text, album ∷ Text, tracks ∷ [Track]}
   deriving (Show)

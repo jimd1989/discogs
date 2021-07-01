@@ -6,12 +6,12 @@ import Control.Monad (join)
 import Data.Char (isLetter)
 import Data.List (find, groupBy, zipWith)
 import Data.List.Split (splitOn)
-import Data.Maybe (isJust)
+import Data.Maybe (fromMaybe, isJust)
 import Data.Traversable (traverse)
 import Data.Tuple (uncurry)
 import Datasource.Models.AlbumResponse (AlbumResponse, tracklist)
 import Datasource.Models.TrackResponse (TrackResponse, position, sub_tracks)
-import Helpers ((◁), (◀), enumerate, fork, indices, safeIx)
+import Helpers ((◁), (◀), enumerate, fork, indices, safeHead, safeSplit)
 import Output.Models.EyeD3Parameter (EyeD3Parameter(..))
 
 isVinyl ∷ String → Bool
@@ -20,28 +20,26 @@ isVinyl = or . map isLetter
 isMultiDisc ∷ String → Bool
 isMultiDisc = isJust . find (== '-')
 
-discNum ∷ String → Either String String
-discNum α | isVinyl α     = pure $ filter isLetter α
-          | isMultiDisc α = safeIx "split error" 0 $ splitOn "-" α
-discNum α                 = pure "1"
+fromPosition ∷ String → String
+fromPosition α | isVinyl α     = filter isLetter α
+               | isMultiDisc α = safeHead $ safeSplit "-" α
+fromPosition α                 = "1"
 
-singleTrack ∷ TrackResponse → Either String [String]
-singleTrack = pure ◁ discNum . position
+fromSingleTrack ∷ TrackResponse → [String]
+fromSingleTrack = pure . fromPosition . position
 
-subTracks ∷ TrackResponse → Either String [String]
-subTracks = map (const "1") ◁ note "sub_tracks error" . sub_tracks
+discNums ∷ Bool → TrackResponse → [String]
+discNums False = fromSingleTrack
+discNums True  = fork fromMaybe fromSingleTrack fromSubTracks
+  where fromSubTracks = map (const "1") ◁ sub_tracks
 
-track ∷ Bool → TrackResponse → Either String [String]
-track False α = singleTrack α
-track True  α = subTracks α <|> singleTrack α
-
-splitByDiscs ∷ Bool → AlbumResponse → Either String [[String]]
-splitByDiscs expand = groupBy (==) ◁ join ◁ traverse (track expand) . tracklist
+splitByDiscs ∷ Bool → AlbumResponse → [[String]]
+splitByDiscs expand = groupBy (==) . discNums expand ◀ tracklist
 
 -- 2D matrix of [[DiscNum, TrackNum]]
-transformPositions ∷ Bool → AlbumResponse → Either String [[EyeD3Parameter]]
-transformPositions expand = fork transpose discs tracks ◁ splitByDiscs expand
-  where discs          = DiscNumParameter ◁ uncurry repeatDisc ◀ enumerate
-        repeatDisc α ω = replicate (length ω) α
-        tracks         = (TrackNumParameter . succ) ◁ (indices =<<)
-        transpose      = zipWith (\α ω → [α, ω])
+transformPositions ∷ Bool → AlbumResponse → [[EyeD3Parameter]]
+transformPositions expand = fork transpose discs tracks . splitByDiscs expand
+  where discs      = DiscNumParameter ◁ uncurry repeatDisc ◀ enumerate
+        repeatDisc = replicate . length
+        tracks     = (TrackNumParameter . succ) ◁ (indices =<<)
+        transpose  = zipWith (\α ω → [α, ω])

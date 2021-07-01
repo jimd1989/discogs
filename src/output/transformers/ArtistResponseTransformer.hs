@@ -4,7 +4,7 @@ import Data.List (head, last, tail)
 import Data.List.Split (splitOn)
 import Data.Set (Set, fromList, member)
 import Data.Text (Text, pack, unpack)
-import Helpers ((◇), (≠), fork)
+import Helpers ((◇), (≠), fork, safeIx)
 import Output.Models.EyeD3Parameter (EyeD3Parameter)
 
 tag ∷ Set Char
@@ -14,6 +14,7 @@ isAllInTag ∷ String → Bool
 isAllInTag = and . map (flip member tag)
 
 -- Head is technically unsafe here, as is tail/last ?
+
 isBracketed ∷ String → Bool
 isBracketed = fork (&&) ((== '(') . head) ((== ')') . last)
 
