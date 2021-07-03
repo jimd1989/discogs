@@ -1,6 +1,7 @@
 module Output.Transformers.AlbumResponseTransformer where
 
 import Data.Maybe (fromMaybe)
+import Datasource.Models.Arguments (Flags, expand)
 import Datasource.Models.AlbumResponse (AlbumResponse, artists, title,
                                         tracklist, year)
 import Helpers ((⊙), (◇), fork)
@@ -17,13 +18,14 @@ transformYear = YearParameter . fork fromMaybe (const 0) year
 transformTitle ∷ AlbumResponse → EyeD3Tag
 transformTitle = AlbumTitleParameter . transformText . title 
 
-transformAlbum ∷ Bool → String → AlbumResponse → [String]
-transformAlbum expand specifiedGenre α = showCmd ⊙ zipWith (◇) tracks positions
+transformAlbum ∷ Flags → String → AlbumResponse → [String]
+transformAlbum flags specifiedGenre α = showCmd ⊙ zipWith (◇) tracks positions
   where year        = transformYear α
         genre       = GenreParameter specifiedGenre
         title       = transformTitle α
         albumArtist = transformAlbumArtist $ artists α
         constants   = [Command, year, genre, title, albumArtist]
         artist      = transformArtist $ artists α
-        tracks      = transformTracks expand constants artist =<< tracklist α
-        positions   = transformPositions expand α
+        exp         = expand flags 
+        tracks      = transformTracks exp constants artist =<< tracklist α
+        positions   = transformPositions flags α

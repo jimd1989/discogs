@@ -7,7 +7,7 @@ import Data.Foldable (traverse_)
 import Data.Functor (($>))
 import Data.Tuple (uncurry)
 import System.Process (system)
-import Datasource.Arguments (expand, files, genre, parseArgs, url)
+import Datasource.Models.Arguments (files, flags, genre, parseArgs, url)
 import Datasource.DiscogsRepository (fetch)
 import Helpers ((◁), (◇))
 import Output.Transformers.AlbumResponseTransformer (transformAlbum)
@@ -24,7 +24,7 @@ runProgram = runExceptT $ do
   args     ← ExceptT parseArgs
   response ← ExceptT $ fetch $ url args
   album    ← liftEither $ eitherDecode response
-  cmds     ← pure $ transformAlbum (expand args) (genre args) album
+  cmds     ← pure $ transformAlbum (flags args) (genre args) album
   lift     $ runCmds cmds $ files args
 
 main ∷ IO ()

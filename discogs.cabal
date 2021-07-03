@@ -28,9 +28,9 @@ source-repository head
 library
   exposed-modules:
       Helpers
-      Datasource.Arguments
       Datasource.DiscogsRepository
       Datasource.Models.AlbumResponse
+      Datasource.Models.Arguments
       Datasource.Models.ArtistResponse
       Datasource.Models.TrackResponse
       Output.Models.EyeD3Tag

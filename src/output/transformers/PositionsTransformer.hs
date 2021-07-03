@@ -1,11 +1,13 @@
 module Output.Transformers.PositionsTransformer where
 
+import Control.Arrow ((&&&))
 import Control.Monad (join)
 import Data.Char (isLetter)
 import Data.List (find, groupBy)
 import Data.List.Split (splitOn)
 import Data.Maybe (fromMaybe, isJust)
 import Data.Tuple (uncurry)
+import Datasource.Models.Arguments (Flags(..), absolute, expand)
 import Datasource.Models.AlbumResponse (AlbumResponse, tracklist)
 import Datasource.Models.TrackResponse (TrackResponse, position, sub_tracks)
 import Helpers ((◁), (◀), enumerate, fork, head', iota)
@@ -17,25 +19,27 @@ isVinyl = or . map isLetter
 isMultiDisc ∷ String → Bool
 isMultiDisc = isJust . find (== '-')
 
-fromPosition ∷ String → String
-fromPosition α | isVinyl α     = filter isLetter α
-               | isMultiDisc α = fromMaybe "1" $ head' $ splitOn "-" α
-fromPosition α                 = "1"
+fromPosition ∷ Bool → String → String
+fromPosition True α = "1"
+fromPosition _    α | isVinyl α     = filter isLetter α
+                    | isMultiDisc α = fromMaybe "1" $ head' $ splitOn "-" α
+                    | otherwise     = "1"
 
-fromSingleTrack ∷ TrackResponse → [String]
-fromSingleTrack = pure . fromPosition . position
+fromSingleTrack ∷ Bool → TrackResponse → [String]
+fromSingleTrack abs = pure . fromPosition abs . position
 
-discNums ∷ Bool → TrackResponse → [String]
-discNums False = fromSingleTrack
-discNums True  = fork fromMaybe fromSingleTrack fromSubTracks
+discNums ∷ Bool → Bool → TrackResponse → [String]
+discNums abs True  = fromSingleTrack abs
+discNums abs False = fork fromMaybe (fromSingleTrack abs) fromSubTracks
   where fromSubTracks = map (const "1") ◁ sub_tracks
 
-splitByDiscs ∷ Bool → AlbumResponse → [[String]]
-splitByDiscs expand = groupBy (==) . join . discNums expand ◁ tracklist
+splitByDiscs ∷ Flags → AlbumResponse → [[String]]
+splitByDiscs flags = groupBy (==) . join . discNumsWithFlags ◁ tracklist
+  where discNumsWithFlags = (uncurry discNums) (absolute &&& expand $ flags)
 
 -- 2D matrix of [[DiscNum, TrackNum]]
-transformPositions ∷ Bool → AlbumResponse → [[EyeD3Tag]]
-transformPositions expand = fork transpose tracks discs . splitByDiscs expand
+transformPositions ∷ Flags → AlbumResponse → [[EyeD3Tag]]
+transformPositions flags = fork transpose tracks discs . splitByDiscs flags
   where discs      = DiscNumParameter ◁ uncurry repeatDisc ◀ enumerate
         repeatDisc = replicate . length
         tracks     = TrackNumParameter ◁ (iota =<<)
