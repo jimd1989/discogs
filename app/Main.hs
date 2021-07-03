@@ -16,7 +16,7 @@ import Output.Transformers.AlbumResponseTransformer (transformAlbum)
 -- Deal with exceptions as Either here?
 runCmds ∷ [String] → [String] → IO ()
 runCmds cmds files = traverse_ (uncurry runCmd) (zip cmds files)
-  where runCmd cmd file = system (cmd ◇ " " ◇ file) $> ()
+  where runCmd cmd file = putStrLn (cmd ◇ " " ◇ file) $> ()
 
 runProgram ∷ IO (Either String ())
 runProgram = runExceptT $ do
@@ -24,7 +24,8 @@ runProgram = runExceptT $ do
   response ← ExceptT $ fetch $ url args
   album    ← liftEither $ eitherDecode response
   cmds     ← pure $ transformAlbum (expand args) (genre args) album
-  lift     $ runCmds cmds $ files args
+  lift       $ traverse_ putStrLn (files args)
+  --lift     $ runCmds cmds $ files args
 
 main ∷ IO ()
 main = runProgram >>= putStrLn ||| pure
