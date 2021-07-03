@@ -1,15 +1,17 @@
 module Helpers where
 
 import Control.Applicative (liftA2)
-import Control.Error.Util (note)
+import Control.Error.Util (hush, note)
 import Control.Monad ((<=<))
 import Data.Function (flip)
+import Data.Functor (($>))
 import Data.Ix (range)
 import Data.List (intercalate, tails)
 import Data.List.Split (splitOn)
 import qualified Data.List.NonEmpty as NE
 import Data.List.NonEmpty (NonEmpty(..))
 import Data.Maybe (fromMaybe)
+import Data.Traversable (traverse)
 import Data.Tuple (curry)
 import Safe (atMay)
 
@@ -65,8 +67,14 @@ safeHead = NE.head
 safeLast ∷ NonEmpty a → a
 safeLast = NE.last
 
-safeHead' ∷ [a] → Either String a
-safeHead' = safeIx "head expected: empty list encountered" 0
+head' ∷ [a] → Maybe a
+head' = hush . safeIx "" 0
+
+last' ∷ [a] → Maybe a
+last' α = hush $ safeIx "" (pred $ length α) α
+
+validate ∷ [a → Maybe ()] → a → Maybe a
+validate α ω = traverse (\f → f ω) α $> ω
 
 -- Digraph Tl
 f ◁ g = fmap f . g
