@@ -12,7 +12,7 @@ import Data.Tuple (uncurry)
 import Datasource.Models.AlbumResponse (AlbumResponse, tracklist)
 import Datasource.Models.TrackResponse (TrackResponse, position, sub_tracks)
 import Helpers ((◁), (◀), enumerate, fork, indices, safeHead, safeSplit)
-import Output.Models.EyeD3Parameter (EyeD3Parameter(..))
+import Output.Models.EyeD3Tag (EyeD3Tag(..))
 
 isVinyl ∷ String → Bool
 isVinyl = or . map isLetter
@@ -37,7 +37,7 @@ splitByDiscs ∷ Bool → AlbumResponse → [[String]]
 splitByDiscs expand = groupBy (==) . discNums expand ◀ tracklist
 
 -- 2D matrix of [[DiscNum, TrackNum]]
-transformPositions ∷ Bool → AlbumResponse → [[EyeD3Parameter]]
+transformPositions ∷ Bool → AlbumResponse → [[EyeD3Tag]]
 transformPositions expand = fork transpose discs tracks . splitByDiscs expand
   where discs      = DiscNumParameter ◁ uncurry repeatDisc ◀ enumerate
         repeatDisc = replicate . length

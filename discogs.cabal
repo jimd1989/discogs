@@ -37,12 +37,10 @@ library
       Datasource.Models.AlbumResponse
       Datasource.Models.ArtistResponse
       Datasource.Models.TrackResponse
-      Output.Models.EyeD3Parameter
-      Output.Transformers.AlbumTitleTransformer
+      Output.Models.EyeD3Tag
       Output.Transformers.ArtistResponseTransformer
       Output.Transformers.PositionsTransformer
       Output.Transformers.TextTransformer
-      Output.Transformers.TrackTitleTransformer
       Output.Transformers.TrackResponseTransformer
   other-modules:
       Paths_discogs

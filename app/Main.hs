@@ -11,7 +11,6 @@ import Fetching (fetch)
 import Helpers ((◁), (◇))
 import Parsing (decode', decode'')
 import Processing (commands)
-import Output.Models.EyeD3Parameter (EyeD3Parameter)
 
 -- ID3 tagging takes place with external call to `eyeD3` for now
 -- Deal with exceptions as Either here?

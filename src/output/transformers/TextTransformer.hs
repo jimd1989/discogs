@@ -3,6 +3,7 @@ module Output.Transformers.TextTransformer where
 import Data.Char (toLower)
 import Data.List (init, intercalate)
 import Data.List.Split (splitOn)
+import Data.Maybe (fromMaybe)
 import Data.Set (Set, fromList, member)
 import Helpers ((◁), (◇), (⊙), fork, last')
 
@@ -22,5 +23,5 @@ onTail f = fork (◇) (take 1) (f ◁ drop 1)
 onWords ∷ ([String] → Maybe [String]) → String → Maybe String
 onWords f = intercalate " " ◁ f . splitOn " "
 
---formatTitle ∷ Text → Text
---formatTitle = pack . onWords (onTail $ map checkCaps) . unpack
+transformText ∷ String → String
+transformText = fromMaybe "" . onWords (pure . onTail checkCaps)

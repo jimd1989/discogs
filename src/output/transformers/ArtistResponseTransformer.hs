@@ -8,7 +8,7 @@ import Data.Set (Set, fromList, member)
 import Data.Traversable (traverse)
 import Datasource.Models.ArtistResponse (ArtistResponse(..), join, name)
 import Helpers ((◁), (◀), (⊙), (◇), fork, head', last', validate)
-import Output.Models.EyeD3Parameter (EyeD3Parameter(..))
+import Output.Models.EyeD3Tag (EyeD3Tag(..))
 import Output.Transformers.TextTransformer (checkCaps, onLast, onTail, onWords)
 
 tag ∷ Set Char
@@ -36,14 +36,14 @@ transformArtistResponse α =  (◇ (checkJoin $ join α)) ⊙ (transformName α)
 transformArtists ∷ [ArtistResponse] → Maybe String
 transformArtists = intercalate "" ◁ traverse transformArtistResponse
 
-transformAlbumArtist ∷ [ArtistResponse] → EyeD3Parameter
+transformAlbumArtist ∷ [ArtistResponse] → EyeD3Tag
 transformAlbumArtist α = case transformArtists α of
   (Just "Various") → AlbumArtistParameter "Various Artists"
   (Just ω        ) → AlbumArtistParameter ω
   (Nothing       ) → AlbumArtistParameter ""
 
-transformArtist ∷ EyeD3Parameter → [ArtistResponse] → EyeD3Parameter
-transformArtist α = fromMaybe α . (ArtistParameter ◁ transformArtists)
-
-emptyArtist ∷ EyeD3Parameter
+emptyArtist ∷ EyeD3Tag
 emptyArtist = ArtistParameter ""
+
+transformArtist ∷ [ArtistResponse] → EyeD3Tag
+transformArtist = fromMaybe emptyArtist . (ArtistParameter ◁ transformArtists)
