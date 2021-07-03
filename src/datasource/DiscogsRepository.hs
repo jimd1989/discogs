@@ -45,4 +45,3 @@ debug ∷ String → AlbumResponse
 debug α = case (unsafePerformIO (fetch α) >>= eitherDecode) of
   (Right α) → α
   (Left  _) → AlbumResponse [] "" [] Nothing
-

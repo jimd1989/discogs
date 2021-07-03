@@ -13,10 +13,11 @@ import Helpers ((◁), (◇))
 import Output.Transformers.AlbumResponseTransformer (transformAlbum)
 
 -- ID3 tagging takes place with external call to `eyeD3` for now
+-- All errors are probably eyeD3's fault! Or string escaping.
 -- Deal with exceptions as Either here?
 runCmds ∷ [String] → [String] → IO ()
 runCmds cmds files = traverse_ (uncurry runCmd) (zip cmds files)
-  where runCmd cmd file = putStrLn (cmd ◇ " " ◇ file) $> ()
+  where runCmd cmd file = system (cmd ◇ " " ◇ file) $> ()
 
 runProgram ∷ IO (Either String ())
 runProgram = runExceptT $ do
@@ -24,8 +25,7 @@ runProgram = runExceptT $ do
   response ← ExceptT $ fetch $ url args
   album    ← liftEither $ eitherDecode response
   cmds     ← pure $ transformAlbum (expand args) (genre args) album
-  lift       $ traverse_ putStrLn (files args)
-  --lift     $ runCmds cmds $ files args
+  lift     $ runCmds cmds $ files args
 
 main ∷ IO ()
 main = runProgram >>= putStrLn ||| pure

@@ -19,7 +19,7 @@ isMultiDisc = isJust . find (== '-')
 
 fromPosition ∷ String → String
 fromPosition α | isVinyl α     = filter isLetter α
-               | isMultiDisc α = fromMaybe "1" $ head' $ splitOn " " α
+               | isMultiDisc α = fromMaybe "1" $ head' $ splitOn "-" α
 fromPosition α                 = "1"
 
 fromSingleTrack ∷ TrackResponse → [String]
