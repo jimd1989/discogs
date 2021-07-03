@@ -26,7 +26,6 @@ dependencies:
 - containers
 - errors
 - http-conduit
-- lens
 - mtl
 - process
 - safe
@@ -39,6 +38,7 @@ dependencies:
 library:
   source-dirs:
     - src
+    - src/datasource
     - src/datasource/models
     - src/output/models
     - src/output/transformers

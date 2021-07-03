@@ -1,4 +1,4 @@
-module Arguments where
+module Datasource.Arguments where
 
 import Control.Monad (liftM4)
 import Data.List (drop, elem)

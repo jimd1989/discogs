@@ -3,8 +3,8 @@ module Output.Transformers.AlbumResponseTransformer where
 import Data.Maybe (fromMaybe)
 import Datasource.Models.AlbumResponse (AlbumResponse, artists, title,
                                         tracklist, year)
-import Helpers ((◇), fork)
-import Output.Models.EyeD3Tag (EyeD3Tag(..))
+import Helpers ((⊙), (◇), fork)
+import Output.Models.EyeD3Tag (EyeD3Tag(..), showCmd)
 import Output.Transformers.ArtistResponseTransformer (transformArtist, 
                                                       transformAlbumArtist)
 import Output.Transformers.PositionsTransformer (transformPositions)
@@ -17,13 +17,13 @@ transformYear = YearParameter . fork fromMaybe (const 0) year
 transformTitle ∷ AlbumResponse → EyeD3Tag
 transformTitle = AlbumTitleParameter . transformText . title 
 
---2D matrix of tagging commands to be run against files
-transformAlbum ∷ Bool → AlbumResponse → [[EyeD3Tag]]
-transformAlbum expand α = zipWith (◇) tracks positions
+transformAlbum ∷ Bool → String → AlbumResponse → [String]
+transformAlbum expand specifiedGenre α = showCmd ⊙ zipWith (◇) tracks positions
   where year        = transformYear α
+        genre       = GenreParameter specifiedGenre
         title       = transformTitle α
         albumArtist = transformAlbumArtist $ artists α
-        constants   = [Command, year, title, albumArtist]
+        constants   = [Command, year, genre, title, albumArtist]
         artist      = transformArtist $ artists α
         tracks      = transformTracks expand constants artist =<< tracklist α
         positions   = transformPositions expand α

@@ -1,10 +1,7 @@
 module Output.Transformers.PositionsTransformer where
 
-import Control.Applicative ((<|>))
-import Control.Error.Util (note)
-import Control.Monad (join)
 import Data.Char (isLetter)
-import Data.List (find, groupBy, zipWith)
+import Data.List (find, groupBy)
 import Data.List.Split (splitOn)
 import Data.Maybe (fromMaybe, isJust)
 import Data.Traversable (traverse)
@@ -33,14 +30,15 @@ discNums False = fromSingleTrack
 discNums True  = fork fromMaybe fromSingleTrack fromSubTracks
   where fromSubTracks = map (const "1") ◁ sub_tracks
 
+-- This is wrong
 splitByDiscs ∷ Bool → AlbumResponse → [[String]]
 splitByDiscs expand = groupBy (==) . discNums expand ◀ tracklist
 
 -- 2D matrix of [[DiscNum, TrackNum]]
 transformPositions ∷ Bool → AlbumResponse → [[EyeD3Tag]]
-transformPositions expand = fork transpose discs tracks . splitByDiscs expand
+transformPositions expand = fork transpose tracks discs . splitByDiscs expand
   where discs      = DiscNumParameter ◁ uncurry repeatDisc ◀ enumerate
         repeatDisc = replicate . length
-        tracks     = (TrackNumParameter . succ) ◁ (indices =<<)
+        tracks     = TrackNumParameter ◁ (indices =<<)
         transpose  = zipWith (\α ω → [α, ω])
 

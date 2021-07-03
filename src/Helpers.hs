@@ -1,9 +1,8 @@
 module Helpers where
 
 import Control.Applicative (liftA2)
-import Control.Error.Util (hush, note)
+import Control.Error.Util (note)
 import Control.Monad ((<=<))
-import Data.Function (flip)
 import Data.Functor (($>))
 import Data.Ix (range)
 import Data.List (intercalate, tails)
@@ -18,6 +17,7 @@ import Safe (atMay)
 fork :: Applicative f ⇒ (a → b → c) → f a → f b → f c
 fork = liftA2
 
+-- Counts from 1, change name since "indices" implies 0 ..
 indices ∷ [a] → [Int]
 indices = curry range 1 . length
 

@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: be818b6583195b255ae17b1cfd8e15c7d49bbb57173308c2603d4b1c4749d3df
+-- hash: 2237b7f89557b77823106e5886414d85b2c6ea34ed0dac5dc358701c4280d6f1
 
 name:           discogs
 version:        0.1.0.0
@@ -27,8 +27,8 @@ source-repository head
 
 library
   exposed-modules:
-      Arguments
       Helpers
+      Datasource.Arguments
       Datasource.DiscogsRepository
       Datasource.Models.AlbumResponse
       Datasource.Models.ArtistResponse
@@ -43,6 +43,7 @@ library
       Paths_discogs
   hs-source-dirs:
       src
+      src/datasource
       src/datasource/models
       src/output/models
       src/output/transformers
@@ -54,7 +55,6 @@ library
     , containers
     , errors
     , http-conduit
-    , lens
     , mtl
     , process
     , safe
@@ -81,7 +81,6 @@ executable discogs-exe
     , discogs
     , errors
     , http-conduit
-    , lens
     , mtl
     , process
     , safe
@@ -109,7 +108,6 @@ test-suite discogs-test
     , discogs
     , errors
     , http-conduit
-    , lens
     , mtl
     , process
     , safe
