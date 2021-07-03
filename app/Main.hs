@@ -7,12 +7,10 @@ import Data.Foldable (traverse_)
 import Data.Functor (($>))
 import Data.Tuple (uncurry)
 import System.Process (system)
-import Datasource.DiscogsRepository (fetch)
-import Output.Transformers.AlbumResponseTransformer (transformAlbum)
 import Arguments (absolute, expand, files, flags, genre, parseArgs, url)
+import Datasource.DiscogsRepository (fetch)
 import Helpers ((◁), (◇))
-import Parsing (decode', decode'')
-import Processing (commands)
+import Output.Transformers.AlbumResponseTransformer (transformAlbum)
 
 -- ID3 tagging takes place with external call to `eyeD3` for now
 -- Deal with exceptions as Either here?

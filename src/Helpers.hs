@@ -18,15 +18,8 @@ import Safe (atMay)
 fork :: Applicative f ⇒ (a → b → c) → f a → f b → f c
 fork = liftA2
 
-dyfork ∷ (Applicative m, Applicative n) ⇒ 
-         (a → b → c) → m (n a) → m (n b) → m (n c)
-dyfork = fork . fork
-
 indices ∷ [a] → [Int]
 indices = curry range 1 . length
-
-enumerate' ∷ [a] → [(Int, a)]
-enumerate' = flip zip ● indices
 
 enumerate ∷ [a] → [(a, Int)]
 enumerate = zip ● indices
@@ -37,20 +30,7 @@ quote ('\"':ω) = '\\' : '\"' : (quote ω)
 quote (α:ω)    = α : (quote ω)
 
 wrap ∷ String → String
-wrap α = "\"" <> (quote α) <> "\""
-
-spaceOut ∷ [String] → String
-spaceOut = intercalate " "
-
--- Can this tuples be avoided?
-fst' ∷ (a, b, c) → a
-fst' (α, _, _) = α
-
-snd' ∷ (a, b, c) → b
-snd' (_, α, _) = α
-
-thd' ∷ (a, b, c) → c
-thd' (_, _, α) = α
+wrap α = "\"" ◇ (quote α) ◇ "\""
 
 safeIx ∷ String → Int → [a] → Either String a
 safeIx α ω = note α . flip atMay ω
@@ -68,10 +48,10 @@ safeLast ∷ NonEmpty a → a
 safeLast = NE.last
 
 head' ∷ [a] → Maybe a
-head' = hush . safeIx "" 0
+head' = flip atMay 0
 
 last' ∷ [a] → Maybe a
-last' α = hush $ safeIx "" (pred $ length α) α
+last' = atMay ● (pred . length)
 
 validate ∷ [a → Maybe ()] → a → Maybe a
 validate α ω = traverse (\f → f ω) α $> ω
@@ -95,7 +75,3 @@ infixl 4 ●
 -- Digraph Dw
 α ◇ ω = α <> ω
 infixr 5 ◇
-
--- Digraph !=
-α ≠ ω = α /= ω
-infix 4 ≠

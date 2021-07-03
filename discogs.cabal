@@ -28,12 +28,7 @@ source-repository head
 library
   exposed-modules:
       Arguments
-      Fetching
-      FormatTitle
-      FormatTrack
       Helpers
-      Parsing
-      Processing
       Datasource.DiscogsRepository
       Datasource.Models.AlbumResponse
       Datasource.Models.ArtistResponse
