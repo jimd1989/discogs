@@ -5,11 +5,7 @@ import Control.Error.Util (note)
 import Control.Monad ((<=<))
 import Data.Functor (($>))
 import Data.Ix (range)
-import Data.List (intercalate, tails)
-import Data.List.Split (splitOn)
-import qualified Data.List.NonEmpty as NE
-import Data.List.NonEmpty (NonEmpty(..))
-import Data.Maybe (fromMaybe)
+import Data.List (tails)
 import Data.Traversable (traverse)
 import Data.Tuple (curry)
 import Safe (atMay)
@@ -17,12 +13,11 @@ import Safe (atMay)
 fork :: Applicative f ⇒ (a → b → c) → f a → f b → f c
 fork = liftA2
 
--- Counts from 1, change name since "indices" implies 0 ..
-indices ∷ [a] → [Int]
-indices = curry range 1 . length
+iota ∷ [a] → [Int]
+iota = curry range 1 . length
 
 enumerate ∷ [a] → [(a, Int)]
-enumerate = zip ● indices
+enumerate = zip ● iota
 
 quote ∷ String → String
 quote []       = []
@@ -32,20 +27,11 @@ quote (α:ω)    = α : (quote ω)
 wrap ∷ String → String
 wrap α = "\"" ◇ (quote α) ◇ "\""
 
-safeIx ∷ String → Int → [a] → Either String a
-safeIx α ω = note α . flip atMay ω
+ix' ∷ String → Int → [a] → Either String a
+ix' α ω = note α . flip atMay ω
 
-safeDrop ∷ String → Int → [a] → Either String [a]
-safeDrop α ω = safeIx α ω . tails
-
-safeSplit ∷ Eq a ⇒ [a] → [a] → NonEmpty [a]
-safeSplit α ω = fromMaybe (NE.fromList [ω]) (NE.nonEmpty $ splitOn α ω)
-
-safeHead ∷ NonEmpty a → a
-safeHead = NE.head
-
-safeLast ∷ NonEmpty a → a
-safeLast = NE.last
+drop' ∷ String → Int → [a] → Either String [a]
+drop' α ω = ix' α ω . tails
 
 head' ∷ [a] → Maybe a
 head' = flip atMay 0

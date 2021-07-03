@@ -7,8 +7,7 @@ import Data.Foldable (traverse_)
 import Data.Functor (($>))
 import Data.Tuple (uncurry)
 import System.Process (system)
-import Datasource.Arguments (absolute, expand, files, flags,
-                             genre, parseArgs, url)
+import Datasource.Arguments (expand, files, genre, parseArgs, url)
 import Datasource.DiscogsRepository (fetch)
 import Helpers ((◁), (◇))
 import Output.Transformers.AlbumResponseTransformer (transformAlbum)
@@ -17,14 +16,14 @@ import Output.Transformers.AlbumResponseTransformer (transformAlbum)
 -- Deal with exceptions as Either here?
 runCmds ∷ [String] → [String] → IO ()
 runCmds cmds files = traverse_ (uncurry runCmd) (zip cmds files)
-  where runCmd cmd file = putStrLn (cmd ◇ " " ◇ file) $> ()
+  where runCmd cmd file = system (cmd ◇ " " ◇ file) $> ()
 
 runProgram ∷ IO (Either String ())
 runProgram = runExceptT $ do
   args     ← ExceptT parseArgs
   response ← ExceptT $ fetch $ url args
   album    ← liftEither $ eitherDecode response
-  cmds     ← pure $ transformAlbum (expand $ flags args) (genre args) album
+  cmds     ← pure $ transformAlbum (expand args) (genre args) album
   lift     $ runCmds cmds $ files args
 
 main ∷ IO ()
