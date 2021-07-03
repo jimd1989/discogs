@@ -34,10 +34,12 @@ library
       Helpers
       Parsing
       Processing
+      Datasource.DiscogsRepository
       Datasource.Models.AlbumResponse
       Datasource.Models.ArtistResponse
       Datasource.Models.TrackResponse
       Output.Models.EyeD3Tag
+      Output.Transformers.AlbumResponseTransformer
       Output.Transformers.ArtistResponseTransformer
       Output.Transformers.PositionsTransformer
       Output.Transformers.TextTransformer

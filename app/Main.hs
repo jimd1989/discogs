@@ -2,12 +2,14 @@ module Main where
 
 import Control.Arrow ((|||))
 import Control.Monad.Except (ExceptT(..), lift, liftEither, runExceptT)
+import Data.Aeson (eitherDecode)
 import Data.Foldable (traverse_)
 import Data.Functor (($>))
 import Data.Tuple (uncurry)
 import System.Process (system)
+import Datasource.DiscogsRepository (fetch)
+import Output.Transformers.AlbumResponseTransformer (transformAlbum)
 import Arguments (absolute, expand, files, flags, genre, parseArgs, url)
-import Fetching (fetch)
 import Helpers ((◁), (◇))
 import Parsing (decode', decode'')
 import Processing (commands)
@@ -22,12 +24,9 @@ runProgram ∷ IO (Either String ())
 runProgram = runExceptT $ do
   args     ← ExceptT parseArgs
   response ← ExceptT $ fetch $ url args
-  newAlbum ← liftEither $ decode'' response
-  _        ← pure $ putStrLn $ show newAlbum
-  lift $ putStrLn "done"
---  album    ← liftEither $ decode' (expand $ flags args) response
---  cmds     ← pure $ commands (genre args) (absolute $ flags args) album
---  lift     $ runCmds cmds (files args)
+  album    ← liftEither $ eitherDecode response
+  cmds     ← pure $ transformAlbum album
+  lift $ putStrLn "placeholder"
 
 main ∷ IO ()
 main = runProgram >>= putStrLn ||| pure

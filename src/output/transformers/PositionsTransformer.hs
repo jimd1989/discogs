@@ -43,3 +43,4 @@ transformPositions expand = fork transpose discs tracks . splitByDiscs expand
         repeatDisc = replicate . length
         tracks     = (TrackNumParameter . succ) ◁ (indices =<<)
         transpose  = zipWith (\α ω → [α, ω])
+

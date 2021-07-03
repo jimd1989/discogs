@@ -3,7 +3,8 @@ module Output.Models.EyeD3Tag where
 import Helpers ((◇), wrap)
 
 -- Should all be strings?
-data EyeD3Tag = ArtistParameter       String
+data EyeD3Tag = Command
+              | ArtistParameter       String
               | AlbumArtistParameter  String
               | AlbumTitleParameter   String
               | DiscNumParameter      Int
@@ -13,6 +14,7 @@ data EyeD3Tag = ArtistParameter       String
               | YearParameter         Int
 
 instance Show EyeD3Tag where
+  show  Command                 = "eyeD3 "
   show (ArtistParameter      α) = "-a " ◇ (wrap α)
   show (AlbumArtistParameter α) = "-A " ◇ (wrap α)
   show (DiscNumParameter     α) = "-d " ◇ (show α)

@@ -8,9 +8,6 @@ import Output.Models.EyeD3Tag (EyeD3Tag(..))
 import Output.Transformers.ArtistResponseTransformer (transformArtist)
 import Output.Transformers.TextTransformer (transformText)
 
-emptyTitle ∷ EyeD3Tag
-emptyTitle = TrackTitleParameter ""
-
 transformTitle ∷ TrackResponse → [EyeD3Tag]
 transformTitle = pure . TrackTitleParameter . transformText . title
 
