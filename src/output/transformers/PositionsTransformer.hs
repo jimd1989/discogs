@@ -1,5 +1,6 @@
 module Output.Transformers.PositionsTransformer where
 
+import Control.Monad (join)
 import Data.Char (isLetter)
 import Data.List (find, groupBy)
 import Data.List.Split (splitOn)
@@ -32,7 +33,7 @@ discNums True  = fork fromMaybe fromSingleTrack fromSubTracks
 
 -- This is wrong
 splitByDiscs ∷ Bool → AlbumResponse → [[String]]
-splitByDiscs expand = groupBy (==) . discNums expand ◀ tracklist
+splitByDiscs expand = groupBy (==) . join . discNums expand ◁ tracklist
 
 -- 2D matrix of [[DiscNum, TrackNum]]
 transformPositions ∷ Bool → AlbumResponse → [[EyeD3Tag]]
@@ -41,4 +42,3 @@ transformPositions expand = fork transpose tracks discs . splitByDiscs expand
         repeatDisc = replicate . length
         tracks     = TrackNumParameter ◁ (indices =<<)
         transpose  = zipWith (\α ω → [α, ω])
-
