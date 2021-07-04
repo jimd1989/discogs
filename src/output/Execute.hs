@@ -1,12 +1,12 @@
 module Output.Execute (executeCmds) where
 
-import Prelude (Bool(..), Either(..), IO, String, (.), ($), pure)
+import Prelude (Bool(..), Either(..), IO, String, (.), ($), pure, show)
 import Control.Monad.Except (ExceptT(..), lift)
 import Data.Functor (($>))
 import Data.Foldable (traverse_)
 import Data.List.NonEmpty (NonEmpty, zipWith)
 import System.Process (system)
-import Output.Models.Cmd (Cmd(..), cmd)
+import Output.Models.Cmd (Cmd(..), cmd, Cmd'(..), cmd', CmdName(..))
 import Helpers ((◇))
 
 -- Doesn't raise exceptions from `system`.
@@ -24,3 +24,15 @@ executeCmds eyeD3Args files = do
   _            ← ExceptT $ run mp3val files
   argsAndFiles ← pure $ zipWith (\α ω → α ◇ " " ◇ ω) eyeD3Args files
   ExceptT      $ run eyeD3 argsAndFiles
+
+-- scratch
+runOnFiles ∷ String → NonEmpty String → IO ()
+runOnFiles f args = traverse_ (system . (f ◇)) args
+
+run' ∷ Cmd' → NonEmpty String → IO (Either String ())
+run' α args =
+  let fullCmd = show α
+  in case (essential' α, executable α) of
+    (False, Left(_))  → pure $ pure ()
+    (True,  Left(ω))  → pure $ Left(ω)
+    (_   ,  Right(_)) → runOnFiles fullCmd args $> pure ()
