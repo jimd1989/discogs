@@ -7,11 +7,11 @@ import Helpers ((◁), (⊙), (◇))
 
 data Cmd = Cmd {
   essential ∷ Bool,
-  name ∷ Either String String,
-  args ∷ String
+  runCmd ∷ Either String String
 }
 
-cmd ∷ Bool → String → String → IO Cmd
-cmd needed cmdName ars = makeCmd ⊙ (show ◁ toEither) ⊙ findExecutable cmdName
-  where toEither = note ("Command not found: " ◇ cmdName)
-        makeCmd  = (flip $ Cmd needed) ars
+cmd ∷ String → String → Bool → IO Cmd
+cmd cmdName args needed = Cmd needed ⊙ (annotate ◁ convert) ⊙ find
+  where find       = findExecutable cmdName
+        convert    = note ("Command not found: " ◇ cmdName)
+        annotate α = α ◇ " " ◇ args ◇ " "
