@@ -9,7 +9,8 @@ import Data.Traversable (traverse)
 import Datasource.Models.ArtistResponse (ArtistResponse(..), join, name)
 import Helpers ((◁), (◀), (⊙), (◇), fork, head', last', validate)
 import Output.Models.EyeD3Tag (EyeD3Tag(..))
-import Output.Transformers.TextTransformer (checkCaps, onLast, onTail, onWords)
+import Output.Transformers.TextTransformer (checkCaps, fromWords, 
+                                            onLast, onTail, onWords)
 
 tag ∷ Set Char
 tag = fromList "(0123456789)"
@@ -28,7 +29,7 @@ checkJoin "/" = "/"
 checkJoin α   = " " ◇ α ◇ " "
 
 transformName ∷ ArtistResponse → Maybe String
-transformName = onWords (onTail checkCaps ◁ onLast filterTag) . name
+transformName = fromWords ◁ onWords (onTail checkCaps ◁ onLast filterTag) . name
 
 transformArtistResponse ∷ ArtistResponse → Maybe String
 transformArtistResponse α =  (◇ (checkJoin $ join α)) ⊙ (transformName α)
