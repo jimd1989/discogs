@@ -1,6 +1,7 @@
 module Output.Models.EyeD3Tag where
 
-import Data.List (intercalate)
+import Prelude (Int, Show, String, show, (.))
+import Data.List (map, intercalate)
 import Helpers ((◇), wrap)
 
 data EyeD3Tag = Command

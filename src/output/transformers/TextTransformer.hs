@@ -1,7 +1,8 @@
 module Output.Transformers.TextTransformer where
 
+import Prelude (Maybe, String, (.))
 import Data.Char (toLower)
-import Data.List (init, intercalate)
+import Data.List (drop, init, intercalate, take)
 import Data.List.Split (splitOn)
 import Data.Set (Set, fromList, member)
 import Helpers ((◁), (◇), (⊙), fork, last')
@@ -11,7 +12,7 @@ lower = fromList ["A", "An", "And", "By", "In", "On", "Of", "At", "With", "The",
                   "For", "From", "Into", "Unto", "To", "As"]
 
 checkCaps ∷ String → String
-checkCaps α = if member α lower then (map toLower α) else α
+checkCaps α = if member α lower then (toLower ⊙ α) else α
 
 onLast ∷ (a → [a]) → [a] → Maybe [a]
 onLast f α = ((init α ◇) . f) ⊙ (last' α)

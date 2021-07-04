@@ -2,15 +2,12 @@ module Datasource.Models.Arguments where
 
 import Control.Error.Util (note)
 import Control.Monad (liftM4)
-import Data.List (drop, elem)
+import Prelude (Either, IO, String, (.), flip, not, pure)
+import Data.List (drop, elem, filter)
 import Data.List.NonEmpty (NonEmpty, nonEmpty)
 import System.Environment (getArgs)
-import Helpers ((◁), (⊙), fork, ix', wrap)
-
-data Flags = Flags {
-  absolute ∷ Bool, 
-  expand ∷ Bool 
-}
+import Datasource.Models.Flags (Flags, makeFlags, validFlags)
+import Helpers ((◁), (⊙), ix', wrap)
 
 data Args = Args {
   flags ∷ Flags,
@@ -18,12 +15,6 @@ data Args = Args {
   url ∷ String, 
   files ∷ NonEmpty String
 }
-
-validFlags ∷ [String]
-validFlags = ["-a", "-e"]
-
-makeFlags ∷ [String] → Flags
-makeFlags = fork Flags (elem "-a") (elem "-e")
 
 makeFiles ∷ [String] → Either String (NonEmpty String)
 makeFiles = note "audio files not provided" . nonEmpty . wrap ◁ drop 2

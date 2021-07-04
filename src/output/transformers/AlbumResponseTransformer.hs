@@ -1,9 +1,10 @@
 module Output.Transformers.AlbumResponseTransformer where
 
+import Prelude (Either, String, (.), ($), (=<<), const, zipWith)
 import Control.Error.Util (note)
 import Data.Maybe (fromMaybe)
 import Data.List.NonEmpty (NonEmpty, nonEmpty)
-import Datasource.Models.Arguments (Flags, expand)
+import Datasource.Models.Flags (Flags, expand)
 import Datasource.Models.AlbumResponse (AlbumResponse, artists, title,
                                         tracklist, year)
 import Helpers ((⊙), (◇), fork)
