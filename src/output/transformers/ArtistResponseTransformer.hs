@@ -1,5 +1,6 @@
 module Output.Transformers.ArtistResponseTransformer where
 
+import Prelude (Char, String, (.), ($), (==), and, flip, pure)
 import Control.Monad (guard)
 import Data.Functor ((<$))
 import Data.List (intercalate)

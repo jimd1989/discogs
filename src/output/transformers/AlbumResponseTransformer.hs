@@ -1,5 +1,6 @@
 module Output.Transformers.AlbumResponseTransformer where
 
+import Prelude (Either, String, (.), ($), (=<<), const, zipWith)
 import Control.Error.Util (note)
 import Data.Maybe (fromMaybe)
 import Data.List.NonEmpty (NonEmpty, nonEmpty)

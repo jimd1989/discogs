@@ -1,5 +1,6 @@
 module Output.Transformers.TrackResponseTransformer where
 
+import Prelude (Bool(..), Maybe(..), (.), ($), pure)
 import Data.Maybe (fromMaybe)
 import Helpers ((◇), (⊙))
 import Datasource.Models.TrackResponse (TrackResponse, artists, 

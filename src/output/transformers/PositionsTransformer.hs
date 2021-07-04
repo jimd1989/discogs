@@ -1,9 +1,10 @@
 module Output.Transformers.PositionsTransformer where
 
+import Prelude (Bool(..), String, (.), ($), (==), const, or, otherwise, pure)
 import Control.Arrow ((&&&))
-import Control.Monad (join)
+import Control.Monad ((=<<), join)
 import Data.Char (isLetter)
-import Data.List (find, groupBy)
+import Data.List (filter, find, groupBy, length, map, replicate, zipWith)
 import Data.List.Split (splitOn)
 import Data.Maybe (fromMaybe, isJust)
 import Data.Tuple (uncurry)

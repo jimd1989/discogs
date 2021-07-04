@@ -1,11 +1,12 @@
 module Helpers where
 
-import Control.Applicative (liftA2)
+import Prelude (Either, Int, Maybe, String, (.), (<>), flip, pred)
+import Control.Applicative (Applicative, (<*>), liftA2)
 import Control.Error.Util (note)
 import Control.Monad ((<=<))
-import Data.Functor (($>))
+import Data.Functor (($>), (<$>), fmap)
 import Data.Ix (range)
-import Data.List (tails)
+import Data.List (length, tails, zip)
 import Data.Traversable (traverse)
 import Data.Tuple (curry)
 import Safe (atMay)

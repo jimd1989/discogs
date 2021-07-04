@@ -1,5 +1,6 @@
 module Datasource.Models.ArtistResponse where
 
+import Prelude (String, Show)
 import Data.Aeson (FromJSON)
 import GHC.Generics (Generic)
 

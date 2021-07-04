@@ -27,6 +27,7 @@ source-repository head
 
 library
   exposed-modules:
+      Debug
       Helpers
       Datasource.DiscogsRepository
       Datasource.Models.AlbumResponse
