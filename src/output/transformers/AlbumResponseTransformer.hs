@@ -1,4 +1,4 @@
-module Output.Transformers.AlbumResponseTransformer where
+module Output.Transformers.AlbumResponseTransformer (transformAlbum) where
 
 import Prelude (Either, String, (.), ($), (=<<), const, zipWith)
 import Control.Error.Util (note)

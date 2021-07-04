@@ -1,4 +1,4 @@
-module Datasource.DiscogsRepository where
+module Datasource.DiscogsRepository (fetch) where
 
 import Prelude (Either, IO, String, (.), ($), const, pure)
 import Control.Arrow (left)

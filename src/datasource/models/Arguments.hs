@@ -1,4 +1,4 @@
-module Datasource.Models.Arguments where
+module Datasource.Models.Arguments (Args(..), parseArgs) where
 
 import Control.Error.Util (note)
 import Control.Monad (liftM4)

@@ -1,4 +1,4 @@
-module Datasource.Models.AlbumResponse where
+module Datasource.Models.AlbumResponse (AlbumResponse(..)) where
 
 import Prelude (Int, Maybe, Show, String)
 import Data.Aeson (FromJSON)

@@ -1,4 +1,4 @@
-module Output.Models.EyeD3Tag where
+module Output.Models.EyeD3Tag (EyeD3Tag(..), showCmd) where
 
 import Prelude (Int, Show, String, show, (.))
 import Data.List (map, intercalate)

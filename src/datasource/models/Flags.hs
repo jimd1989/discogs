@@ -1,4 +1,4 @@
-module Datasource.Models.Flags where
+module Datasource.Models.Flags (Flags(..), makeFlags, validFlags) where
 
 import Prelude (Bool, String, elem)
 import Helpers (fork)

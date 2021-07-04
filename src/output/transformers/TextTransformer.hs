@@ -1,4 +1,6 @@
-module Output.Transformers.TextTransformer where
+module Output.Transformers.TextTransformer (checkCaps, fromWords, onLast, 
+                                            onTail, onWords, transformText)
+where
 
 import Prelude (Maybe, String, (.))
 import Data.Char (toLower)
