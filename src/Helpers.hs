@@ -30,9 +30,6 @@ wrap α = "\"" ◇ (quote α) ◇ "\""
 ix' ∷ String → Int → [a] → Either String a
 ix' α ω = note α . flip atMay ω
 
-drop' ∷ String → Int → [a] → Either String [a]
-drop' α ω = ix' α ω . tails
-
 head' ∷ [a] → Maybe a
 head' = flip atMay 0
 
