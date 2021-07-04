@@ -1,4 +1,4 @@
-module Debug where
+module Debug (debug) where
 
 import Prelude (Either(..), Maybe(..), String, (>>=))
 import System.IO.Unsafe (unsafePerformIO)

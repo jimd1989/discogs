@@ -1,4 +1,5 @@
-module Helpers where
+module Helpers ((◁), (◀), (⊙), (●), (◇), enumerate, fork, head', 
+                iota, ix', last', validate, wrap) where
 
 import Prelude (Either, Int, Maybe, String, (.), (<>), flip, pred)
 import Control.Applicative (Applicative, (<*>), liftA2)

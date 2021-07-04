@@ -1,4 +1,4 @@
-module Output.Transformers.TrackResponseTransformer where
+module Output.Transformers.TrackResponseTransformer (transformTracks) where
 
 import Prelude (Bool(..), Maybe(..), (.), ($), pure)
 import Data.Maybe (fromMaybe)

@@ -1,4 +1,4 @@
-module Datasource.Models.ArtistResponse where
+module Datasource.Models.ArtistResponse (ArtistResponse(..)) where
 
 import Prelude (String, Show)
 import Data.Aeson (FromJSON)

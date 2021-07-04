@@ -1,4 +1,4 @@
-module Datasource.Models.TrackResponse where
+module Datasource.Models.TrackResponse (TrackResponse(..)) where
 
 import Prelude (Maybe, Show, String)
 import Data.Aeson (FromJSON)

@@ -1,4 +1,5 @@
-module Output.Transformers.ArtistResponseTransformer where
+module Output.Transformers.ArtistResponseTransformer (transformAlbumArtist,
+                                                      transformArtist) where
 
 import Prelude (Char, String, (.), ($), (==), and, flip, pure)
 import Control.Monad (guard)
