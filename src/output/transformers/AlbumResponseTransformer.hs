@@ -27,7 +27,7 @@ transformAlbum flags specifiedGenre α = makeCmdList cmds
         genre       = GenreParameter specifiedGenre
         title       = transformTitle α
         albumArtist = transformAlbumArtist $ artists α
-        constants   = [Command, year, genre, title, albumArtist]
+        constants   = [year, genre, title, albumArtist]
         artist      = transformArtist $ artists α
         exp         = expand flags 
         tracks      = transformTracks exp constants artist =<< tracklist α
