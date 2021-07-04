@@ -24,6 +24,7 @@ dependencies:
 - aeson
 - bytestring
 - containers
+- directory
 - errors
 - http-conduit
 - mtl
@@ -40,6 +41,7 @@ library:
     - src
     - src/datasource
     - src/datasource/models
+    - src/output
     - src/output/models
     - src/output/transformers
   ghc-options:

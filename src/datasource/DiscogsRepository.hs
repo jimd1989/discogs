@@ -18,7 +18,7 @@ userAgent = "haskell-discogs"
 headers = [("User-Agent", userAgent), ("Accept-Encoding", "gzip")]
 
 makeUrl ∷ String → String
-makeUrl = (◇ url) . last . splitOn "/"
+makeUrl = (url ◇) . last . splitOn "/"
 
 makeRequest ∷ String → IO Request
 makeRequest = addHeaders ◁ parseRequest . makeUrl

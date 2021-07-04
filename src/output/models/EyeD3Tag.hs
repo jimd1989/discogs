@@ -4,8 +4,7 @@ import Prelude (Int, Show, String, show, (.))
 import Data.List (map, intercalate)
 import Helpers ((◇), wrap)
 
-data EyeD3Tag = Command
-              | ArtistParameter       String
+data EyeD3Tag = ArtistParameter       String
               | AlbumArtistParameter  String
               | AlbumTitleParameter   String
               | DiscNumParameter      Int
@@ -15,7 +14,6 @@ data EyeD3Tag = Command
               | YearParameter         Int
 
 instance Show EyeD3Tag where
-  show  Command                 = "eyeD3 "
   show (ArtistParameter      α) = "-a " ◇ (wrap α)
   show (AlbumArtistParameter α) = "-b " ◇ (wrap α)
   show (AlbumTitleParameter α)  = "-A " ◇ (wrap α)

@@ -1,6 +1,8 @@
 # discogs
 
-A glorified shell script that tags an album's files using the Discogs API. Requires `eyeD3` in order to do the actual tagging. Please install it through your package manager. Maybe one day I will implement ID3 manipulation natively, but this is the best solution for unicode-friendly tagging I could find. Please note that `eyeD3` seems to have gotten stricter lately. If you get any "no audio files found" messages, try running `mp3val -f` (a different program you should download) and see if that fixes anything.
+A glorified shell script that tags an album's files using the Discogs API. Requires `eyeD3` in order to do the actual tagging. Please install it through your package manager. Maybe one day I will implement ID3 manipulation natively, but this is the best solution for unicode-friendly tagging I could find. 
+
+Since `eyeD3` has gotten stricter about valid mp3 formats, the program will also attempt to run `mp3val -f` on all files first. This part is skipped if you do not have it installed, but if you get "no audio file found" errors, this is because `eyeD3` has rejected its input.
 
 ## Building
 

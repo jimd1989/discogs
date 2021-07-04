@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: bb1369ffd5a86b05b7fb73e892709bc8e93f3739e7ba8ec71581751949c6e80b
+-- hash: 4767c5f162718c8da2215c22a3d817886f27d4dbc8dae0c50cf648c94975c5a3
 
 name:           discogs
 version:        0.1.0.0
@@ -35,6 +35,8 @@ library
       Datasource.Models.ArtistResponse
       Datasource.Models.Flags
       Datasource.Models.TrackResponse
+      Output.Execute
+      Output.Models.Cmd
       Output.Models.EyeD3Tag
       Output.Transformers.AlbumResponseTransformer
       Output.Transformers.ArtistResponseTransformer
@@ -47,6 +49,7 @@ library
       src
       src/datasource
       src/datasource/models
+      src/output
       src/output/models
       src/output/transformers
   default-extensions: DeriveAnyClass DeriveGeneric NamedFieldPuns NoImplicitPrelude OverloadedStrings RecordWildCards TupleSections UnicodeSyntax
@@ -56,6 +59,7 @@ library
     , base >=4.7 && <5
     , bytestring
     , containers
+    , directory
     , errors
     , http-conduit
     , mtl
@@ -81,6 +85,7 @@ executable discogs-exe
     , base >=4.7 && <5
     , bytestring
     , containers
+    , directory
     , discogs
     , errors
     , http-conduit
@@ -108,6 +113,7 @@ test-suite discogs-test
     , base >=4.7 && <5
     , bytestring
     , containers
+    , directory
     , discogs
     , errors
     , http-conduit
