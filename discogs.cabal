@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 6df9d53a28ee4adf8780438160aa47636802066cfceaba7f1d352d916951a3c3
+-- hash: bb1369ffd5a86b05b7fb73e892709bc8e93f3739e7ba8ec71581751949c6e80b
 
 name:           discogs
 version:        0.1.0.0
@@ -33,6 +33,7 @@ library
       Datasource.Models.AlbumResponse
       Datasource.Models.Arguments
       Datasource.Models.ArtistResponse
+      Datasource.Models.Flags
       Datasource.Models.TrackResponse
       Output.Models.EyeD3Tag
       Output.Transformers.AlbumResponseTransformer
@@ -48,7 +49,7 @@ library
       src/datasource/models
       src/output/models
       src/output/transformers
-  default-extensions: DeriveAnyClass DeriveGeneric NamedFieldPuns OverloadedStrings RecordWildCards TupleSections UnicodeSyntax
+  default-extensions: DeriveAnyClass DeriveGeneric NamedFieldPuns NoImplicitPrelude OverloadedStrings RecordWildCards TupleSections UnicodeSyntax
   ghc-options: -threaded -rtsopts -with-rtsopts=-N -Wincomplete-patterns
   build-depends:
       aeson
@@ -73,7 +74,7 @@ executable discogs-exe
       Paths_discogs
   hs-source-dirs:
       app
-  default-extensions: DeriveAnyClass DeriveGeneric NamedFieldPuns OverloadedStrings RecordWildCards TupleSections UnicodeSyntax
+  default-extensions: DeriveAnyClass DeriveGeneric NamedFieldPuns NoImplicitPrelude OverloadedStrings RecordWildCards TupleSections UnicodeSyntax
   ghc-options: -threaded -rtsopts -with-rtsopts=-N -Wincomplete-patterns
   build-depends:
       aeson
@@ -100,7 +101,7 @@ test-suite discogs-test
       Paths_discogs
   hs-source-dirs:
       test
-  default-extensions: DeriveAnyClass DeriveGeneric NamedFieldPuns OverloadedStrings RecordWildCards TupleSections UnicodeSyntax
+  default-extensions: DeriveAnyClass DeriveGeneric NamedFieldPuns NoImplicitPrelude OverloadedStrings RecordWildCards TupleSections UnicodeSyntax
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       aeson

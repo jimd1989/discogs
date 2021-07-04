@@ -52,6 +52,7 @@ default-extensions:
 - DeriveAnyClass
 - DeriveGeneric
 - NamedFieldPuns
+- NoImplicitPrelude
 - OverloadedStrings
 - RecordWildCards
 - TupleSections
