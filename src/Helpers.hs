@@ -3,24 +3,21 @@ module Helpers where
 import Control.Applicative (liftA2)
 import Control.Error.Util (note)
 import Control.Monad ((<=<))
-import Data.Function (flip)
+import Data.Functor (($>))
 import Data.Ix (range)
 import Data.List (tails)
+import Data.Traversable (traverse)
 import Data.Tuple (curry)
 import Safe (atMay)
 
 fork :: Applicative f ⇒ (a → b → c) → f a → f b → f c
 fork = liftA2
 
-dyfork ∷ (Applicative m, Applicative n) ⇒ 
-         (a → b → c) → m (n a) → m (n b) → m (n c)
-dyfork = fork . fork
+iota ∷ [a] → [Int]
+iota = curry range 1 . length
 
-run ∷ [a] → [Int]
-run = curry range 1 . length
-
-enumerate ∷ [a] → [(Int, a)]
-enumerate = flip zip ● run
+enumerate ∷ [a] → [(a, Int)]
+enumerate = zip ● iota
 
 quote ∷ String → String
 quote []       = []
@@ -28,22 +25,19 @@ quote ('\"':ω) = '\\' : '\"' : (quote ω)
 quote (α:ω)    = α : (quote ω)
 
 wrap ∷ String → String
-wrap α = "\"" <> (quote α) <> "\""
+wrap α = "\"" ◇ (quote α) ◇ "\""
 
-fst' ∷ (a, b, c) → a
-fst' (α, _, _) = α
+ix' ∷ String → Int → [a] → Either String a
+ix' α ω = note α . flip atMay ω
 
-snd' ∷ (a, b, c) → b
-snd' (_, α, _) = α
+head' ∷ [a] → Maybe a
+head' = flip atMay 0
 
-thd' ∷ (a, b, c) → c
-thd' (_, _, α) = α
+last' ∷ [a] → Maybe a
+last' = atMay ● (pred . length)
 
-safeIx ∷ String → Int → [a] → Either String a
-safeIx α ω = note α . flip atMay ω
-
-safeDrop ∷ String → Int → [a] → Either String [a]
-safeDrop α ω = safeIx α ω . tails
+validate ∷ [a → Maybe ()] → a → Maybe a
+validate α ω = traverse (\f → f ω) α $> ω
 
 -- Digraph Tl
 f ◁ g = fmap f . g

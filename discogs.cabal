@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 1dbbb9d41f2082af76bea323d2bcdfe9dd4b717e7545bf0d95578c08e3e80304
+-- hash: 6df9d53a28ee4adf8780438160aa47636802066cfceaba7f1d352d916951a3c3
 
 name:           discogs
 version:        0.1.0.0
@@ -27,18 +27,28 @@ source-repository head
 
 library
   exposed-modules:
-      Arguments
-      Fetching
-      FormatTitle
-      FormatTrack
       Helpers
-      Parsing
-      Processing
+      Datasource.DiscogsRepository
+      Datasource.Models.AlbumResponse
+      Datasource.Models.Arguments
+      Datasource.Models.ArtistResponse
+      Datasource.Models.TrackResponse
+      Output.Models.EyeD3Tag
+      Output.Transformers.AlbumResponseTransformer
+      Output.Transformers.ArtistResponseTransformer
+      Output.Transformers.PositionsTransformer
+      Output.Transformers.TextTransformer
+      Output.Transformers.TrackResponseTransformer
   other-modules:
       Paths_discogs
   hs-source-dirs:
       src
-  default-extensions: DeriveGeneric NamedFieldPuns OverloadedStrings RecordWildCards TupleSections UnicodeSyntax
+      src/datasource
+      src/datasource/models
+      src/output/models
+      src/output/transformers
+  default-extensions: DeriveAnyClass DeriveGeneric NamedFieldPuns OverloadedStrings RecordWildCards TupleSections UnicodeSyntax
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N -Wincomplete-patterns
   build-depends:
       aeson
     , base >=4.7 && <5
@@ -62,8 +72,8 @@ executable discogs-exe
       Paths_discogs
   hs-source-dirs:
       app
-  default-extensions: DeriveGeneric NamedFieldPuns OverloadedStrings RecordWildCards TupleSections UnicodeSyntax
-  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  default-extensions: DeriveAnyClass DeriveGeneric NamedFieldPuns OverloadedStrings RecordWildCards TupleSections UnicodeSyntax
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N -Wincomplete-patterns
   build-depends:
       aeson
     , base >=4.7 && <5
@@ -89,7 +99,7 @@ test-suite discogs-test
       Paths_discogs
   hs-source-dirs:
       test
-  default-extensions: DeriveGeneric NamedFieldPuns OverloadedStrings RecordWildCards TupleSections UnicodeSyntax
+  default-extensions: DeriveAnyClass DeriveGeneric NamedFieldPuns OverloadedStrings RecordWildCards TupleSections UnicodeSyntax
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       aeson
