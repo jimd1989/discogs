@@ -12,7 +12,7 @@ import Output.Transformers.AlbumResponseTransformer (transformAlbum)
 runProgram ∷ IO (Either String ())
 runProgram = runExceptT $ do
   args      ← ExceptT parseArgs
-  response  ← ExceptT $ fetch $ url args
+  response  ← ExceptT $ fetch (url args)
   album     ← liftEither $ eitherDecode response
   eyeD3Args ← liftEither $ transformAlbum (flags args) (genre args) album
   executeCmds eyeD3Args (files args)

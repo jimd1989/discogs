@@ -19,7 +19,8 @@ run α args = case (essential α, runCmd α) of
 
 executeCmds ∷ NonEmpty String → NonEmpty String → ExceptT String IO ()
 executeCmds eyeD3Args files = do
-  mp3val  ← lift $ cmd "mp3val" "-f" False
-  _       ← ExceptT $ run mp3val files
-  eyeD3   ← lift $ cmd "eyeD3" "" True
-  ExceptT $ run eyeD3 (zipWith (\α ω → α ◇ " " ◇ ω) eyeD3Args files)
+  mp3val       ← lift $ cmd "mp3val" "-f" False
+  eyeD3        ← lift $ cmd "eyeD3" "" True
+  _            ← ExceptT $ run mp3val files
+  argsAndFiles ← pure $ zipWith (\α ω → α ◇ " " ◇ ω) eyeD3Args files
+  ExceptT      $ run eyeD3 argsAndFiles
