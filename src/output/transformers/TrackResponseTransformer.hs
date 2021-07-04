@@ -19,4 +19,4 @@ transformTrack constants artist α = constants ◇ trackArtist ◇ transformTitl
 transformTracks ∷ Bool → [EyeD3Tag] → EyeD3Tag → TrackResponse → [[EyeD3Tag]]
 transformTracks expand constants artist α = case (expand, sub_tracks α) of
   (True, (Just ω)) → (transformTrack constants artist) ⊙ ω
-  (_,     Nothing) → pure $ transformTrack constants artist α
+  (_,      _     ) → pure $ transformTrack constants artist α

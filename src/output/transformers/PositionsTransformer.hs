@@ -29,8 +29,8 @@ fromSingleTrack ∷ Bool → TrackResponse → [String]
 fromSingleTrack abs = pure . fromPosition abs . position
 
 discNums ∷ Bool → Bool → TrackResponse → [String]
-discNums abs True  = fromSingleTrack abs
-discNums abs False = fork fromMaybe (fromSingleTrack abs) fromSubTracks
+discNums abs False  = fromSingleTrack abs
+discNums _   True   = fork fromMaybe (fromSingleTrack True) fromSubTracks
   where fromSubTracks = map (const "1") ◁ sub_tracks
 
 splitByDiscs ∷ Flags → AlbumResponse → [[String]]
