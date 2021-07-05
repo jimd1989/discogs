@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 4767c5f162718c8da2215c22a3d817886f27d4dbc8dae0c50cf648c94975c5a3
+-- hash: c88b5e105f4b06e2afabe687bbdb4da4d07d4d7a8de8600e3b43dc5abe08d9e5
 
 name:           discogs
 version:        0.1.0.0
@@ -56,6 +56,7 @@ library
   ghc-options: -threaded -rtsopts -with-rtsopts=-N -Wincomplete-patterns
   build-depends:
       aeson
+    , async
     , base >=4.7 && <5
     , bytestring
     , containers
@@ -63,8 +64,10 @@ library
     , errors
     , http-conduit
     , mtl
+    , parallel
     , process
     , safe
+    , silently
     , split
     , text
     , unordered-containers
@@ -82,6 +85,7 @@ executable discogs-exe
   ghc-options: -threaded -rtsopts -with-rtsopts=-N -Wincomplete-patterns
   build-depends:
       aeson
+    , async
     , base >=4.7 && <5
     , bytestring
     , containers
@@ -90,8 +94,10 @@ executable discogs-exe
     , errors
     , http-conduit
     , mtl
+    , parallel
     , process
     , safe
+    , silently
     , split
     , text
     , unordered-containers
@@ -110,6 +116,7 @@ test-suite discogs-test
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       aeson
+    , async
     , base >=4.7 && <5
     , bytestring
     , containers
@@ -118,8 +125,10 @@ test-suite discogs-test
     , errors
     , http-conduit
     , mtl
+    , parallel
     , process
     , safe
+    , silently
     , split
     , text
     , unordered-containers
