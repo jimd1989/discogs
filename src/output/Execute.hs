@@ -1,23 +1,28 @@
 module Output.Execute (executeCmds) where
 
-import Prelude (Bool(..), Either(..), IO, String, (.), ($), (*>), pure, show)
+import Prelude (Bool(..), Either(..), IO, String, ($), (*>), pure, show)
 import Control.Monad.Except (ExceptT(..), lift)
 import Data.Functor (($>))
 import Data.Foldable (traverse_)
 import Data.List.NonEmpty (NonEmpty, zipWith)
+import System.IO (stderr, stdout)
+import System.IO.Silently (hSilence)
 import System.Process (system)
 import Output.Models.Cmd (Cmd(..), CmdName(..), cmd)
-import Helpers ((◇))
+import Helpers ((◇), putStderr)
 
 runOnFiles ∷ String → NonEmpty String → IO ()
-runOnFiles f args = traverse_ (system . (f ◇)) args
+runOnFiles f args = traverse_ execute args
+  where oneCmd α  = f ◇ α
+        print α   = putStderr (oneCmd α)
+        execute α = print α *> hSilence [stderr, stdout] (system $ oneCmd α)
 
 run ∷ Cmd → NonEmpty String → IO (Either String ())
 run α args =
   let fullCmd = show α
   in case (essential' α, executable α) of
-    (False, Left(_))  → pure $ pure ()
-    (True,  Left(ω))  → pure $ Left(ω)
+    (False, Left(_) ) → pure $ pure ()
+    (True,  Left(ω) ) → pure $ Left(ω)
     (_   ,  Right(_)) → runOnFiles fullCmd args $> pure ()
 
 executeCmds ∷ NonEmpty String → NonEmpty String → ExceptT String IO ()

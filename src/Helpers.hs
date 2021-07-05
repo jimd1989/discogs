@@ -1,7 +1,7 @@
 module Helpers ((◁), (◀), (⊙), (●), (◇), enumerate, fork, head', 
-                iota, ix', last', validate, wrap) where
+                iota, ix', last', putStderr, validate, wrap) where
 
-import Prelude (Either, Int, Maybe, String, (.), (<>), flip, pred)
+import Prelude (Either, Int, IO, Maybe, String, (.), (<>), flip, pred)
 import Control.Applicative (Applicative, (<*>), liftA2)
 import Control.Error.Util (note)
 import Control.Monad ((<=<))
@@ -10,6 +10,7 @@ import Data.Ix (range)
 import Data.List (length, tails, zip)
 import Data.Traversable (traverse)
 import Data.Tuple (curry)
+import System.IO (hPutStrLn, stderr)
 import Safe (atMay)
 
 fork :: Applicative f ⇒ (a → b → c) → f a → f b → f c
@@ -40,6 +41,9 @@ last' = atMay ● (pred . length)
 
 validate ∷ [a → Maybe ()] → a → Maybe a
 validate α ω = traverse (\f → f ω) α $> ω
+
+putStderr ∷ String → IO ()
+putStderr = hPutStrLn stderr
 
 -- Digraph Tl
 f ◁ g = fmap f . g
