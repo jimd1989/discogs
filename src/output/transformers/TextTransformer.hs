@@ -1,5 +1,6 @@
 module Output.Transformers.TextTransformer (checkCaps, fromWords, onLast, 
-                                            onTail, onWords, transformText)
+                                            onTail, onWords, transformText,
+checkCaps', fromWords', onWords', transformText')
 where
 
 import Prelude (Maybe, String, (.))
