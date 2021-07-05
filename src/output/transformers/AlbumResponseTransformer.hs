@@ -2,6 +2,8 @@ module Output.Transformers.AlbumResponseTransformer (transformAlbum) where
 
 import Prelude (Either, String, (.), ($), (=<<), const, zipWith)
 import Control.Error.Util (note)
+import Control.Monad (join)
+import Control.Parallel.Strategies (parMap, rpar)
 import Data.Maybe (fromMaybe)
 import Data.List.NonEmpty (NonEmpty, nonEmpty)
 import Datasource.Models.Flags (Flags, expand)
@@ -30,7 +32,8 @@ transformAlbum flags specifiedGenre α = makeCmdList cmds
         constants   = [year, genre, title, albumArtist]
         artist      = transformArtist $ artists α
         exp         = expand flags 
-        tracks      = transformTracks exp constants artist =<< tracklist α
+        trackMap    = join . parMap rpar (transformTracks exp constants artist)
+        tracks      = trackMap $ tracklist α
         positions   = transformPositions flags α
         cmds        = showCmd ⊙ zipWith (◇) tracks positions
         makeCmdList = note "no EyeD3 commands generated" . nonEmpty

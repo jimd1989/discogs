@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 30d70872ffc4a6cc6e1a78b9a27a6de6922960075d43f0366759fd5c7744c793
+-- hash: c88b5e105f4b06e2afabe687bbdb4da4d07d4d7a8de8600e3b43dc5abe08d9e5
 
 name:           discogs
 version:        0.1.0.0
@@ -56,6 +56,7 @@ library
   ghc-options: -threaded -rtsopts -with-rtsopts=-N -Wincomplete-patterns
   build-depends:
       aeson
+    , async
     , base >=4.7 && <5
     , bytestring
     , containers
@@ -63,6 +64,7 @@ library
     , errors
     , http-conduit
     , mtl
+    , parallel
     , process
     , safe
     , silently
@@ -83,6 +85,7 @@ executable discogs-exe
   ghc-options: -threaded -rtsopts -with-rtsopts=-N -Wincomplete-patterns
   build-depends:
       aeson
+    , async
     , base >=4.7 && <5
     , bytestring
     , containers
@@ -91,6 +94,7 @@ executable discogs-exe
     , errors
     , http-conduit
     , mtl
+    , parallel
     , process
     , safe
     , silently
@@ -112,6 +116,7 @@ test-suite discogs-test
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       aeson
+    , async
     , base >=4.7 && <5
     , bytestring
     , containers
@@ -120,6 +125,7 @@ test-suite discogs-test
     , errors
     , http-conduit
     , mtl
+    , parallel
     , process
     , safe
     , silently
