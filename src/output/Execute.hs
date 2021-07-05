@@ -1,6 +1,6 @@
 module Output.Execute (executeCmds) where
 
-import Prelude (Bool(..), Either(..), IO, String, ($), (*>), pure, show)
+import Prelude (Bool(..), Either(..), IO, String, (.), ($), (*>), pure, show)
 import Control.Concurrent.Async (mapConcurrently_)
 import Control.Monad.Except (ExceptT(..), lift)
 import Data.Foldable (traverse_)
@@ -14,9 +14,7 @@ import Helpers ((◇), putStderr)
 
 runOnFiles ∷ String → NonEmpty String → IO ()
 runOnFiles f args = hSilence [stderr, stdout] $ mapConcurrently_ execute args
-  where oneCmd α  = f ◇ α
-        print α   = putStderr (oneCmd α)
-        execute α = system $ oneCmd α
+  where execute = system . (f ◇)
 
 run ∷ Cmd → NonEmpty String → IO (Either String ())
 run α args =
