@@ -20,13 +20,12 @@ data Args = Args {
 makeFiles ∷ [String] → Either String (NonEmpty Text)
 makeFiles = note "audio files not provided" . nonEmpty . (pack . wrap) ◁ drop 2
 
--- look out for genre/url swap?
 makeArgs ∷ [String] → Either String Args
 makeArgs α = liftM4 Args (pure flags) genre url files
   where flags       = makeFlags α
         allButFlags = filter (not . flip elem validFlags) α
-        url         = ix' "url not provided" 0 allButFlags
-        genre       = pack ⊙ ix' "genre not provided" 1 allButFlags
+        genre       = pack ⊙ ix' "genre not provided" 0 allButFlags
+        url         = ix' "url not provided" 1 allButFlags
         files       = makeFiles allButFlags
 
 parseArgs ∷ IO (Either String Args)

@@ -1,5 +1,5 @@
 module Helpers ((◁), (◀), (⊙), (●), (◇), enumerate, fork, head', 
-                iota, ix', last', putStderr, validate, wrap, putStderr') where
+                iota, ix', last', putStderr, validate, wrap) where
 
 import Prelude (Either, Int, IO, Maybe, String, (.), (<>), flip, pred)
 import Control.Applicative (Applicative, (<*>), liftA2)
@@ -46,9 +46,6 @@ validate α ω = traverse (\f → f ω) α $> ω
 
 putStderr ∷ String → IO ()
 putStderr = hPutStrLn stderr
-
-putStderr' ∷ T.Text → IO ()
-putStderr' = TIO.hPutStrLn stderr
 
 -- Digraph Tl
 f ◁ g = fmap f . g
