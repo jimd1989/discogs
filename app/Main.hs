@@ -4,11 +4,12 @@ import Prelude (Either, IO, String, ($), (>>=), pure)
 import Control.Arrow ((|||))
 import Control.Monad.Except (ExceptT(..), lift, liftEither, runExceptT)
 import Data.Aeson (eitherDecode)
+import qualified Data.Text as T
 import Datasource.Models.Arguments (files, flags, genre, parseArgs, url)
 import Datasource.DiscogsRepository (fetch)
 import Helpers (putStderr)
-import Output.Execute (executeCmds)
-import Output.Transformers.AlbumResponseTransformer (transformAlbum)
+import Output.Execute (executeCmds, executeCmds')
+import Output.Transformers.AlbumResponseTransformer (transformAlbum, transformAlbum')
 
 runProgram ∷ IO (Either String ())
 runProgram = runExceptT $ do

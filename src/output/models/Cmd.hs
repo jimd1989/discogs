@@ -12,7 +12,7 @@ instance Show CmdName where
   show EyeD3  = "eyeD3"
 
 data Cmd = Cmd {
-  essential' ∷ Bool,
+  essential ∷ Bool,
   cmdName ∷ CmdName,
   executable ∷ Either String String
 }

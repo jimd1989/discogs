@@ -1,4 +1,4 @@
-module Output.Transformers.AlbumResponseTransformer (transformAlbum) where
+module Output.Transformers.AlbumResponseTransformer (transformAlbum, transformAlbum') where
 
 import Prelude (Either, String, (.), ($), (=<<), const, zipWith)
 import Control.Error.Util (note)
@@ -45,7 +45,7 @@ transformYear' = YearParameter' . fork fromMaybe (const 0) year'
 transformTitle' ∷ AlbumResponse' → EyeD3Tag'
 transformTitle' = AlbumTitleParameter' . transformText' . title'
 
-transformAlbum' ∷ Flags → T.Text → AlbumResponse' → Either T.Text (NonEmpty T.Text)
+transformAlbum' ∷ Flags → T.Text → AlbumResponse' → Either String (NonEmpty T.Text)
 transformAlbum' flags specifiedGenre α = makeCmdList cmds
   where year        = transformYear' α
         genre       = GenreParameter' specifiedGenre
@@ -58,4 +58,4 @@ transformAlbum' flags specifiedGenre α = makeCmdList cmds
         tracks      = trackMap $ tracklist' α
         positions   = transformPositions' flags α
         cmds        = showCmd' ⊙ zipWith (◇) tracks positions
-        makeCmdList = note (T.pack $ "no EyeD3 commands generated") . nonEmpty
+        makeCmdList = note "no EyeD3 commands generated" . nonEmpty
