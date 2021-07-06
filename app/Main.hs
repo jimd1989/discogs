@@ -4,7 +4,6 @@ import Prelude (Either, IO, String, ($), (>>=), pure)
 import Control.Arrow ((|||))
 import Control.Monad.Except (ExceptT(..), lift, liftEither, runExceptT)
 import Data.Aeson (eitherDecode)
-import qualified Data.Text as T
 import Datasource.Models.Arguments (Args(..), parseArgs)
 import Datasource.DiscogsRepository (fetch)
 import Helpers (putStderr)

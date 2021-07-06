@@ -30,5 +30,6 @@ executeCmds eyeD3Args files = do
   mp3val    ← lift $ cmd Mp3Val
   eyeD3     ← lift $ cmd EyeD3
   argsFiles ← pure $ zipWith (\α ω → α ◇ " " ◇ ω) eyeD3Args files
-  _         ← lift $ traverse_ (putStderr . unpack) argsFiles
-  ExceptT   $ run mp3val files *> run eyeD3 argsFiles
+  _         ← lift $ putStderr "Tagging files"
+  _         ← ExceptT $ run mp3val files *> run eyeD3 argsFiles
+  lift      $ traverse_ (putStderr . unpack) argsFiles

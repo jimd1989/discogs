@@ -10,7 +10,7 @@ import GHC.IO.Exception (IOException)
 import Network.HTTP.Conduit (Request, httpLbs, newManager, parseRequest, 
                              requestHeaders, responseBody, tlsManagerSettings)
 import System.Process (readProcess)
-import Helpers ((◁), (◇))
+import Helpers ((◁), (◇), putStderr)
 
 -- Overloaded strings, no types declared
 url = "https://api.discogs.com/releases/"
@@ -28,10 +28,11 @@ fetchFromDiscogs ∷ String → IO ByteString
 fetchFromDiscogs α = do
   request  ← makeRequest α
   manager  ← newManager tlsManagerSettings
+  _        ← putStderr "Fetching from Discogs"
   response ← httpLbs request manager
   pure $ responseBody response
 
 fetch ∷ String → IO (Either String ByteString)
 fetch = annotateErr ◁ try . fetchFromDiscogs
   where annotateErr = left (const errMsg ∷ IOException → String)
-        errMsg      = "error fetching from Discogs"
+        errMsg      = "Error fetching from Discogs"
