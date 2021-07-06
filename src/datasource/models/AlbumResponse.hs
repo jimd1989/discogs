@@ -1,23 +1,16 @@
-module Datasource.Models.AlbumResponse (AlbumResponse(..), AlbumResponse'(..)) where
+module Datasource.Models.AlbumResponse (AlbumResponse(..)) where
 
-import Prelude (Int, Maybe, Show, String)
+import Prelude (Int, Maybe, Show)
 import Data.Aeson (FromJSON)
-import qualified Data.Text as T
+import Data.Text (Text)
 import GHC.Generics (Generic)
-import Datasource.Models.ArtistResponse (ArtistResponse, ArtistResponse')
-import Datasource.Models.TrackResponse (TrackResponse, TrackResponse')
+import Datasource.Models.ArtistResponse (ArtistResponse)
+import Datasource.Models.TrackResponse (TrackResponse)
 
 data AlbumResponse = AlbumResponse {
   artists ∷ [ArtistResponse],
-  title ∷ String,
+  title ∷ Text,
   tracklist ∷ [TrackResponse],
   year ∷ Maybe Int
-} deriving (Generic, FromJSON, Show)
-
-data AlbumResponse' = AlbumResponse' {
-  artists' ∷ [ArtistResponse'],
-  title' ∷ T.Text,
-  tracklist' ∷ [TrackResponse'],
-  year' ∷ Maybe Int
 } deriving (Generic, FromJSON, Show)
 
