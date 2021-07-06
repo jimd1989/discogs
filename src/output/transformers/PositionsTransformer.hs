@@ -1,4 +1,4 @@
-module Output.Transformers.PositionsTransformer (transformPositions) where
+module Output.Transformers.PositionsTransformer (transformPositions, transformPositions') where
 
 import Prelude (Bool(..), String, (.), ($), (==), const, or, otherwise, pure, (||))
 import Control.Arrow ((&&&))

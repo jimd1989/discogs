@@ -48,5 +48,5 @@ instance Show EyeD3Tag' where
   show (YearParameter'        α) = "-Y " ◇ (show α)
 
 -- Annoying. Consider something like BasicPrelude with Text Show
-showCmd' ∷ [EyeD3Tag] → T.Text
+showCmd' ∷ [EyeD3Tag'] → T.Text
 showCmd' = T.intercalate " " . map (T.pack . show)
