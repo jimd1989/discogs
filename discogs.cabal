@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: c88b5e105f4b06e2afabe687bbdb4da4d07d4d7a8de8600e3b43dc5abe08d9e5
+-- hash: 9c02c1751458f61bd17b4ed1ccbc8f1a700f2abe0b90a41030cc7befd11d0316
 
 name:           discogs
 version:        0.1.0.0
@@ -53,7 +53,7 @@ library
       src/output/models
       src/output/transformers
   default-extensions: DeriveAnyClass DeriveGeneric NamedFieldPuns NoImplicitPrelude OverloadedStrings RecordWildCards TupleSections UnicodeSyntax
-  ghc-options: -threaded -rtsopts -with-rtsopts=-N -Wincomplete-patterns
+  ghc-options: -O2 -Wincomplete-patterns
   build-depends:
       aeson
     , async
@@ -82,7 +82,7 @@ executable discogs-exe
   hs-source-dirs:
       app
   default-extensions: DeriveAnyClass DeriveGeneric NamedFieldPuns NoImplicitPrelude OverloadedStrings RecordWildCards TupleSections UnicodeSyntax
-  ghc-options: -threaded -rtsopts -with-rtsopts=-N -Wincomplete-patterns
+  ghc-options: -O2 -threaded -rtsopts -with-rtsopts=-N -Wincomplete-patterns
   build-depends:
       aeson
     , async
