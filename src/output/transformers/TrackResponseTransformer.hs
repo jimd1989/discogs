@@ -3,8 +3,7 @@ module Output.Transformers.TrackResponseTransformer (transformTracks) where
 import Prelude (Bool(..), Maybe(..), (.), ($), pure)
 import Data.Maybe (fromMaybe)
 import Helpers ((◇), (⊙))
-import Datasource.Models.TrackResponse (TrackResponse, artists, 
-                                        sub_tracks, title)
+import Datasource.Models.TrackResponse (TrackResponse(..))
 import Output.Models.EyeD3Tag (EyeD3Tag(..))
 import Output.Transformers.ArtistResponseTransformer (transformArtist)
 import Output.Transformers.TextTransformer (transformText)

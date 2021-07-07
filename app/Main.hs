@@ -2,9 +2,9 @@ module Main where
 
 import Prelude (Either, IO, String, ($), (>>=), pure)
 import Control.Arrow ((|||))
-import Control.Monad.Except (ExceptT(..), lift, liftEither, runExceptT)
+import Control.Monad.Except (ExceptT(..), liftEither, runExceptT)
 import Data.Aeson (eitherDecode)
-import Datasource.Models.Arguments (files, flags, genre, parseArgs, url)
+import Datasource.Models.Arguments (Args(..), parseArgs)
 import Datasource.DiscogsRepository (fetch)
 import Helpers (putStderr)
 import Output.Execute (executeCmds)

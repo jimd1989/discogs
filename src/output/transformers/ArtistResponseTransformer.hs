@@ -1,43 +1,44 @@
-module Output.Transformers.ArtistResponseTransformer (transformAlbumArtist,
-                                                      transformArtist) where
+module Output.Transformers.ArtistResponseTransformer
+  (transformAlbumArtist, transformArtist)
+where
 
-import Prelude (Char, String, (.), ($), (==), and, flip, pure)
+import Prelude (Bool(..), Char, String, (.), ($), (==), (&&), and, flip, pure)
 import Control.Monad (guard)
 import Data.Functor ((<$))
-import Data.List (intercalate)
 import Data.Maybe (Maybe(..), fromMaybe)
 import Data.Set (Set, fromList, member)
+import Data.Text (Text, foldr, intercalate, unpack)
 import Data.Traversable (traverse)
-import Datasource.Models.ArtistResponse (ArtistResponse(..), join, name)
+import Datasource.Models.ArtistResponse (ArtistResponse(..))
 import Helpers ((◁), (◀), (⊙), (◇), fork, head', last', validate)
 import Output.Models.EyeD3Tag (EyeD3Tag(..))
-import Output.Transformers.TextTransformer (checkCaps, fromWords, 
-                                            onLast, onTail, onWords)
+import Output.Transformers.TextTransformer (checkCaps, fromWords, onLast, 
+                                            onTail, onWords, smushWords)
 
 tag ∷ Set Char
 tag = fromList "(0123456789)"
 
-filterTag ∷ String → [String]
+filterTag ∷ Text → [Text]
 filterTag = fork fromMaybe pure deleteTag
-  where match α   = guard . (== α)
-        isInTag   = guard . (and . (flip member tag ⊙))
-        criteria  = [isInTag, match '(' ◀ head', match ')' ◀ last']
+  where match α f = guard . (== α) ◀ f . unpack
+        isInTag   = guard . foldr ((&&) . (flip member tag)) True
+        criteria  = [isInTag, match '(' head', match ')' last']
         deleteTag = ([] <$) . validate criteria
 
-checkJoin ∷ String → String
+checkJoin ∷ Text → Text
 checkJoin ""  = ""
 checkJoin "," = ", "
 checkJoin "/" = "/"
 checkJoin α   = " " ◇ α ◇ " "
 
-transformName ∷ ArtistResponse → Maybe String
+transformName ∷ ArtistResponse → Maybe Text
 transformName = fromWords ◁ onWords (onTail checkCaps ◁ onLast filterTag) . name
 
-transformArtistResponse ∷ ArtistResponse → Maybe String
+transformArtistResponse ∷ ArtistResponse → Maybe Text
 transformArtistResponse α =  (◇ (checkJoin $ join α)) ⊙ (transformName α)
 
-transformArtists ∷ [ArtistResponse] → Maybe String
-transformArtists = intercalate "" ◁ traverse transformArtistResponse
+transformArtists ∷ [ArtistResponse] → Maybe Text
+transformArtists = smushWords ◁ traverse transformArtistResponse
 
 transformAlbumArtist ∷ [ArtistResponse] → EyeD3Tag
 transformAlbumArtist α = case transformArtists α of
@@ -45,8 +46,6 @@ transformAlbumArtist α = case transformArtists α of
   (Just ω        ) → AlbumArtistParameter ω
   (Nothing       ) → AlbumArtistParameter ""
 
-emptyArtist ∷ EyeD3Tag
-emptyArtist = ArtistParameter ""
-
 transformArtist ∷ [ArtistResponse] → EyeD3Tag
 transformArtist = fromMaybe emptyArtist . (ArtistParameter ◁ transformArtists)
+  where emptyArtist = ArtistParameter ""
