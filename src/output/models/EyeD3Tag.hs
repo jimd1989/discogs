@@ -15,13 +15,13 @@ data EyeD3Tag = ArtistParameter       Text
               | YearParameter         Int
 
 instance Show EyeD3Tag where
-  show (ArtistParameter      α) = "-a " ◇ (wrap $ show α)
-  show (AlbumArtistParameter α) = "-b " ◇ (wrap $ show α)
-  show (AlbumTitleParameter  α) = "-A " ◇ (wrap $ show α)
+  show (ArtistParameter      α) = "-a " ◇ (show α)
+  show (AlbumArtistParameter α) = "-b " ◇ (show α)
+  show (AlbumTitleParameter  α) = "-A " ◇ (show α)
   show (DiscNumParameter     α) = "-d " ◇ (show α)
-  show (GenreParameter       α) = "-G " ◇ (wrap $ show α)
+  show (GenreParameter       α) = "-G " ◇ (show α)
   show (TrackNumParameter    α) = "-n " ◇ (show α)
-  show (TrackTitleParameter  α) = "-t " ◇ (wrap $ show α)
+  show (TrackTitleParameter  α) = "-t " ◇ (show α)
   show (YearParameter        α) = "-Y " ◇ (show α)
 
 -- Annoying. Consider something like BasicPrelude with Text Show
