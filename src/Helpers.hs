@@ -7,7 +7,7 @@ import Control.Error.Util (note)
 import Control.Monad ((<=<))
 import Data.Functor (($>), (<$>), fmap)
 import Data.Ix (range)
-import Data.List (length, tails, zip)
+import Data.List (length, zip)
 import qualified Data.Text as T
 import qualified Data.Text.IO as TIO
 import Data.Traversable (traverse)
