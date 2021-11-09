@@ -1,4 +1,4 @@
-module Output.Transformers.PositionsTransformer where
+module Output.Transformers.PositionsTransformer (transformPositions) where
 
 import Prelude (Bool(..), Int, String, (.), ($), (+), (*), (/), (^), (==), (||),
                 ceiling, const, fromEnum, fromIntegral, otherwise, pure,
@@ -25,8 +25,8 @@ letterDisc ∷ Char → Int
 letterDisc = (subtract 64) . fromEnum . toUpper
 
 vinylDisc ∷ String → Int
-vinylDisc ""       = 0
-vinylDisc [α]      = ceiling ((fromIntegral $ letterDisc α) / 2)
+vinylDisc []       = 0
+vinylDisc (α:[]  ) = ceiling ((fromIntegral $ letterDisc α) / 2)
 vinylDisc (α:ω:[]) = (13 * (letterDisc α)) + vinylDisc [ω]
 vinylDisc (α:ω   ) = (side α) * (degree (α:ω)) + vinylDisc ω
   where side   = (* 13) . letterDisc

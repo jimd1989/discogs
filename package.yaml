@@ -30,6 +30,7 @@ dependencies:
 - http-conduit
 - mtl
 - parallel
+- posix-escape
 - process
 - safe
 - silently
