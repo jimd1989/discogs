@@ -1,14 +1,16 @@
 module Output.Transformers.AlbumResponseTransformer (transformAlbum) where
 
-import Prelude (Bool, Either, String, (.), ($), (=<<), const, zipWith)
+import Prelude (Bool, Either, String, (.), ($), (/=), (=<<), const, zipWith)
 import Control.Error.Util (note)
 import Control.Monad (join)
 import Control.Parallel.Strategies (parMap, rpar)
 import Data.Maybe (fromMaybe)
+import Data.List (filter)
 import Data.List.NonEmpty (NonEmpty, nonEmpty)
 import Data.Text (Text)
 import Datasource.Models.Flags (Flags, expand)
 import Datasource.Models.AlbumResponse (AlbumResponse(..))
+import Datasource.Models.TrackResponse (type_)
 import Helpers ((⊙), (◇), fork)
 import Output.Models.EyeD3Tag (EyeD3Tag(..), showCmd)
 import Output.Transformers.ArtistResponseTransformer (transformArtist, 
@@ -24,8 +26,9 @@ transformTitle ∷ AlbumResponse → EyeD3Tag
 transformTitle = AlbumTitleParameter . transformText . title
 
 transformTrackList ∷ Bool → [EyeD3Tag] → EyeD3Tag → AlbumResponse → [[EyeD3Tag]]
-transformTrackList exp constants artist = join . transform  . tracklist
-  where transform = parMap rpar (transformTracks exp constants artist)
+transformTrackList exp constants artist = join . transform  . validTracks
+  where validTracks = filter ((/= "heading") . type_) . tracklist
+        transform   = parMap rpar (transformTracks exp constants artist)
 
 transformAlbum ∷ Flags → Text → AlbumResponse → Either String (NonEmpty Text)
 transformAlbum flags specifiedGenre α = makeCmdList cmds

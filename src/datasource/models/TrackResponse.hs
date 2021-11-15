@@ -10,5 +10,6 @@ data TrackResponse = TrackResponse {
   artists ∷ Maybe [ArtistResponse],
   position ∷ Text,
   sub_tracks ∷ Maybe [TrackResponse],
-  title ∷ Text
+  title ∷ Text,
+  type_ ∷ Text
 } deriving (Generic, FromJSON, Show)
