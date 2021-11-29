@@ -25,20 +25,24 @@ transformYear = YearParameter . fork fromMaybe (const 0) year
 transformTitle ∷ AlbumResponse → EyeD3Tag
 transformTitle = AlbumTitleParameter . transformText . title
 
+removeHeadings ∷ AlbumResponse → AlbumResponse
+removeHeadings α = α { tracklist = rm (tracklist α) }
+  where rm = filter ((/= "heading") . type_) 
+
 transformTrackList ∷ Bool → [EyeD3Tag] → EyeD3Tag → AlbumResponse → [[EyeD3Tag]]
-transformTrackList exp constants artist = join . transform  . validTracks
-  where validTracks = filter ((/= "heading") . type_) . tracklist
-        transform   = parMap rpar (transformTracks exp constants artist)
+transformTrackList exp constants artist = join . transform  . tracklist
+  where transform   = parMap rpar (transformTracks exp constants artist)
 
 transformAlbum ∷ Flags → Text → AlbumResponse → Either String (NonEmpty Text)
 transformAlbum flags specifiedGenre α = makeCmdList cmds
-  where year        = transformYear α
+  where β           = removeHeadings α 
+        year        = transformYear β
         genre       = GenreParameter specifiedGenre
-        title       = transformTitle α
-        albumArtist = transformAlbumArtist $ artists α
+        title       = transformTitle β
+        albumArtist = transformAlbumArtist $ artists β
         constants   = [year, genre, title, albumArtist]
-        artist      = transformArtist $ artists α
-        tracks      = transformTrackList (expand flags) constants artist α
-        positions   = transformPositions flags α
+        artist      = transformArtist $ artists β
+        tracks      = transformTrackList (expand flags) constants artist β
+        positions   = transformPositions flags β
         cmds        = showCmd ⊙ zipWith (◇) tracks positions
         makeCmdList = note "no EyeD3 commands generated" . nonEmpty
