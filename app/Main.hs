@@ -1,9 +1,9 @@
 module Main where
 
-import Prelude (Either, IO, String, ($), (>>=), pure)
+import Prelude (IO, String, ($), (>>=), pure)
 import Control.Arrow ((|||))
-import Control.Monad.Except (ExceptT, MonadError, liftEither, runExceptT)
-import Control.Monad.IO.Class (MonadIO, liftIO)
+import Control.Monad.Except (MonadError, liftEither, runExceptT)
+import Control.Monad.IO.Class (MonadIO)
 import Data.Aeson (eitherDecode)
 import Datasource.Models.Arguments (Args(..), parseArgs)
 import Datasource.DiscogsRepository (fetch)
@@ -11,13 +11,13 @@ import Helpers (putStderr)
 import Output.Execute (executeCmds)
 import Output.Transformers.AlbumResponseTransformer (transformAlbum)
 
-runProgram ∷ IO (Either String ())
-runProgram = runExceptT $ do
+program ∷ (MonadError String m, MonadIO m) ⇒ m ()
+program = do
   args      ← parseArgs
   response  ← fetch (url args)
   album     ← liftEither $ eitherDecode response
-  eyeD3Args ← liftEither $ transformAlbum (flags args) (genre args) album
+  eyeD3Args ← transformAlbum (flags args) (genre args) album
   executeCmds eyeD3Args (files args)
 
 main ∷ IO ()
-main = runProgram >>= putStderr ||| pure
+main = runExceptT program >>= putStderr ||| pure

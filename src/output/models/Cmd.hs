@@ -1,6 +1,6 @@
 module Output.Models.Cmd (Cmd(..), CmdName(..), cmd) where
 
-import Prelude (Bool(..), IO, Either(..), Show, String, (.), ($), flip, show)
+import Prelude (Bool(..), Either(..), Show, String, (.), ($), flip, show)
 import Control.Error.Util (note)
 import Control.Monad.IO.Class (MonadIO, liftIO)
 import System.Directory (findExecutable)
