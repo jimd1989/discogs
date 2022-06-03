@@ -1,10 +1,12 @@
 module Helpers ((◁), (◀), (⊙), (●), (◇), enumerate, fork, head', 
-                iota, ix', last', putStderr, validate, wrap) where
+                iota, ix', last', note', putStderr, validate, wrap) where
 
 import Prelude (Either, Int, IO, Maybe, String, (.), (<>), flip, pred)
 import Control.Applicative (Applicative, (<*>), liftA2)
 import Control.Error.Util (note)
 import Control.Monad ((<=<))
+import Control.Monad.Except (MonadError, liftEither)
+import Control.Monad.IO.Class (MonadIO, liftIO)
 import Data.Functor (($>), (<$>), fmap)
 import Data.Ix (range)
 import Data.List (length, zip)
@@ -41,11 +43,14 @@ head' = flip atMay 0
 last' ∷ [a] → Maybe a
 last' = atMay ● (pred . length)
 
+note' ∷ MonadError String m ⇒ String → Maybe a → m a
+note' α = liftEither . note α
+
 validate ∷ [a → Maybe ()] → a → Maybe a
 validate α ω = traverse (\f → f ω) α $> ω
 
-putStderr ∷ String → IO ()
-putStderr = hPutStrLn stderr
+putStderr ∷ MonadIO m ⇒ String → m ()
+putStderr = liftIO . hPutStrLn stderr
 
 -- Digraph Tl
 f ◁ g = fmap f . g
