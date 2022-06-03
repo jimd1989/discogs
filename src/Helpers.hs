@@ -1,10 +1,12 @@
 module Helpers ((◁), (◀), (⊙), (●), (◇), enumerate, fork, head', 
-                iota, ix', last', putStderr, validate, wrap) where
+                iota, ix', last', note', putStderr, validate, wrap) where
 
 import Prelude (Either, Int, IO, Maybe, String, (.), (<>), flip, pred)
 import Control.Applicative (Applicative, (<*>), liftA2)
 import Control.Error.Util (note)
 import Control.Monad ((<=<))
+import Control.Monad.Except (MonadError, liftEither)
+import Control.Monad.IO.Class (MonadIO, liftIO)
 import Data.Functor (($>), (<$>), fmap)
 import Data.Ix (range)
 import Data.List (length, zip)
@@ -32,8 +34,11 @@ quote (α:ω)    = α : (quote ω)
 wrap ∷ String → String
 wrap α = "\"" ◇ (quote α) ◇ "\""
 
-ix' ∷ String → Int → [a] → Either String a
-ix' α ω = note α . flip atMay ω
+note' ∷ MonadError String m ⇒ String → Maybe a → m a
+note' α = liftEither . note α
+
+ix' ∷ MonadError String m ⇒ String → Int → [a] → m a
+ix' α ω = note' α . flip atMay ω
 
 head' ∷ [a] → Maybe a
 head' = flip atMay 0
@@ -44,8 +49,8 @@ last' = atMay ● (pred . length)
 validate ∷ [a → Maybe ()] → a → Maybe a
 validate α ω = traverse (\f → f ω) α $> ω
 
-putStderr ∷ String → IO ()
-putStderr = hPutStrLn stderr
+putStderr ∷ MonadIO m ⇒ String → m ()
+putStderr = liftIO . hPutStrLn stderr
 
 -- Digraph Tl
 f ◁ g = fmap f . g

@@ -1,32 +1,32 @@
 module Datasource.DiscogsRepository (fetch) where
 
-import Prelude (Either, IO, String, (.), ($), pure)
+import Prelude (String, (.), ($), pure)
 import Control.Error.Util (note)
-import Control.Monad.Except (ExceptT, lift, liftEither)
+import Control.Monad.Except (MonadError)
+import Control.Monad.IO.Class (MonadIO, liftIO)
 import Data.ByteString.Lazy (ByteString)
 import Data.List.Split (splitOn)
 import Network.HTTP.Conduit (Request, httpLbs, newManager, parseRequest, 
                              requestHeaders, responseBody, tlsManagerSettings)
-import Helpers ((◁), (◀), (◇), head', last', putStderr)
+import Helpers ((◁), (◀), (◇), head', last', note', putStderr)
 
--- Overloaded strings, no types declared
 url = "https://api.discogs.com/releases/"
 userAgent = "haskell-discogs"
 headers = [("User-Agent", userAgent), ("Accept-Encoding", "gzip")]
 
-makeUrl ∷ String → Either String String
+makeUrl ∷ MonadError String m ⇒ String → m String
 makeUrl = (url ◇) ◁ err . (head' . splitOn "-" ◀ last' . splitOn "/")
-  where err = note "Error parsing URL"
+  where err = note' "Error parsing URL"
 
-makeRequest ∷ String → Either String Request
+makeRequest ∷ MonadError String m ⇒ String → m Request
 makeRequest = addHeaders ◁ parse ◀ makeUrl
-  where parse        = note "Error parsing request" . parseRequest
+  where parse        = note' "Error parsing request" . parseRequest
         addHeaders α = α { requestHeaders = headers }
 
-fetch ∷ String → ExceptT String IO ByteString
+fetch ∷ (MonadError String m, MonadIO m) ⇒ String → m ByteString
 fetch α = do
- request  ← liftEither $ makeRequest α
- manager  ← lift       $ newManager tlsManagerSettings
- _        ← lift       $ putStderr "Fetching from Discogs"
- response ← lift       $ httpLbs request manager
+ request  ← makeRequest α
+ manager  ← liftIO $ newManager tlsManagerSettings
+ _        ← putStderr "Fetching from Discogs"
+ response ← liftIO $ httpLbs request manager
  pure $ responseBody response

@@ -2,7 +2,8 @@ module Output.Execute (executeCmds) where
 
 import Prelude (Bool(..), Either(..), IO, String, (.), ($), (*>), pure, show)
 import Control.Concurrent.Async (mapConcurrently_)
-import Control.Monad.Except (ExceptT(..), lift)
+import Control.Monad.Except (MonadError, throwError)
+import Control.Monad.IO.Class (MonadIO, liftIO)
 import Data.Foldable (traverse_)
 import Data.Functor (($>))
 import Data.List.NonEmpty (NonEmpty, zipWith)
@@ -13,23 +14,25 @@ import System.Process (system)
 import Output.Models.Cmd (Cmd(..), CmdName(..), cmd)
 import Helpers ((◇), putStderr)
 
-runOnFiles ∷ String → NonEmpty Text → IO ()
-runOnFiles f args = hSilence [stderr, stdout] $ mapConcurrently_ execute args
-  where execute = system . (f ◇) . unpack
+runOnFiles ∷ MonadIO m ⇒ String → NonEmpty Text → m ()
+runOnFiles f args = liftIO $ shush $ mapConcurrently_ execute args
+  where shush   = hSilence [stderr, stdout]
+        execute = system . (f ◇) . unpack
 
-run ∷ Cmd → NonEmpty Text → IO (Either String ())
+run ∷ (MonadError String m, MonadIO m) ⇒ Cmd → NonEmpty Text → m ()
 run α args =
   let fullCmd = show α
   in case (essential α, executable α) of
-    (False, Left(_) ) → pure $ pure ()
-    (True,  Left(ω) ) → pure $ Left(ω)
-    (_   ,  Right(_)) → runOnFiles fullCmd args $> pure ()
+    (False, Left(_) ) → pure ()
+    (True,  Left(ω) ) → throwError(ω)
+    (_   ,  Right(_)) → runOnFiles fullCmd args $> ()
 
-executeCmds ∷ NonEmpty Text → NonEmpty Text → ExceptT String IO ()
+executeCmds ∷ (MonadError String m, MonadIO m) ⇒ 
+              NonEmpty Text → NonEmpty Text → m ()
 executeCmds eyeD3Args files = do
-  mp3val    ← lift $ cmd Mp3Val
-  eyeD3     ← lift $ cmd EyeD3
+  mp3val    ← cmd Mp3Val
+  eyeD3     ← cmd EyeD3
   argsFiles ← pure $ zipWith (\α ω → α ◇ " " ◇ ω) eyeD3Args files
-  _         ← lift $ putStderr "Tagging files"
-  _         ← ExceptT $ run mp3val files *> run eyeD3 argsFiles
-  lift      $ traverse_ (putStderr . unpack) argsFiles
+  _         ← putStderr "Tagging files"
+  _         ← run mp3val files *> run eyeD3 argsFiles
+  traverse_ (putStderr . unpack) argsFiles

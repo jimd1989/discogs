@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 15d1459446927956da789ca824de1bb0e333302c80102c5625f280edcc54bce6
+-- hash: b689e96c3511dd7e6a9c2ce4851815e7fc5086b7018689e20f8dffe99b04b696
 
 name:           discogs
 version:        0.1.0.0
@@ -52,7 +52,7 @@ library
       src/output
       src/output/models
       src/output/transformers
-  default-extensions: DeriveAnyClass DeriveGeneric NamedFieldPuns NoImplicitPrelude OverloadedStrings RecordWildCards TupleSections UnicodeSyntax
+  default-extensions: DefaultSignatures DeriveAnyClass DeriveGeneric FlexibleContexts GADTs NamedFieldPuns NoImplicitPrelude OverloadedStrings RecordWildCards TupleSections UnicodeSyntax
   ghc-options: -O2 -Wincomplete-patterns
   build-depends:
       aeson
@@ -71,6 +71,7 @@ library
     , silently
     , split
     , text
+    , transformers
     , unordered-containers
     , utf8-string
     , vector
@@ -82,7 +83,7 @@ executable discogs-exe
       Paths_discogs
   hs-source-dirs:
       app
-  default-extensions: DeriveAnyClass DeriveGeneric NamedFieldPuns NoImplicitPrelude OverloadedStrings RecordWildCards TupleSections UnicodeSyntax
+  default-extensions: DefaultSignatures DeriveAnyClass DeriveGeneric FlexibleContexts GADTs NamedFieldPuns NoImplicitPrelude OverloadedStrings RecordWildCards TupleSections UnicodeSyntax
   ghc-options: -O2 -threaded -rtsopts -with-rtsopts=-N -Wincomplete-patterns
   build-depends:
       aeson
@@ -102,6 +103,7 @@ executable discogs-exe
     , silently
     , split
     , text
+    , transformers
     , unordered-containers
     , utf8-string
     , vector
@@ -114,7 +116,7 @@ test-suite discogs-test
       Paths_discogs
   hs-source-dirs:
       test
-  default-extensions: DeriveAnyClass DeriveGeneric NamedFieldPuns NoImplicitPrelude OverloadedStrings RecordWildCards TupleSections UnicodeSyntax
+  default-extensions: DefaultSignatures DeriveAnyClass DeriveGeneric FlexibleContexts GADTs NamedFieldPuns NoImplicitPrelude OverloadedStrings RecordWildCards TupleSections UnicodeSyntax
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       aeson
@@ -134,6 +136,7 @@ test-suite discogs-test
     , silently
     , split
     , text
+    , transformers
     , unordered-containers
     , utf8-string
     , vector

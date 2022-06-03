@@ -1,7 +1,8 @@
 module Output.Models.Cmd (Cmd(..), CmdName(..), cmd) where
 
-import Prelude (Bool(..), IO, Either(..), Show, String, (.), ($), flip, show)
+import Prelude (Bool(..), Either(..), Show, String, (.), ($), flip, show)
 import Control.Error.Util (note)
+import Control.Monad.IO.Class (MonadIO, liftIO)
 import System.Directory (findExecutable)
 import Helpers ((◁), (⊙), (◇), fork)
 
@@ -23,7 +24,7 @@ instance Show Cmd where
     (EyeD3,  Right(ω)) → ω ◇ " "
     (_    ,  _       ) → ""
 
-cmd ∷ CmdName → IO Cmd
+cmd ∷ MonadIO m ⇒ CmdName → m Cmd
 cmd name =
   let needed  = case name of
                 Mp3Val → False
@@ -31,4 +32,4 @@ cmd name =
       find    = findExecutable $ show name
       convert = note ("Command not found: " ◇ (show name))
       make    = Cmd needed name
-  in (make ⊙ convert) ⊙ find
+  in liftIO $ (make ⊙ convert) ⊙ find
