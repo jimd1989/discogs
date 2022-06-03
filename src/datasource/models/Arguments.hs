@@ -1,8 +1,9 @@
 module Datasource.Models.Arguments (Args(..), parseArgs) where
 
-import Prelude (Either, IO, String, (.), flip, not, pure)
+import Prelude (Either, IO, String, (.), ($), flip, not, pure)
 import Control.Error.Util (note)
 import Control.Monad (liftM4)
+import Control.Monad.Except (ExceptT(..))
 import Data.List (drop, elem, filter)
 import Data.List.NonEmpty (NonEmpty, nonEmpty)
 import Data.Text (Text, pack)
@@ -28,5 +29,5 @@ makeArgs α = liftM4 Args (pure flags) genre url files
         url         = ix' "url not provided" 1 allButFlags
         files       = makeFiles allButFlags
 
-parseArgs ∷ IO (Either String Args)
-parseArgs = makeArgs ⊙ getArgs
+parseArgs ∷ ExceptT String IO Args
+parseArgs = ExceptT $ makeArgs ⊙ getArgs
