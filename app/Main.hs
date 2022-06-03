@@ -2,7 +2,8 @@ module Main where
 
 import Prelude (Either, IO, String, ($), (>>=), pure)
 import Control.Arrow ((|||))
-import Control.Monad.Except (ExceptT, liftEither, runExceptT)
+import Control.Monad.Except (ExceptT, MonadError, liftEither, runExceptT)
+import Control.Monad.IO.Class (MonadIO, liftIO)
 import Data.Aeson (eitherDecode)
 import Datasource.Models.Arguments (Args(..), parseArgs)
 import Datasource.DiscogsRepository (fetch)

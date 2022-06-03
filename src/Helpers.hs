@@ -34,17 +34,17 @@ quote (α:ω)    = α : (quote ω)
 wrap ∷ String → String
 wrap α = "\"" ◇ (quote α) ◇ "\""
 
-ix' ∷ String → Int → [a] → Either String a
-ix' α ω = note α . flip atMay ω
+note' ∷ MonadError String m ⇒ String → Maybe a → m a
+note' α = liftEither . note α
+
+ix' ∷ MonadError String m ⇒ String → Int → [a] → m a
+ix' α ω = note' α . flip atMay ω
 
 head' ∷ [a] → Maybe a
 head' = flip atMay 0
 
 last' ∷ [a] → Maybe a
 last' = atMay ● (pred . length)
-
-note' ∷ MonadError String m ⇒ String → Maybe a → m a
-note' α = liftEither . note α
 
 validate ∷ [a → Maybe ()] → a → Maybe a
 validate α ω = traverse (\f → f ω) α $> ω
