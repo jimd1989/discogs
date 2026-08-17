@@ -6,8 +6,8 @@ Since `eyeD3` has gotten stricter about valid mp3 formats, the program will also
 
 ## Building
 
-    stack build
-    stack install
+    cabal build
+    cabal install
 
 If the compiled binary isn't placed where you want it, just `cp` it to `/usr/local/bin` or wherever.
 
